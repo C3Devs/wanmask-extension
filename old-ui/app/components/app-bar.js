@@ -288,6 +288,20 @@ module.exports = class AppBar extends Component {
           : null,
       ]),
       h(DropdownMenuItem, {
+        key: 'wanchain',
+        closeMenu: () => this.setState({ isNetworkMenuOpen: !isOpen }),
+        onClick: () => dispatch(actions.setProviderType('wanchain')),
+        style: {
+          fontSize: '18px',
+        },
+      }, [
+        h('.menu-icon.golden-square'),
+        'Wanchain Network',
+        providerType === 'wanchain'
+          ? h('.check', '✓')
+          : null,
+      ]),
+      h(DropdownMenuItem, {
         key: 'default',
         closeMenu: () => this.setState({ isNetworkMenuOpen: !isOpen }),
         onClick: () => dispatch(actions.setProviderType('localhost')),

@@ -1184,6 +1184,10 @@ h2.page-subtitle {
     border-color: #ebb33f; }
     .network-component.pointer.rinkeby-test-network .menu-icon-circle div {
       background-color: rgba(235, 179, 63, 0.7) !important; }
+  .network-component.pointer.wanchain-network {
+    border-color: #844d00; }
+    .network-component.pointer.rinkeby-test-network .menu-icon-circle div {
+      background-color: rgba(132, 77, 0, 0.7) !important; }
 
 .dropdown-menu-item .menu-icon-circle,
 .dropdown-menu-item .menu-icon-circle--active {

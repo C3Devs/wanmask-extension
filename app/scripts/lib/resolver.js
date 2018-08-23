@@ -42,6 +42,8 @@ function getProvider (type) {
       return 'https://mainnet.infura.io/'
     case 'ropsten':
       return 'https://ropsten.infura.io/'
+    case 'wanchain':
+      return 'https://mywanwallet.nl/api/'
     default:
       return 'http://localhost:8545/'
   }

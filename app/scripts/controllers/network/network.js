@@ -12,8 +12,11 @@ const createJsonRpcClient = require('./createJsonRpcClient')
 const createLocalhostClient = require('./createLocalhostClient')
 const { createSwappableProxy, createEventEmitterProxy } = require('swappable-obj-proxy')
 
+const WANCHAIN_RPC_URL = 'https://mywanwallet.nl/api'
+
 const {
   ROPSTEN,
+  WANCHAIN,
   RINKEBY,
   KOVAN,
   MAINNET,
@@ -86,10 +89,16 @@ module.exports = class NetworkController extends EventEmitter {
       return log.warn('NetworkController - lookupNetwork aborted due to missing provider')
     }
     const ethQuery = new EthQuery(this._provider)
+    console.log("TEST",this.providerStore._state.type)
     ethQuery.sendAsync({ method: 'net_version' }, (err, network) => {
       if (err) return this.setNetworkState('loading')
       log.info('web3.getNetwork returned ' + network)
-      this.setNetworkState(network)
+      if (this.providerStore._state.type=='wanchain') {
+        log.info('wanchain, so network will be 5718350')
+        this.setNetworkState("5718350")
+      } else {
+        this.setNetworkState(network)
+      }
     })
   }
 
@@ -103,7 +112,7 @@ module.exports = class NetworkController extends EventEmitter {
 
   async setProviderType (type) {
     assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
-    assert(INFURA_PROVIDER_TYPES.includes(type) || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
+    assert(INFURA_PROVIDER_TYPES.includes(type) || type === 'wanchain' || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
     const providerConfig = { type }
     this.providerConfig = providerConfig
   }
@@ -143,6 +152,8 @@ module.exports = class NetworkController extends EventEmitter {
     // url-based rpc endpoints
     } else if (type === 'rpc') {
       this._configureStandardProvider({ rpcUrl: rpcTarget })
+    } else if (type === 'wanchain') {
+      this._configureStandardProvider({ rpcUrl: WANCHAIN_RPC_URL })
     } else {
       throw new Error(`NetworkController - _configureProvider - unknown type "${type}"`)
     }

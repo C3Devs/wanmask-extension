@@ -814,6 +814,9 @@
   "rinkeby": {
     "message": "Rinkeby Test Network"
   },
+  "wanchain": {
+    "message": "Wanchain Network"
+  },
   "ropsten": {
     "message": "Ropsten Test Network"
   },

@@ -5,6 +5,7 @@ const {
   ROPSTEN_RPC_URL,
   KOVAN_RPC_URL,
   RINKEBY_RPC_URL,
+  WANCHAIN_RPC_URL,
 } = require('../controllers/network/enums')
 
 /* The config-manager is a convenience object
@@ -163,6 +164,9 @@ ConfigManager.prototype.getCurrentRpcAddress = function () {
 
     case 'rinkeby':
       return RINKEBY_RPC_URL
+
+    case 'wanchain':
+      return WANCHAIN_RPC_URL
 
     default:
       return provider && provider.rpcTarget ? provider.rpcTarget : RINKEBY_RPC_URL

@@ -51,6 +51,9 @@ Network.prototype.render = function () {
   } else if (providerName === 'mainnet') {
     hoverText = context.t('mainnet')
     iconName = 'ethereum-network'
+  } else if (providerName === 'wanchain') {
+    hoverText = context.t('wanchain')
+    iconName = 'wanchain-network'
   } else if (providerName === 'ropsten') {
     hoverText = context.t('ropsten')
     iconName = 'ropsten-test-network'
@@ -76,6 +79,7 @@ Network.prototype.render = function () {
         'ropsten-test-network': providerName === 'ropsten' || parseInt(networkNumber) === 3,
         'kovan-test-network': providerName === 'kovan',
         'rinkeby-test-network': providerName === 'rinkeby',
+        'wanchain-network': providerName === 'wanchain',
       }),
       title: hoverText,
       onClick: (event) => {
@@ -120,6 +124,15 @@ Network.prototype.render = function () {
                 nonSelectBackgroundColor: '#ecb23e',
               }),
               h('.network-name', context.t('rinkeby')),
+              h('i.fa.fa-chevron-down.fa-lg.network-caret'),
+            ])
+          case 'wanchain-network':
+            return h('.network-indicator', [
+              h(NetworkDropdownIcon, {
+                backgroundColor: '#89560d', // $tulip-tree
+                nonSelectBackgroundColor: '#f2a539',
+              }),
+              h('.network-name', context.t('wanchain')),
               h('i.fa.fa-chevron-down.fa-lg.network-caret'),
             ])
           default:

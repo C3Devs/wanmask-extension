@@ -52,6 +52,9 @@ Network.prototype.render = function () {
   } else if (providerName === 'kovan') {
     hoverText = 'Kovan Test Network'
     iconName = 'kovan-test-network'
+  } else if (providerName === 'wanchain') {
+    hoverText = 'Wanchain Network'
+    iconName = 'wanchain-network'
   } else if (providerName === 'rinkeby') {
     hoverText = 'Rinkeby Test Network'
     iconName = 'rinkeby-test-network'
@@ -106,6 +109,16 @@ Network.prototype.render = function () {
                   color: '#e7a218',
                 }},
               'Rinkeby Test Net'),
+              props.onClick && h('i.fa.fa-caret-down.fa-lg'),
+            ])
+          case 'wanchain-network':
+            return h('.network-indicator', [
+              h('.menu-icon.golden-square'),
+              h('.network-name', {
+                style: {
+                  color: '#f2a539',
+                }},
+              'Wanchain Network'),
               props.onClick && h('i.fa.fa-caret-down.fa-lg'),
             ])
           default:

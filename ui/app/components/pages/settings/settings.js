@@ -142,6 +142,12 @@ class Settings extends Component {
         color = '#ebb33f'
         break
 
+      case 'wanchain':
+        title = this.context.t('currentNetwork')
+        value = this.context.t('wanchain')
+        color = '#844d00'
+        break
+
       default:
         title = this.context.t('currentRpc')
         value = provider.rpcTarget

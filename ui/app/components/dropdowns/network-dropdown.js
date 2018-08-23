@@ -202,6 +202,28 @@ NetworkDropdown.prototype.render = function () {
     h(
       DropdownMenuItem,
       {
+        key: 'wanchain',
+        closeMenu: () => this.props.hideNetworkDropdown(),
+        onClick: () => props.setProviderType('wanchain'),
+        style: dropdownMenuItemStyle,
+      },
+      [
+        providerType === 'wanchain' ? h('i.fa.fa-check') : h('.network-check__transparent', '✓'),
+        h(NetworkDropdownIcon, {
+          backgroundColor: '#89560d', // $saffron
+          isSelected: providerType === 'wanchain',
+        }),
+        h('span.network-name-item', {
+          style: {
+            color: providerType === 'wanchain' ? '#ffffff' : '#9b9b9b',
+          },
+        }, this.context.t('wanchain')),
+      ]
+    ),
+
+    h(
+      DropdownMenuItem,
+      {
         key: 'default',
         closeMenu: () => this.props.hideNetworkDropdown(),
         onClick: () => props.setProviderType('localhost'),
@@ -263,6 +285,8 @@ NetworkDropdown.prototype.getNetworkName = function () {
     name = this.context.t('kovan')
   } else if (providerName === 'rinkeby') {
     name = this.context.t('rinkeby')
+  } else if (providerName === 'wanchain') {
+    name = this.context.t('wanchain')
   } else {
     name = this.context.t('unknownNetwork')
   }

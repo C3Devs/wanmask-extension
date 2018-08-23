@@ -166,6 +166,7 @@ function navigateTo (url) {
 }
 
 function etherscanLinkFor (txHash, network) {
+  if (network==5718350) return `https://wanscan.io/tx/${txHash}`
   const prefix = prefixForNetwork(network)
   return `https://${prefix}etherscan.io/tx/${txHash}`
 }

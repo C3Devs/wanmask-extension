@@ -2,6 +2,7 @@ const EventEmitter = require('events')
 const ObservableStore = require('obs-store')
 const ethUtil = require('ethereumjs-util')
 const Transaction = require('ethereumjs-tx')
+const wanUtil = require('wanchain-util');
 const EthQuery = require('ethjs-query')
 const TransactionStateManager = require('./tx-state-manager')
 const TxGasUtil = require('./tx-gas-utils')
@@ -289,11 +290,24 @@ class TransactionController extends EventEmitter {
   async signTransaction (txId) {
     const txMeta = this.txStateManager.getTx(txId)
     // add network/chain id
-    const chainId = this.getChainId()
-    const txParams = Object.assign({}, txMeta.txParams, { chainId })
-    // sign tx
+    let chainId = this.getChainId()
+    let txParams
+    let ethTx
+
+    if (chainId==5718350) {
+      const Txtype = 1
+      chainId = 1
+      txParams = Object.assign({}, txMeta.txParams, { chainId, Txtype })
+      ethTx = new wanUtil.wanchainTx(txParams)
+    } else {
+      txParams = Object.assign({}, txMeta.txParams, { chainId })
+      ethTx = new Transaction(txParams)
+    }
+
     const fromAddress = txParams.from
-    const ethTx = new Transaction(txParams)
+    // sign tx
+    console.log(ethTx);
+    console.log(txParams);
     await this.signEthTx(ethTx, fromAddress)
     // set state to signed
     this.txStateManager.setTxStatusSigned(txMeta.id)

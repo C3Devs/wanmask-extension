@@ -249,6 +249,11 @@ function currentProviderDisplay (metamaskState) {
       value = 'Rinkeby Test Network'
       break
 
+    case 'wanchain':
+      title = 'Current Network'
+      value = 'Wanchain Network'
+      break
+
     default:
       title = 'Current RPC'
       value = metamaskState.provider.rpcTarget
