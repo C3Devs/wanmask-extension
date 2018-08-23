@@ -290,19 +290,11 @@ class TransactionController extends EventEmitter {
   async signTransaction (txId) {
     const txMeta = this.txStateManager.getTx(txId)
     // add network/chain id
-    let chainId = this.getChainId()
-    let txParams
-    let ethTx
+    const Txtype = 1
+    const chainId = this.getChainId()
 
-    if (chainId==5718350) {
-      const Txtype = 1
-      chainId = 1
-      txParams = Object.assign({}, txMeta.txParams, { chainId, Txtype })
-      ethTx = new wanUtil.wanchainTx(txParams)
-    } else {
-      txParams = Object.assign({}, txMeta.txParams, { chainId })
-      ethTx = new Transaction(txParams)
-    }
+    const txParams = Object.assign({}, txMeta.txParams, { chainId, Txtype })
+    const ethTx = new wanUtil.wanchainTx(txParams)
 
     const fromAddress = txParams.from
     // sign tx

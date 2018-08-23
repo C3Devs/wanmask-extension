@@ -80,11 +80,13 @@ TxView.prototype.renderButtons = function () {
   return !selectedToken
     ? (
       h('div.flex-row.flex-center.hero-balance-buttons', [
+/* No deposit option yet
         h('button.btn-primary.hero-balance-button', {
           onClick: () => showModal({
             name: 'DEPOSIT_ETHER',
           }),
         }, this.context.t('deposit')),
+*/
 
         h('button.btn-primary.hero-balance-button', {
           style: {

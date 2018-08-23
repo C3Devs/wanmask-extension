@@ -42,7 +42,7 @@ class ConnectScreen extends Component {
         h('div', {}, [
           h('div.hw-connect__btn-wrapper', {}, [
             this.renderConnectToLedgerButton(),
-            this.renderConnectToTrezorButton(),
+            // Trezor broken until upgrade to connect 5 this.renderConnectToTrezorButton(),
           ]),
           h(
             `button.hw-connect__connect-btn${!this.state.selectedDevice ? '.disabled' : ''}`,

@@ -17,9 +17,6 @@ module.exports = function (address, network) {
     case 42: // kovan test net
       link = `https://kovan.etherscan.io/address/${address}`
       break
-    case 5718350: // wanchain net
-      link = `https://wanscan.io/addr/${address}`
-      break
     default:
       link = ''
       break

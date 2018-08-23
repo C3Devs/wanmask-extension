@@ -30,7 +30,7 @@
     "message": "Add Tokens"
   },
   "addAcquiredTokens": {
-    "message": "Add the tokens you've acquired using MetaMask"
+    "message": "Add the tokens you've acquired using WanMask"
   },
   "amount": {
     "message": "Amount"
@@ -39,11 +39,11 @@
     "message": "Amount + Gas"
   },
   "appDescription": {
-    "message": "Ethereum Browser Extension",
+    "message": "Wanchain Browser Extension",
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "WanMask",
     "description": "The name of the application"
   },
   "approve": {
@@ -90,7 +90,7 @@
   "message": "Your Browser is not supported..."
   },
   "builtInCalifornia": {
-    "message": "MetaMask is designed and built in California."
+    "message": "WanMask is designed and built in California."
   },
   "buy": {
     "message": "Buy"
@@ -120,7 +120,7 @@
     "message": "Close"
   },
   "chromeRequiredForHardwareWallets":{
-    "message": "You need to use MetaMask on Google Chrome in order to connect to your Hardware Wallet."
+    "message": "You need to use WanMask on Google Chrome in order to connect to your Hardware Wallet."
   },
   "confirm": {
     "message": "Confirm"
@@ -232,10 +232,10 @@
     "message": "Decimals of Precision"
   },
   "defaultNetwork": {
-    "message": "The default network for Ether transactions is Main Net."
+    "message": "The default network for Wanchain transactions is the Wanchain network."
   },
   "denExplainer": {
-    "message": "Your DEN is your password-encrypted storage within MetaMask."
+    "message": "Your DEN is your password-encrypted storage within WanMask."
   },
   "deposit": {
     "message": "Deposit"
@@ -251,7 +251,7 @@
     "message": "Deposit Eth"
   },
   "depositEther": {
-    "message": "Deposit Ether"
+    "message": "Deposit Wan"
   },
   "depositFiat": {
     "message": "Deposit with Fiat"
@@ -263,7 +263,7 @@
     "message": "Deposit with ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your MetaMask wallet. No Account Needed."
+    "message": "If you own other cryptocurrencies, you can trade and deposit Wanchain directly into your WanMask wallet. No Account Needed."
   },
   "details": {
     "message": "Details"
@@ -272,10 +272,10 @@
     "message": "Direct Deposit"
   },
   "directDepositEther": {
-    "message": "Directly Deposit Ether"
+    "message": "Directly Deposit Wan"
   },
   "directDepositEtherExplainer": {
-    "message": "If you already have some Ether, the quickest way to get Ether in your new wallet by direct deposit."
+    "message": "If you already have some Wan, the quickest way to get Ether in your new wallet by direct deposit."
   },
   "done": {
     "message": "Done"
@@ -329,7 +329,7 @@
     "message": "Passwords Don't Match"
   },
   "etherscanView": {
-    "message": "View account on Etherscan"
+    "message": "View account on Wanscan"
   },
   "exchangeRate": {
     "message": "Exchange Rate"
@@ -404,11 +404,11 @@
     "message": "Generating transaction"
   },
   "getEther": {
-    "message": "Get Ether"
+    "message": "Get WAN"
   },
   "getEtherFromFaucet": {
-    "message": "Get Ether from a faucet for the $1",
-    "description": "Displays network name for Ether faucet"
+    "message": "Get Wan from a faucet for the $1",
+    "description": "Displays network name for Wan faucet"
   },
   "getHelp": {
     "message": "Get Help."
@@ -427,7 +427,7 @@
     "message": "Connect a hardware wallet"
   },
   "hardwareWalletsMsg": {
-    "message": "Select a hardware wallet you'd like to use with MetaMask"
+    "message": "Select a hardware wallet you'd like to use with WanMask"
   },
   "havingTroubleConnecting": {
     "message": "Having trouble connecting?"
@@ -452,7 +452,7 @@
     "message": "Hide Token?"
   },
   "howToDeposit": {
-    "message": "How would you like to deposit Ether?"
+    "message": "How would you like to deposit Wan?"
   },
   "holdEther": {
     "message": "It allows you to hold ether & tokens, and serves as your bridge to decentralized applications."
@@ -465,7 +465,7 @@
     "message": "Import Account"
   },
   "importAccountMsg": {
-    "message":" Imported accounts will not be associated with your originally created MetaMask account seedphrase. Learn more about imported accounts "
+    "message":" Imported accounts will not be associated with your originally created WanMask account seedphrase. Learn more about imported accounts "
   },
   "importAnAccount": {
     "message": "Import an account"
@@ -521,7 +521,7 @@
     "description": "format for importing an account"
   },
   "keepTrackTokens": {
-    "message": "Keep track of the tokens you’ve bought with your MetaMask account."
+    "message": "Keep track of the tokens you’ve bought with your WanMask account."
   },
   "kovan": {
     "message": "Kovan Test Network"
@@ -573,7 +573,7 @@
     "message": "seed words only have lowercase characters"
   },
   "mainnet": {
-    "message": "Main Ethereum Network"
+    "message": "Main Wanchain Network"
   },
   "menu": {
     "message": "Menu"
@@ -582,10 +582,10 @@
     "message": "Message"
   },
   "metamaskDescription": {
-    "message": "MetaMask is a secure identity vault for Ethereum."
+    "message": "WanMask is a secure identity vault for Wanchain."
   },
   "metamaskSeedWords": {
-    "message": "MetaMask Seed Words"
+    "message": "WanMask Seed Words"
   },
   "min": {
     "message": "Minimum"
@@ -597,7 +597,7 @@
     "message": "Must select at least 1 token."
   },
   "needEtherInWallet": {
-    "message": "To interact with decentralized applications using MetaMask, you’ll need Ether in your wallet."
+    "message": "To interact with decentralized applications using WanMask, you’ll need Wan in your wallet."
   },
   "needImportFile": {
     "message": "You must select a file to import.",
@@ -608,7 +608,7 @@
     "description": "Password and file needed to import an account"
   },
   "negativeETH": {
-    "message": "Can not send negative amounts of ETH."
+    "message": "Can not send negative amounts of WAN."
   },
   "networks": {
     "message": "Networks"
@@ -895,7 +895,7 @@
     "message": "Send"
   },
   "sendETH": {
-    "message": "Send ETH"
+    "message": "Send WAN"
   },
   "sendTokens": {
     "message": "Send Tokens"
@@ -904,10 +904,10 @@
     "message": "Separate each word with a single space"
   },
   "onlySendToEtherAddress": {
-    "message": "Only send ETH to an Ethereum address."
+    "message": "Only send WAN to an Wanchain address."
   },
   "onlySendTokensToAccountAddress": {
-    "message": "Only send $1 to an Ethereum account address.",
+    "message": "Only send $1 to an Wanchain account address.",
     "description": "displays token symbol"
   },
   "orderOneHere": {
@@ -923,7 +923,7 @@
     "message": "Select an Account"
   },
   "selectAnAccountHelp": {
-    "message": "Select the account to view in MetaMask"
+    "message": "Select the account to view in WanMask"
   },
   "selectHdPath": {
     "message": "Select HD Path"
@@ -932,7 +932,7 @@
     "message": "If you don't see your existing Ledger accounts below, try switching paths to \"Legacy (MEW / MyCrypto)\""
   },
   "sendTokensAnywhere": {
-    "message": "Send Tokens to anyone with an Ethereum account"
+    "message": "Send Tokens to anyone with an Wanchain account"
   },
   "settings": {
     "message": "Settings"
@@ -953,7 +953,7 @@
     "message": "3. Start using dApps and more!"
   },
   "step3HardwareWalletMsg": {
-    "message": "Use your hardware account like you would with any Ethereum account. Log in to dApps, send Eth, buy and store ERC20 tokens and Non-Fungible tokens like CryptoKitties."
+    "message": "Use your hardware account like you would with any Wanchain account. Log in to dApps, send Eth, buy and store ERC20 tokens and Non-Fungible tokens like CryptoKitties."
   },
   "info": {
   "message": "Info"
@@ -1031,7 +1031,7 @@
     "message": "To"
   },
   "toETHviaShapeShift": {
-    "message": "$1 to ETH via ShapeShift",
+    "message": "$1 to WAN via ShapeShift",
     "description": "system will fill in deposit type in start of message"
   },
   "token": {
@@ -1053,7 +1053,7 @@
     "message": "Token Symbol"
   },
   "tokenWarning1": {
-    "message": "Keep track of the tokens you’ve bought with your MetaMask account. If you bought tokens using a different account, those tokens will not appear here."
+    "message": "Keep track of the tokens you’ve bought with your WanMask account. If you bought tokens using a different account, those tokens will not appear here."
   },
   "total": {
     "message": "Total"
@@ -1087,7 +1087,7 @@
     "message": "Try again"
   },
   "twelveWords": {
-    "message": "These 12 words are the only way to restore your MetaMask accounts.\nSave them somewhere safe and secret."
+    "message": "These 12 words are the only way to restore your WanMask accounts.\nSave them somewhere safe and secret."
   },
   "typePassword": {
     "message": "Type Your Password"
@@ -1096,7 +1096,7 @@
     "message": "Welcome to the New UI (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "You are now using the new MetaMask UI."
+    "message": "You are now using the new WanMask UI."
   },
   "unapproved": {
     "message": "Unapproved"
@@ -1154,7 +1154,7 @@
     "message": "View Account"
   },
   "viewOnEtherscan": {
-    "message": "View on Etherscan"
+    "message": "View on Wanscan"
   },
   "visitWebSite": {
     "message": "Visit our web site"
@@ -1166,7 +1166,7 @@
     "message": "Welcome Back!"
   },
   "welcomeBeta": {
-    "message": "Welcome to MetaMask Beta"
+    "message": "Welcome to WanMask Beta"
   },
   "whatsThis": {
     "message": "What's this?"

@@ -135,11 +135,11 @@ console.log("NETWORK", network)
     case 'loading':
       return
 
-    case '1':
+    case '0':
       return this.mainnetSubview()
 
     // Wanchain
-    case '5718350':
+    case '1':
       return (
         h('div.flex-column', {
           style: {

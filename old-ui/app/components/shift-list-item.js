@@ -3,7 +3,9 @@ const Component = require('react').Component
 const h = require('react-hyperscript')
 const connect = require('react-redux').connect
 const vreme = new (require('vreme'))()
-const explorerLink = require('etherscan-link').createExplorerLink
+const explorerLink = function (hash, network) {
+  return `http://wanscan.io/tx/${hash}`
+}
 const actions = require('../../../ui/app/actions')
 const addressSummary = require('../util').addressSummary
 
@@ -136,7 +138,7 @@ ShiftListItem.prototype.renderInfo = function () {
             color: '#ABA9AA',
             width: '100%',
           },
-        }, `${props.depositType} to ETH via ShapeShift`),
+        }, `${props.depositType} to WAN via ShapeShift`),
         h('div', 'No deposits received'),
         h('div', {
           style: {
@@ -159,7 +161,7 @@ ShiftListItem.prototype.renderInfo = function () {
             color: '#ABA9AA',
             width: '100%',
           },
-        }, `${props.depositType} to ETH via ShapeShift`),
+        }, `${props.depositType} to WAN via ShapeShift`),
         h('div', 'Conversion in progress'),
         h('div', {
           style: {

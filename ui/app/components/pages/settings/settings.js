@@ -229,7 +229,7 @@ class Settings extends Component {
                   if (err) {
                     this.state.dispatch(actions.displayWarning(this.context.t('stateLogError')))
                   } else {
-                    exportAsFile('MetaMask State Logs.json', result)
+                    exportAsFile('WanMask State Logs.json', result)
                   }
                 })
               },

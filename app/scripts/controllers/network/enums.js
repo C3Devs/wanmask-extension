@@ -8,7 +8,7 @@ const LOCALHOST = 'localhost'
 const MAINNET_CODE = 1
 const ROPSTEN_CODE = 3
 const RINKEYBY_CODE = 4
-const WANCHAIN_CODE = 5718350 // play at the derivation path of wan :)
+const WANCHAIN_CODE = 1
 const KOVAN_CODE = 42
 
 const ROPSTEN_DISPLAY_NAME = 'Ropsten'

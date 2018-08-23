@@ -154,9 +154,7 @@ function navigateTo (url) {
 }
 
 function etherscanLinkFor (tokenAddress, address, network) {
-  if (network==5718350) return `https://wanscan.io/token/${tokenAddress}?a=${address}`
-  const prefix = prefixForNetwork(network)
-  return `https://${prefix}etherscan.io/token/${tokenAddress}?a=${address}`
+  return `https://wanscan.io/token/${tokenAddress}?a=${address}`
 }
 
 function tokenFactoryFor (tokenAddress) {

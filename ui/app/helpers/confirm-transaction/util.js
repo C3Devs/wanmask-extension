@@ -85,7 +85,7 @@ export function getTransactionAmount ({
   return conversionUtil(value, {
     fromNumericBase: 'hex',
     toNumericBase: 'dec',
-    fromCurrency: 'ETH',
+    fromCurrency: 'WAN',
     toCurrency,
     numberOfDecimals,
     fromDenomination: 'WEI',
@@ -103,7 +103,7 @@ export function getTransactionFee ({
     fromNumericBase: 'BN',
     toNumericBase: 'dec',
     fromDenomination: 'WEI',
-    fromCurrency: 'ETH',
+    fromCurrency: 'WAN',
     toCurrency,
     numberOfDecimals,
     conversionRate,
