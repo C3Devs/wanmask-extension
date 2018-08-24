@@ -109,12 +109,8 @@ class CurrencyController {
       currentCurrency = this.getCurrentCurrency()
       const response = await fetch(`https://api.coinmarketcap.com/v1/ticker/wanchain/`)
       const parsedResponse = await response.json()
-      console.log(parsedResponse)
-      console.log(parsedResponse[0])
       this.setConversionRate(Number(parsedResponse[0].price_usd))
       this.setConversionDate(Number(parsedResponse[0].last_updated))
-      console.log("T1", Number(parsedResponse[0].price_usd))
-      console.log("T2", Number(parsedResponse[0].last_updated))
     } catch (err) {
       log.warn(`MetaMask - Failed to query currency conversion:`, currentCurrency, err)
       this.setConversionRate(0)

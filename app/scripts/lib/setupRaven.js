@@ -10,19 +10,30 @@ module.exports = setupRaven
 function setupRaven (opts) {
   const { release } = opts
   let ravenTarget
+  let ravenEnvironment
   // detect brave
   const isBrave = Boolean(window.chrome.ipcRenderer)
+
+  let ravenVersion
+  if (window.chrome && chrome.runtime && chrome.runtime.id) {
+    var manifestData = chrome.runtime.getManifest();
+    ravenVersion = manifestData.version;
+  }
 
   if (METAMASK_DEBUG) {
     console.log('Setting up Sentry Remote Error Reporting: DEV')
     ravenTarget = DEV
+    ravenEnvironment = "DEV"
   } else {
     console.log('Setting up Sentry Remote Error Reporting: PROD')
     ravenTarget = PROD
+    ravenEnvironment = "PROD"
   }
 
   const client = Raven.config(ravenTarget, {
     release,
+    environment: ravenEnvironment,
+    version: ravenVersion,
     transport: function (opts) {
       opts.data.extra.isBrave = isBrave
       const report = opts.data

@@ -298,8 +298,6 @@ class TransactionController extends EventEmitter {
 
     const fromAddress = txParams.from
     // sign tx
-    console.log(ethTx);
-    console.log(txParams);
     await this.signEthTx(ethTx, fromAddress)
     // set state to signed
     this.txStateManager.setTxStatusSigned(txMeta.id)
