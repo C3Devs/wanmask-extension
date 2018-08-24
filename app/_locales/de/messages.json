@@ -30,11 +30,11 @@
     "message": "Betrag + Gas"
   },
   "appDescription": {
-    "message": "Ethereum Browsererweiterung",
+    "message": "Wanchain Browsererweiterung",
     "description": "Die Beschreibung der Erweiterung"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "WanMask",
     "description": "Der Name der Erweiterung"
   },
   "approved": {
@@ -75,7 +75,7 @@
     "message": "Mit Dharma ausleihen (Beta)"
   },
     "builtInCalifornia": {
-    "message": "MetaMask wurde in Kalifornien entwickelt und gebaut."
+    "message": "WanMask wurde in Kalifornien entwickelt und gebaut."
   },
   "buy": {
     "message": "Kaufen"
@@ -84,7 +84,7 @@
     "message": "Auf Coinbase kaufen"
   },
   "buyCoinbaseExplainer": {
-    "message": "Coinbase ist die weltweit bekannteste Art und Weise um Bitcoin, Ethereum und Litecoin zu kaufen und verkaufen."
+    "message": "Coinbase ist die weltweit bekannteste Art und Weise um Bitcoin, Wanchain und Litecoin zu kaufen und verkaufen."
   },
     "ok": {
     "message": "Ok"
@@ -187,7 +187,7 @@
     "message": "Das Standardnetzwerk für Ether Transaktionen ist das Main Net."
   },
   "denExplainer": {
-    "message": "Dein DEN ist dein passwortverschlüsselter Speicher innerhalb von MetaMask."
+    "message": "Dein DEN ist dein passwortverschlüsselter Speicher innerhalb von WanMask."
   },
   "deposit": {
     "message": "Einzahlen"
@@ -215,7 +215,7 @@
     "message": "Mit ShapeShift einzahlen"
   },
   "depositShapeShiftExplainer": {
-    "message": "Wenn du andere Kryptowährungen besitzt, kannst du diese direkt mit Hilfe deiner MetaMask Wallet handeln und einzahlen. Du benötigst keinen Account."
+    "message": "Wenn du andere Kryptowährungen besitzt, kannst du diese direkt mit Hilfe deiner WanMask Wallet handeln und einzahlen. Du benötigst keinen Account."
   },
   "details": {
     "message": "Details"
@@ -369,7 +369,7 @@
     "message": "Account importieren"
   },
   "importAccountMsg": {
-    "message":" Importierte Accounts werden nicht mit der Seed-Wörterfolge  deines ursprünglichen MetaMask Accounts verknüpft. Erfahre mehr über importierte Accounts."
+    "message":" Importierte Accounts werden nicht mit der Seed-Wörterfolge  deines ursprünglichen WanMask Accounts verknüpft. Erfahre mehr über importierte Accounts."
   },
   "importAnAccount": {
     "message": "Einen Account importieren"
@@ -459,13 +459,13 @@
     "message": "Die Wörter der Seed-Wörterfolgen sind alle kleingeschrieben"
   },
   "mainnet": {
-    "message": "Ethereum Main Net"
+    "message": "Wanchain Main Net"
   },
   "message": {
     "message": "Nachricht"
   },
   "metamaskDescription": {
-    "message": "MetaMask ist ein sicherer Identitätssafe für Ethereum."
+    "message": "WanMask ist ein sicherer Identitätssafe für Wanchain."
   },
   "min": {
     "message": "Minimum"
@@ -477,7 +477,7 @@
     "message": "Du musst mindestens 1 Token auswählen."
   },
   "needEtherInWallet": {
-    "message": "Um dezentralisierte Applikationen mit MetaMask verwenden zu können, benötigst du Ether in deiner Wallet."
+    "message": "Um dezentralisierte Applikationen mit WanMask verwenden zu können, benötigst du Ether in deiner Wallet."
   },
   "needImportFile": {
     "message": "Für den Import musst du eine Datei auswählen.",
@@ -638,7 +638,7 @@
     "message": "Aktueller RPC"
   },
   "connectingToMainnet": {
-    "message": "Verbinde zum Ethereum Main Net"
+    "message": "Verbinde zum Wanchain Main Net"
   },
   "connectingToRopsten": {
     "message": " Verbinde zum Ropsten Testnetzwerk"
@@ -700,10 +700,10 @@
     "message": "Token senden"
   },
   "onlySendToEtherAddress": {
-    "message": "ETH unbedingt nur zu einer Ethereum Adresse senden."
+    "message": "ETH unbedingt nur zu einer Wanchain Adresse senden."
   },
   "sendTokensAnywhere": {
-    "message": "Token zu einer beliebigen Person mit einem Ethereumaccount senden"
+    "message": "Token zu einer beliebigen Person mit einem Wanchainaccount senden"
   },
   "settings": {
     "message": "Einstellungen"
@@ -797,7 +797,7 @@
     "message": "Tokensymbol"
   },
   "tokenWarning1": {
-    "message": "Behalte die Token die du mit deinem MetaMask Account gekauft hast im Blick. Wenn du Token mit einem anderen Account gekauft hast, werden diese hier nicht angezeigt."
+    "message": "Behalte die Token die du mit deinem WanMask Account gekauft hast im Blick. Wenn du Token mit einem anderen Account gekauft hast, werden diese hier nicht angezeigt."
   },
   "total": {
     "message": "Gesamt"
@@ -819,7 +819,7 @@
     "description": "Gefolgt von einem Link (hier) um die Tokenguthaben anzuzeigen"
   },
   "twelveWords": {
-    "message": "Diese 12 Wörter stellen die einzige Möglichkeit dar deinen MetaMask Account wiederherzustellen. Speichere sie daher an einem sicheren und geheimen Ort."
+    "message": "Diese 12 Wörter stellen die einzige Möglichkeit dar deinen WanMask Account wiederherzustellen. Speichere sie daher an einem sicheren und geheimen Ort."
   },
   "typePassword": {
     "message": "Passwort eingeben"
@@ -828,7 +828,7 @@
     "message": "Willkommen zur neuen Oberfläche (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "Du verwendest  nun die neue MetaMask Oberfläche. Schau dich um, teste die neuen Features wie z.B. das Senden von Token und lass es uns wissen falls du irgendwelche Probleme hast."
+    "message": "Du verwendest  nun die neue WanMask Oberfläche. Schau dich um, teste die neuen Features wie z.B. das Senden von Token und lass es uns wissen falls du irgendwelche Probleme hast."
   },
   "unapproved": {
     "message": "Nicht genehmigt"
@@ -874,7 +874,7 @@
     "message": "Warnung"
   },
   "welcomeBeta": {
-    "message": "Willkommen zu MetaMask Beta"
+    "message": "Willkommen zu WanMask Beta"
   },
   "whatsThis": {
     "message": "Was ist das?"

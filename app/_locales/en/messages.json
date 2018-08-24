@@ -99,7 +99,7 @@
     "message": "Buy on Coinbase"
   },
   "buyCoinbaseExplainer": {
-    "message": "Coinbase is the world’s most popular way to buy and sell Bitcoin, Ethereum, and Litecoin."
+    "message": "Coinbase is the world’s most popular way to buy and sell Bitcoin, Wanchain, and Litecoin."
   },
   "bytes": {
     "message": "Bytes"
@@ -827,7 +827,7 @@
     "message": "Current RPC"
   },
   "connectingToMainnet": {
-    "message": "Connecting to Main Ethereum Network"
+    "message": "Connecting to Main Wanchain Network"
   },
   "connectingToRopsten": {
     "message": "Connecting to Ropsten Test Network"

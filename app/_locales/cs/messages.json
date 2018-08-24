@@ -30,11 +30,11 @@
     "message": "Částka + palivo"
   },
   "appDescription": {
-    "message": "Ethereum rozšíření prohlížeče",
+    "message": "Wanchain rozšíření prohlížeče",
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "WanMask",
     "description": "The name of the application"
   },
   "approved": {
@@ -75,7 +75,7 @@
     "message": "Pújčit si přes Dharma (Beta)"
   },
   "builtInCalifornia": {
-    "message": "MetaMask je navržen a vytvořen v Kalifornii."
+    "message": "WanMask je navržen a vytvořen v Kalifornii."
   },
   "buy": {
     "message": "Koupit"
@@ -190,7 +190,7 @@
     "message": "Výchozí síť pro Etherové transakce je Main Net."
   },
   "denExplainer": {
-    "message": "Váš DEN je heslem šifrované uložiště v MetaMasku."
+    "message": "Váš DEN je heslem šifrované uložiště v WanMasku."
   },
   "deposit": {
     "message": "Vklad"
@@ -218,7 +218,7 @@
     "message": "Vklad přes ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "Pokud vlastníte jiné kryptoměny, můžete je směnit Ether a vložit ho přímo do peněženky MetaMask. Bez založení účtu."
+    "message": "Pokud vlastníte jiné kryptoměny, můžete je směnit Ether a vložit ho přímo do peněženky WanMask. Bez založení účtu."
   },
   "details": {
     "message": "Podrobnosti"
@@ -372,7 +372,7 @@
     "message": "Import účtu"
   },
   "importAccountMsg": {
-    "message":"Importované účty nebudou spojeny s vaší původní MetaMaskovou klíčovou frází. Zjistěte více o importovaných účtech "
+    "message":"Importované účty nebudou spojeny s vaší původní WanMaskovou klíčovou frází. Zjistěte více o importovaných účtech "
   },
   "importAnAccount": {
     "message": "Import účtu"
@@ -419,7 +419,7 @@
     "description": "format for importing an account"
   },
   "keepTrackTokens": {
-    "message": "Udržujte si záznamy o tokenech, které jste koupili s účtem v MetaMasku."
+    "message": "Udržujte si záznamy o tokenech, které jste koupili s účtem v WanMasku."
   },
   "kovan": {
     "message": "Kovan Test Network"
@@ -468,13 +468,13 @@
     "message": "slova klíčové fráze mají pouze malá písmena"
   },
   "mainnet": {
-    "message": "Main Ethereum Network"
+    "message": "Main Wanchain Network"
   },
   "message": {
     "message": "Zpráva"
   },
   "metamaskDescription": {
-    "message": "MetaMask je bezpečný osobní trezor pro Ethereum."
+    "message": "WanMask je bezpečný osobní trezor pro Wanchain."
   },
   "min": {
     "message": "Minimum"
@@ -486,7 +486,7 @@
     "message": "Musíte zvolit aspoň 1 token."
   },
   "needEtherInWallet": {
-    "message": "Potřebujete Ether v peněžence, abyste mohli pomocí MetaMasku interagovat s decentralizovanými aplikacemi."
+    "message": "Potřebujete Ether v peněžence, abyste mohli pomocí WanMasku interagovat s decentralizovanými aplikacemi."
   },
   "needImportFile": {
     "message": "Musíte zvolit soubor k importu.",
@@ -650,7 +650,7 @@
     "message": "Současné RPC"
   },
   "connectingToMainnet": {
-    "message": "Připojuji se k Main Ethereum Network"
+    "message": "Připojuji se k Main Wanchain Network"
   },
   "connectingToRopsten": {
     "message": "Připojuji se k Ropsten Test Network"
@@ -718,13 +718,13 @@
     "message": "Odeslat tokeny"
   },
   "onlySendToEtherAddress": {
-    "message": "Posílejte jen ETH na Ethereum adresu."
+    "message": "Posílejte jen ETH na Wanchain adresu."
   },
   "searchTokens": {
     "message": "Hledat tokeny"
   },
   "sendTokensAnywhere": {
-    "message": "Posílejte tokeny komukoli s Ethereum účtem"
+    "message": "Posílejte tokeny komukoli s Wanchain účtem"
   },
   "settings": {
     "message": "Nastavení"
@@ -818,7 +818,7 @@
     "message": "Symbol tokenu"
   },
   "tokenWarning1": {
-    "message": "Mějte přehled o tokenech, které jste koupili s účtem MetaMasku. Pokud jste koupili tokeny s jiným účtem, tyto tokeny se zde nezobrazí."
+    "message": "Mějte přehled o tokenech, které jste koupili s účtem WanMasku. Pokud jste koupili tokeny s jiným účtem, tyto tokeny se zde nezobrazí."
   },
   "total": {
     "message": "Celkem"
@@ -843,7 +843,7 @@
     "description": "Followed by a link (here) to view token balances"
   },
   "twelveWords": {
-    "message": "Těchto 12 slov je jedinou možností, jak obnovit MetaMask účet. \nUložte je na bezpečné a neveřejné místo."
+    "message": "Těchto 12 slov je jedinou možností, jak obnovit WanMask účet. \nUložte je na bezpečné a neveřejné místo."
   },
   "typePassword": {
     "message": "Zadejte své heslo"
@@ -852,7 +852,7 @@
     "message": "Vítejte v novém rozhraní (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "Používáte nyní nové rozhraní MetaMasku. Rozhlédněte se kolem, vyzkoušejte nové funkce, jako jsou zasílání tokenů, a dejte nám vědět, pokud narazíte na problém."
+    "message": "Používáte nyní nové rozhraní WanMasku. Rozhlédněte se kolem, vyzkoušejte nové funkce, jako jsou zasílání tokenů, a dejte nám vědět, pokud narazíte na problém."
   },
   "unapproved": {
     "message": "Neschváleno"
@@ -898,7 +898,7 @@
     "message": "Varování"
   },
   "welcomeBeta": {
-    "message": "Vítejte v MetaMask Beta"
+    "message": "Vítejte v WanMask Beta"
   },
   "whatsThis": {
     "message": "Co to je?"

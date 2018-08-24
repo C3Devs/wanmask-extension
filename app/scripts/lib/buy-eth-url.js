@@ -15,7 +15,7 @@ function getBuyEthUrl ({ network, amount, address }) {
   let url
   switch (network) {
     case '1':
-      url = 'https://wanchainfaucet.net'
+      url = 'https://wanfaucet.net'
       break
 
     case '3':
