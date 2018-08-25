@@ -44,5 +44,5 @@ compressed builds can be found in `/builds` once they're built.
 [travis-url]: https://travis-ci.org/tyrion70/metamask-extension
 [dep-image]: https://david-dm.org/tyrion70/metamask-extension.svg
 [dep-url]: https://david-dm.org/tyrion70/metamask-extension
-[coveralls-image]: https://coveralls.io/repos/github/Tyrion70/metamask-extension/badge.svg?branch=WanMask
-[coveralls-url]: https://coveralls.io/github/Tyrion70/metamask-extension?branch=WanMask
+[coveralls-image]: https://coveralls.io/repos/github/tyrion70/metamask-extension/badge.svg?branch=WanMask
+[coveralls-url]: https://coveralls.io/github/tyrion70/metamask-extension?branch=WanMask
