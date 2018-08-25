@@ -1,6 +1,7 @@
 var assert = require('assert')
 var sinon = require('sinon')
 const ethUtil = require('ethereumjs-util')
+const wanUtil = require('wanchain-util')
 
 var path = require('path')
 var util = require(path.join(__dirname, '..', '..', 'ui', 'app', 'util.js'))
@@ -83,7 +84,7 @@ describe('util', function () {
     })
 
     it('should recognize correct capitalized checksum', function () {
-      var address = '0xFDEa65C8e26263F6d9A1B5de9555D2931A33b825'
+      var address = '0xfdeA65c8E26263f6D9a1b5DE9555d2931a33B825'
       var result = util.isValidAddress(address)
       assert.ok(result)
     })
@@ -95,9 +96,9 @@ describe('util', function () {
     })
 
     it('should recognize this sample hashed address', function () {
-      const address = '0x5Fda30Bb72B8Dfe20e48A00dFc108d0915BE9Bb0'
+      const address = '0x5fDA30bB72b8dFE20E48a00DfC108D0915be9bB0'
       const result = util.isValidAddress(address)
-      const hashed = ethUtil.toChecksumAddress(address.toLowerCase())
+      const hashed = wanUtil.toChecksumAddress(address.toLowerCase())
       assert.equal(hashed, address, 'example is hashed correctly')
       assert.ok(result, 'is valid by our check')
     })

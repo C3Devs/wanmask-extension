@@ -65,13 +65,13 @@ function miniAddressSummary (address) {
 function isValidAddress (address) {
   var prefixed = ethUtil.addHexPrefix(address)
   if (address === '0x0000000000000000000000000000000000000000') return false
-  return (isAllOneCase(prefixed) && ethUtil.isValidAddress(prefixed)) || ethUtil.isValidChecksumAddress(prefixed)
+  return (isAllOneCase(prefixed) && wanUtil.isValidAddress(prefixed)) || wanUtil.isValidChecksumAddress(prefixed)
 }
 
 function isInvalidChecksumAddress (address) {
   var prefixed = ethUtil.addHexPrefix(address)
   if (address === '0x0000000000000000000000000000000000000000') return false
-  return !isAllOneCase(prefixed) && !ethUtil.isValidChecksumAddress(prefixed) && ethUtil.isValidAddress(prefixed)
+  return !isAllOneCase(prefixed) && !wanUtil.isValidChecksumAddress(prefixed) && wanUtil.isValidAddress(prefixed)
 }
 
 function isAllOneCase (address) {
