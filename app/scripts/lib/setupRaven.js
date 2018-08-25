@@ -16,18 +16,18 @@ function setupRaven (opts) {
 
   let ravenVersion
   if (window.chrome && chrome.runtime && chrome.runtime.id) {
-    var manifestData = chrome.runtime.getManifest();
-    ravenVersion = manifestData.version;
+    var manifestData = chrome.runtime.getManifest()
+    ravenVersion = manifestData.version
   }
 
   if (METAMASK_DEBUG) {
     console.log('Setting up Sentry Remote Error Reporting: DEV')
     ravenTarget = DEV
-    ravenEnvironment = "DEV"
+    ravenEnvironment = 'DEV'
   } else {
     console.log('Setting up Sentry Remote Error Reporting: PROD')
     ravenTarget = PROD
-    ravenEnvironment = "PROD"
+    ravenEnvironment = 'PROD'
   }
 
   const client = Raven.config(ravenTarget, {

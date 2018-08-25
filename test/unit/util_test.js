@@ -47,13 +47,13 @@ describe('util', function () {
     it('should add case-sensitive checksum', function () {
       var address = '0xfdea65c8e26263f6d9a1b5de9555d2931a33b825'
       var result = util.addressSummary(address)
-      assert.equal(result, '0xFDEa65C8...b825')
+      assert.equal(result, '0xfdeA65c8...B825')
     })
 
     it('should accept arguments for firstseg, lastseg, and keepPrefix', function () {
       var address = '0xfdea65c8e26263f6d9a1b5de9555d2931a33b825'
       var result = util.addressSummary(address, 4, 4, false)
-      assert.equal(result, 'FDEa...b825')
+      assert.equal(result, 'fdeA...B825')
     })
   })
 
@@ -129,35 +129,35 @@ describe('util', function () {
     it('should return eth as string followed by ETH', function () {
       var input = new ethUtil.BN(ethInWei, 10).toJSON()
       var result = util.formatBalance(input, 4)
-      assert.equal(result, '1.0000 ETH')
+      assert.equal(result, '1.0000 WAN')
     })
 
     it('should return eth as string followed by ETH', function () {
       var input = new ethUtil.BN(ethInWei, 10).div(new ethUtil.BN('2', 10)).toJSON()
       var result = util.formatBalance(input, 3)
-      assert.equal(result, '0.500 ETH')
+      assert.equal(result, '0.500 WAN')
     })
 
     it('should display specified decimal points', function () {
       var input = '0x128dfa6a90b28000'
       var result = util.formatBalance(input, 2)
-      assert.equal(result, '1.33 ETH')
+      assert.equal(result, '1.33 WAN')
     })
     it('should default to 3 decimal points', function () {
       var input = '0x128dfa6a90b28000'
       var result = util.formatBalance(input)
-      assert.equal(result, '1.337 ETH')
+      assert.equal(result, '1.337 WAN')
     })
     it('should show 2 significant digits for tiny balances', function () {
       var input = '0x1230fa6a90b28'
       var result = util.formatBalance(input)
-      assert.equal(result, '0.00032 ETH')
+      assert.equal(result, '0.00032 WAN')
     })
     it('should not parse the balance and return value with 2 decimal points with ETH at the end', function () {
       var value = '1.2456789'
       var needsParse = false
       var result = util.formatBalance(value, 2, needsParse)
-      assert.equal(result, '1.24 ETH')
+      assert.equal(result, '1.24 WAN')
     })
   })
 

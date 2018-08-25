@@ -85,7 +85,7 @@ class ConnectScreen extends Component {
     getAffiliateLinks () {
       const links = {
         trezor: `<a class='hw-connect__get-hw__link' href='https://shop.trezor.io/?a=metamask' target='_blank'>Trezor</a>`,
-        ledger: `<a class='hw-connect__get-hw__link' href='https://www.ledger.com/products/ledger-nano-s?r=17c4991a03fa&tracker=MY_TRACKER' target='_blank'>Ledger</a>`,
+        ledger: `<a class='hw-connect__get-hw__link' href='https://www.ledger.com/products/ledger-nano-s?r=651b52292b63' target='_blank'>Ledger</a>`,
       }
 
       const text = this.context.t('orderOneHere')
@@ -140,7 +140,8 @@ class ConnectScreen extends Component {
             h('div.hw-connect', {}, [
                 h('h3.hw-connect__title', {}, this.context.t(`step${i + 1}HardwareWallet`)),
                 h('p.hw-connect__msg', {}, this.context.t(`step${i + 1}HardwareWalletMsg`)),
-                h('img.hw-connect__step-asset', { src: `images/${step.asset}.svg`, ...step.dimensions }),
+// TODO: Make Wan Images
+//                h('img.hw-connect__step-asset', { src: `images/${step.asset}.svg`, ...step.dimensions }),
             ])
             ))
         )
@@ -154,8 +155,7 @@ class ConnectScreen extends Component {
                 h('p.hw-connect__footer__msg', {}, [
                     this.context.t(`havingTroubleConnecting`),
                     h('a.hw-connect__footer__link', {
-                        href: 'https://support.metamask.io/',
-                        target: '_blank',
+                        href: 'mailto:help@metamask.io?subject=Support',
                       }, this.context.t('getHelp')),
                 ]),
             ])

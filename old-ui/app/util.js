@@ -1,4 +1,5 @@
 const ethUtil = require('ethereumjs-util')
+const wanUtil = require('wanchain-util')
 
 var valueTable = {
   wei: '1000000000000000000',
@@ -48,7 +49,7 @@ function valuesFor (obj) {
 
 function addressSummary (address, firstSegLength = 10, lastSegLength = 4, includeHex = true) {
   if (!address) return ''
-  let checked = ethUtil.toChecksumAddress(address)
+  let checked = wanUtil.toChecksumAddress(address)
   if (!includeHex) {
     checked = ethUtil.stripHexPrefix(checked)
   }
@@ -57,7 +58,7 @@ function addressSummary (address, firstSegLength = 10, lastSegLength = 4, includ
 
 function miniAddressSummary (address) {
   if (!address) return ''
-  var checked = ethUtil.toChecksumAddress(address)
+  var checked = wanUtil.toChecksumAddress(address)
   return checked ? checked.slice(0, 4) + '...' + checked.slice(-4) : '...'
 }
 

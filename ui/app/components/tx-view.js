@@ -75,7 +75,8 @@ TxView.prototype.renderHeroBalance = function () {
 }
 
 TxView.prototype.renderButtons = function () {
-  const {selectedToken, showModal, history } = this.props
+//  const {selectedToken, showModal, history } = this.props
+  const {selectedToken, history } = this.props
 
   return !selectedToken
     ? (

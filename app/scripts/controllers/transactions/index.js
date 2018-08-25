@@ -1,8 +1,7 @@
 const EventEmitter = require('events')
 const ObservableStore = require('obs-store')
 const ethUtil = require('ethereumjs-util')
-const Transaction = require('ethereumjs-tx')
-const wanUtil = require('wanchain-util');
+const Transaction = require('wanchain-util').wanchainTx
 const EthQuery = require('ethjs-query')
 const TransactionStateManager = require('./tx-state-manager')
 const TxGasUtil = require('./tx-gas-utils')
@@ -294,7 +293,7 @@ class TransactionController extends EventEmitter {
     const chainId = this.getChainId()
 
     const txParams = Object.assign({}, txMeta.txParams, { chainId, Txtype })
-    const ethTx = new wanUtil.wanchainTx(txParams)
+    const ethTx = new Transaction(txParams)
 
     const fromAddress = txParams.from
     // sign tx

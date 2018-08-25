@@ -6,10 +6,10 @@
  */
 
 const contractMap = require('eth-contract-metadata')
-const ethUtil = require('ethereumjs-util')
+const wanUtil = require('wanchain-util')
 
 module.exports = function (addr, identities = {}) {
-  const checksummed = ethUtil.toChecksumAddress(addr)
+  const checksummed = wanUtil.toChecksumAddress(addr)
   if (contractMap[checksummed] && contractMap[checksummed].name) {
     return contractMap[checksummed].name
   }

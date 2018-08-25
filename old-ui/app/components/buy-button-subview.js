@@ -130,7 +130,6 @@ BuyButtonSubview.prototype.headerSubview = function () {
 BuyButtonSubview.prototype.primarySubview = function () {
   const props = this.props
   const network = props.network
-console.log("NETWORK", network)
   switch (network) {
     case 'loading':
       return

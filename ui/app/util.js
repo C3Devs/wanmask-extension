@@ -1,5 +1,6 @@
 const abi = require('human-standard-token-abi')
 const ethUtil = require('ethereumjs-util')
+const wanUtil = require('wanchain-util')
 const hexToBn = require('../../app/scripts/lib/hex-to-bn')
 const vreme = new (require('vreme'))()
 
@@ -302,7 +303,7 @@ function getTokenAddressFromTokenObject (token) {
  * @returns {String} - checksummed address
  */
 function checksumAddress (address) {
-  return address ? ethUtil.toChecksumAddress(address) : ''
+  return address ? wanUtil.toChecksumAddress(address) : ''
 }
 
 function addressSlicer (address = '') {

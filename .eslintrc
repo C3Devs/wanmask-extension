@@ -16,14 +16,14 @@
       "jsx": true
     },
   },
-
   "extends": ["plugin:react/recommended"],
 
   "env": {
     "es6": true,
     "node": true,
     "browser": true,
-    "mocha" : true
+    "mocha" : true,
+    "webextensions": true
   },
 
   "plugins": [
