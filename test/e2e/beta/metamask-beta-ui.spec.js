@@ -10,6 +10,7 @@ const {
   getExtensionIdChrome,
   getExtensionIdFirefox,
 } = require('../func')
+/*
 const {
   assertElementNotPresent,
   checkBrowserForConsoleErrors,
@@ -22,11 +23,21 @@ const {
   verboseReportOnFailure,
   waitUntilXWindowHandles,
 } = require('./helpers')
+*/
+const {
+  checkBrowserForConsoleErrors,
+  closeAllWindowHandlesExcept,
+  findElement,
+  findElements,
+  loadExtension,
+  verboseReportOnFailure,
+} = require('./helpers')
+
 
 describe('MetaMask', function () {
   let extensionId
   let driver
-  let tokenAddress
+// let tokenAddress
 
   const testSeedPhrase = 'phrase upgrade clock rough situate wedding elder clever doctor stamp excess tent'
   const tinyDelayMs = 200

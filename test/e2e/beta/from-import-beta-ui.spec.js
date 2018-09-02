@@ -389,7 +389,6 @@ describe('Using MetaMask with an existing account', function () {
           assert.equal(allWindows.length, 1)
       }
     })
-    */
 
     it('should show the "Browser not supported" screen for non Chrome browsers', async () => {
       if (process.env.SELENIUM_BROWSER !== 'chrome') {
@@ -413,5 +412,6 @@ describe('Using MetaMask with an existing account', function () {
         await driver.switchTo().window(newUITab)
       }
     })
+    */
   })
 })

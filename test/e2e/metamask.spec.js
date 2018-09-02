@@ -1,11 +1,13 @@
 const path = require('path')
 const assert = require('assert')
-const { By, Key, until } = require('selenium-webdriver')
+// const { By, Key, until } = require('selenium-webdriver')
+const { By, Key } = require('selenium-webdriver')
 const { delay, createModifiedTestBuild, setupBrowserAndExtension, verboseReportOnFailure } = require('./func')
 
 describe('Wanmask popup page', function () {
   const browser = process.env.SELENIUM_BROWSER
-  let driver, accountAddress, tokenAddress, extensionUri
+  // let driver, accountAddress, tokenAddress, extensionUri
+  let driver, accountAddress, extensionUri
 
   this.timeout(0)
 
@@ -303,7 +305,6 @@ describe('Wanmask popup page', function () {
       await delay(700)
     })
     */
-    tokenAddress = '0x28362cd634646620ef2290058744f9244bb90ed9'
 
   })
 
