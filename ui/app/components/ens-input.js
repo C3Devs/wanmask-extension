@@ -6,7 +6,6 @@ const extend = require('xtend')
 const debounce = require('debounce')
 const copyToClipboard = require('copy-to-clipboard')
 const ENS = require('ethjs-ens')
-const networkMap = require('ethjs-ens/lib/network-map.json')
 const ensRE = /.+\..+$/
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 const connect = require('react-redux').connect
@@ -29,11 +28,8 @@ function EnsInput () {
 EnsInput.prototype.onChange = function (recipient) {
 
   const network = this.props.network
-  const networkHasEnsSupport = getNetworkEnsSupport(network)
 
   this.props.onChange({ toAddress: recipient })
-
-  if (!networkHasEnsSupport) return
 
   if (recipient.match(ensRE) === null) {
     return this.setState({
@@ -67,14 +63,12 @@ EnsInput.prototype.render = function () {
 
 EnsInput.prototype.componentDidMount = function () {
   const network = this.props.network
-  const networkHasEnsSupport = getNetworkEnsSupport(network)
   this.setState({ ensResolution: ZERO_ADDRESS })
 
-  if (networkHasEnsSupport) {
-    const provider = global.ethereumProvider
-    this.ens = new ENS({ provider, network })
-    this.checkName = debounce(this.lookupEnsName.bind(this), 200)
-  }
+  const provider = global.ethereumProvider
+  const registryAddress = "0xee8d418fd33e69782015ea4313dfd8eb7b1b91ce"
+  this.ens = new ENS({ provider, registryAddress })
+  this.checkName = debounce(this.lookupEnsName.bind(this), 200)
 }
 
 EnsInput.prototype.lookupEnsName = function (recipient) {
@@ -123,7 +117,8 @@ EnsInput.prototype.componentDidUpdate = function (prevProps, prevState) {
   const nickname = state.nickname || ' '
   if (prevProps.network !== this.props.network) {
     const provider = global.ethereumProvider
-    this.ens = new ENS({ provider, network: this.props.network })
+    const registryAddress = "0xee8d418fd33e69782015ea4313dfd8eb7b1b91ce"
+    this.ens = new ENS({ provider, registryAddress })
     this.onChange(ensResolution)
   }
   if (prevState && ensResolution && this.props.onChange &&
@@ -174,8 +169,4 @@ EnsInput.prototype.ensIconContents = function (recipient) {
       },
     })
   }
-}
-
-function getNetworkEnsSupport (network) {
-  return Boolean(networkMap[network])
 }

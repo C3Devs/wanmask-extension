@@ -460,8 +460,6 @@ describe('MetaMask', function () {
       const transactions = await findElements(driver, By.css('.tx-list-item'))
       assert.equal(transactions.length, 2)
 
-      await findElement(driver, By.xpath(`//span[contains(text(), 'Submitted')]`))
-
       const txStatuses = await findElements(driver, By.css('.tx-list-status'))
       await driver.wait(until.elementTextMatches(txStatuses[0], /Confirmed/))
 
@@ -514,8 +512,6 @@ describe('MetaMask', function () {
       const confirmButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Confirm')]`))
       await confirmButton.click()
       await delay(regularDelayMs)
-
-      await findElement(driver, By.xpath(`//span[contains(text(), 'Submitted')]`))
 
       const txStatuses = await findElements(driver, By.css('.tx-list-status'))
       await driver.wait(until.elementTextMatches(txStatuses[0], /Confirmed/))
@@ -626,20 +622,21 @@ describe('MetaMask', function () {
 
   describe('Add a custom token from a dapp', () => {
     it('creates a new token', async () => {
-      const windowHandles = await driver.getAllWindowHandles()
+      let windowHandles = await driver.getAllWindowHandles()
       const extension = windowHandles[0]
       const dapp = windowHandles[1]
       await delay(regularDelayMs * 2)
 
       await driver.switchTo().window(dapp)
-      await delay(regularDelayMs)
+      await delay(regularDelayMs * 2)
 
       const createToken = await findElement(driver, By.xpath(`//button[contains(text(), 'Create Token')]`))
       await createToken.click()
-      await delay(regularDelayMs)
+      await delay(largeDelayMs)
 
-      await driver.switchTo().window(extension)
-      await loadExtension(driver, extensionId)
+      windowHandles = await driver.getAllWindowHandles()
+      const popup = windowHandles[2]
+      await driver.switchTo().window(popup)
       await delay(regularDelayMs)
 
       const confirmButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Confirm')]`))
@@ -668,7 +665,7 @@ describe('MetaMask', function () {
     })
 
     it('picks the newly created Test token', async () => {
-      const addCustomToken = await findElement(driver, By.xpath("//div[contains(text(), 'Custom Token')]"))
+      const addCustomToken = await findElement(driver, By.xpath("//li[contains(text(), 'Custom Token')]"))
       await addCustomToken.click()
       await delay(regularDelayMs)
 

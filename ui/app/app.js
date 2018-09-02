@@ -39,8 +39,7 @@ const Modal = require('./components/modals/index').Modal
 // Global Alert
 const Alert = require('./components/alert')
 
-const AppHeader = require('./components/app-header')
-
+import AppHeader from './components/app-header'
 import UnlockPage from './components/pages/unlock-page'
 
 // Routes
@@ -229,6 +228,8 @@ class App extends Component {
       name = this.context.t('connectingToRopsten')
     } else if (providerName === 'rinkeby') {
       name = this.context.t('connectingToRinkeby')
+    } else if (providerName === 'wanchain') {
+      name = this.context.t('connectingToWanchain')
     } else {
       name = this.context.t('connectingToUnknown')
     }
@@ -250,6 +251,8 @@ class App extends Component {
       name = this.context.t('kovan')
     } else if (providerName === 'rinkeby') {
       name = this.context.t('rinkeby')
+    } else if (providerName === 'wanchain') {
+      name = this.context.t('wanchain')
     } else {
       name = this.context.t('unknownNetwork')
     }

@@ -142,6 +142,12 @@ class Settings extends Component {
         color = '#ebb33f'
         break
 
+      case 'wanchain':
+        title = this.context.t('currentNetwork')
+        value = this.context.t('wanchain')
+        color = '#844d00'
+        break
+
       default:
         title = this.context.t('currentRpc')
         value = provider.rpcTarget
@@ -223,7 +229,7 @@ class Settings extends Component {
                   if (err) {
                     this.state.dispatch(actions.displayWarning(this.context.t('stateLogError')))
                   } else {
-                    exportAsFile('MetaMask State Logs.json', result)
+                    exportAsFile('WanMask State Logs.json', result)
                   }
                 })
               },

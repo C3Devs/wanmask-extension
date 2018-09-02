@@ -85,7 +85,7 @@ export function getTransactionAmount ({
   return conversionUtil(value, {
     fromNumericBase: 'hex',
     toNumericBase: 'dec',
-    fromCurrency: 'ETH',
+    fromCurrency: 'WAN',
     toCurrency,
     numberOfDecimals,
     fromDenomination: 'WEI',
@@ -103,7 +103,7 @@ export function getTransactionFee ({
     fromNumericBase: 'BN',
     toNumericBase: 'dec',
     fromDenomination: 'WEI',
-    fromCurrency: 'ETH',
+    fromCurrency: 'WAN',
     toCurrency,
     numberOfDecimals,
     conversionRate,
@@ -145,4 +145,9 @@ export function roundExponential (value) {
 
   // In JS, numbers with exponentials greater than 20 get displayed as an exponential.
   return bigNumberValue.e > 20 ? Number(bigNumberValue.toPrecision(PRECISION)) : value
+}
+
+export async function isSmartContractAddress (address) {
+  const code = await global.eth.getCode(address)
+  return code && code !== '0x'
 }

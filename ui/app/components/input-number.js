@@ -62,7 +62,7 @@ InputNumber.prototype.render = function () {
       onChange: e => {
         this.setValue(e.target.value)
       },
-      min: 0,
+      min: 180,
     }),
     h('span.gas-tooltip-input-detail', {}, [unitLabel]),
     h('div.gas-tooltip-input-arrows', {}, [

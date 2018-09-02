@@ -61,7 +61,7 @@ InfoScreen.prototype.render = function () {
             [
               h('div', [
                 h('a', {
-                  href: 'https://metamask.io/privacy.html',
+                  href: 'https://wanmask.io/privacy.html',
                   target: '_blank',
                   onClick: (event) => { this.navigateTo(event.target.href) },
                 }, [
@@ -70,7 +70,7 @@ InfoScreen.prototype.render = function () {
               ]),
               h('div', [
                 h('a', {
-                  href: 'https://metamask.io/terms.html',
+                  href: 'https://wanmask.io/terms.html',
                   target: '_blank',
                   onClick: (event) => { this.navigateTo(event.target.href) },
                 }, [
@@ -79,7 +79,7 @@ InfoScreen.prototype.render = function () {
               ]),
               h('div', [
                 h('a', {
-                  href: 'https://metamask.io/attributions.html',
+                  href: 'https://wanmask.io/attributions.html',
                   target: '_blank',
                   onClick: (event) => { this.navigateTo(event.target.href) },
                 }, [
@@ -101,16 +101,9 @@ InfoScreen.prototype.render = function () {
               paddingLeft: '30px',
             }},
             [
-              h('div.fa.fa-support', [
-                h('a.info', {
-                  href: 'https://support.metamask.io',
-                  target: '_blank',
-                }, 'Visit our Support Center'),
-              ]),
-
               h('div', [
                 h('a', {
-                  href: 'https://metamask.io/',
+                  href: 'https://wanmask.io/',
                   target: '_blank',
                 }, [
                   h('img.icon-size', {
@@ -138,8 +131,7 @@ InfoScreen.prototype.render = function () {
               h('div.fa.fa-envelope', [
                 h('a.info', {
                   target: '_blank',
-                  style: { width: '85vw' },
-                  href: 'mailto:help@metamask.io?subject=Feedback',
+                  href: 'mailto:help@wanmask.io?subject=Feedback',
                 }, 'Email us!'),
               ]),
             ]),

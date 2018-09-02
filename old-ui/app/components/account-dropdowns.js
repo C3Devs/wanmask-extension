@@ -2,12 +2,14 @@ const Component = require('react').Component
 const PropTypes = require('prop-types')
 const h = require('react-hyperscript')
 const actions = require('../../../ui/app/actions')
-const genAccountLink = require('etherscan-link').createAccountLink
+const genAccountLink = function (address, network) {
+  return `http://wanscan.io/addr/${address}`
+}
 const connect = require('react-redux').connect
 const Dropdown = require('./dropdown').Dropdown
 const DropdownMenuItem = require('./dropdown').DropdownMenuItem
 const Identicon = require('./identicon')
-const ethUtil = require('ethereumjs-util')
+const wanUtil = require('wanchain-util')
 const copyToClipboard = require('copy-to-clipboard')
 
 class AccountDropdowns extends Component {
@@ -193,7 +195,7 @@ class AccountDropdowns extends Component {
               global.platform.openWindow({ url })
             },
           },
-          'View account on Etherscan',
+          'View account on Wanscan',
         ),
         h(
           DropdownMenuItem,
@@ -213,7 +215,7 @@ class AccountDropdowns extends Component {
             closeMenu: () => {},
             onClick: () => {
               const { selected } = this.props
-              const checkSumAddress = selected && ethUtil.toChecksumAddress(selected)
+              const checkSumAddress = selected && wanUtil.toChecksumAddress(selected)
               copyToClipboard(checkSumAddress)
             },
           },

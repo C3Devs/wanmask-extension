@@ -1,5 +1,6 @@
 const abi = require('human-standard-token-abi')
 const ethUtil = require('ethereumjs-util')
+const wanUtil = require('wanchain-util')
 const hexToBn = require('../../app/scripts/lib/hex-to-bn')
 const vreme = new (require('vreme'))()
 
@@ -86,17 +87,17 @@ function miniAddressSummary (address) {
 function isValidAddress (address) {
   var prefixed = ethUtil.addHexPrefix(address)
   if (address === '0x0000000000000000000000000000000000000000') return false
-  return (isAllOneCase(prefixed) && ethUtil.isValidAddress(prefixed)) || ethUtil.isValidChecksumAddress(prefixed)
+  return (isAllOneCase(prefixed) && wanUtil.isValidAddress(prefixed)) || wanUtil.isValidChecksumAddress(prefixed)
 }
 
 function isValidENSAddress (address) {
-  return address.match(/^.{7,}\.(eth|test)$/)
+  return address.match(/^.{6,}\.(wan|test)$/)
 }
 
 function isInvalidChecksumAddress (address) {
   var prefixed = ethUtil.addHexPrefix(address)
   if (address === '0x0000000000000000000000000000000000000000') return false
-  return !isAllOneCase(prefixed) && !ethUtil.isValidChecksumAddress(prefixed) && ethUtil.isValidAddress(prefixed)
+  return !isAllOneCase(prefixed) && !wanUtil.isValidChecksumAddress(prefixed) && wanUtil.isValidAddress(prefixed)
 }
 
 function isAllOneCase (address) {
@@ -138,14 +139,14 @@ function formatBalance (balance, decimalsToKeep, needsParse = true) {
       if (afterDecimal !== '0') {
         var sigFigs = afterDecimal.match(/^0*(.{2})/) // default: grabs 2 most significant digits
         if (sigFigs) { afterDecimal = sigFigs[0] }
-        formatted = '0.' + afterDecimal + ' ETH'
+        formatted = '0.' + afterDecimal + ' WAN'
       }
     } else {
-      formatted = beforeDecimal + '.' + afterDecimal.slice(0, 3) + ' ETH'
+      formatted = beforeDecimal + '.' + afterDecimal.slice(0, 3) + ' WAN'
     }
   } else {
     afterDecimal += Array(decimalsToKeep).join('0')
-    formatted = beforeDecimal + '.' + afterDecimal.slice(0, decimalsToKeep) + ' ETH'
+    formatted = beforeDecimal + '.' + afterDecimal.slice(0, decimalsToKeep) + ' WAN'
   }
   return formatted
 }
@@ -302,7 +303,7 @@ function getTokenAddressFromTokenObject (token) {
  * @returns {String} - checksummed address
  */
 function checksumAddress (address) {
-  return address ? ethUtil.toChecksumAddress(address) : ''
+  return address ? wanUtil.toChecksumAddress(address) : ''
 }
 
 function addressSlicer (address = '') {

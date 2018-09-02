@@ -2,6 +2,10 @@
 
 ## Current Develop Branch
 
+## 0.0.5 WNS Support Added
+
+## 0.0.4 Beta release for Wanchain. Below Changelog of MetaMask kept for Reference
+
 ## 4.9.3 Wed Aug 15 2018
 
 - (#4897)[https://github.com/MetaMask/metamask-extension/pull/4897]: QR code scan for recipient addresses.
@@ -33,6 +37,8 @@
 - [#4691](https://github.com/MetaMask/metamask-extension/pull/4691): Redesign of the Confirm Transaction Screen.
 - [#4840](https://github.com/MetaMask/metamask-extension/pull/4840): Now shows notifications when transactions are completed.
 - [#4855](https://github.com/MetaMask/metamask-extension/pull/4855): Allow the use of HTTP prefix for custom rpc urls.
+- [#4855](https://github.com/MetaMask/metamask-extension/pull/4855): network.js: convert rpc protocol to lower case.
+- [#4898](https://github.com/MetaMask/metamask-extension/pull/4898): Restore multiple consecutive accounts with balances.
 
 ## 4.8.0 Thur Jun 14 2018
 

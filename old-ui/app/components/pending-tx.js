@@ -15,6 +15,7 @@ const EthBalance = require('./eth-balance')
 const addressSummary = util.addressSummary
 const nameForAddress = require('../../lib/contract-namer')
 const BNInput = require('./bn-as-decimal-input')
+const wanUtil = require('wanchain-util')
 
 const MIN_GAS_PRICE_BN = new BN('0')
 const MIN_GAS_LIMIT_BN = new BN('21000')
@@ -116,7 +117,7 @@ PendingTx.prototype.render = function () {
               }, identity.name),
 
               h(Copyable, {
-                value: ethUtil.toChecksumAddress(address),
+                value: wanUtil.toChecksumAddress(address),
               }, [
                 h('span.font-small', {
                   style: {
@@ -295,7 +296,7 @@ PendingTx.prototype.render = function () {
               style: {
                 fontSize: '0.9em',
               },
-            }, 'Recipient address is invalid. Sending this transaction will result in a loss of ETH.')
+            }, 'Recipient address is invalid. Sending this transaction will result in a loss of WAN.')
           : null,
 
           insufficientBalance ?
@@ -380,7 +381,7 @@ PendingTx.prototype.miniAccountPanelForRecipient = function () {
       }, nameForAddress(txParams.to, props.identities)),
 
       h(Copyable, {
-        value: ethUtil.toChecksumAddress(txParams.to),
+        value: wanUtil.toChecksumAddress(txParams.to),
       }, [
         h('span.font-small', {
           style: {

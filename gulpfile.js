@@ -434,7 +434,7 @@ gulp.task('dist',
 function zipTask (target) {
   return () => {
     return gulp.src(`dist/${target}/**`)
-    .pipe(zip(`metamask-${target}-${manifest.version}.zip`))
+    .pipe(zip(`wanmask-${target}-${manifest.version}.zip`))
     .pipe(gulp.dest('builds'))
   }
 }
