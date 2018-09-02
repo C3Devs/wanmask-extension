@@ -20,27 +20,27 @@ async function start () {
 
   // create sentry release
   console.log(`creating Sentry release for "${VERSION}"...`)
-  await exec(`sentry-cli releases --org 'metamask' --project 'metamask' new ${VERSION}`)
+  await exec(`sentry-cli releases --org 'wan' --project 'wanmask' new ${VERSION}`)
   console.log(`removing any existing files from Sentry release "${VERSION}"...`)
-  await exec(`sentry-cli releases --org 'metamask' --project 'metamask' files ${VERSION} delete --all`)
+  await exec(`sentry-cli releases --org 'wan' --project 'wanmask' files ${VERSION} delete --all`)
   // upload sentry source and sourcemaps
   console.log(`uploading source files Sentry release "${VERSION}"...`)
-  await exec(`for FILEPATH in ./dist/chrome/*.js; do [ -e $FILEPATH ] || continue; export FILE=\`basename $FILEPATH\` && echo uploading $FILE && sentry-cli releases --org 'metamask' --project 'metamask' files ${VERSION} upload $FILEPATH metamask/$FILE; done;`)
+  await exec(`for FILEPATH in ./dist/chrome/*.js; do [ -e $FILEPATH ] || continue; export FILE=\`basename $FILEPATH\` && echo uploading $FILE && sentry-cli releases --org 'wan' --project 'wanmask' files ${VERSION} upload $FILEPATH wanmask/$FILE; done;`)
   console.log(`uploading sourcemaps Sentry release "${VERSION}"...`)
-  await exec(`sentry-cli releases --org 'metamask' --project 'metamask' files ${VERSION} upload-sourcemaps ./dist/sourcemaps/ --url-prefix 'sourcemaps'`)
+  await exec(`sentry-cli releases --org 'wan' --project 'wanmask' files ${VERSION} upload-sourcemaps ./dist/sourcemaps/ --url-prefix 'sourcemaps'`)
   console.log('all done!')
 }
 
 async function checkIfAuthWorks () {
   const itWorked = await doesNotFail(async () => {
-    await exec(`sentry-cli releases --org 'metamask' --project 'metamask' list`)
+    await exec(`sentry-cli releases --org 'wan' --project 'wanmask' list`)
   })
   return itWorked
 }
 
 async function checkIfVersionExists () {
   const versionAlreadyExists = await doesNotFail(async () => {
-    await exec(`sentry-cli releases --org 'metamask' --project 'metamask' info ${VERSION}`)
+    await exec(`sentry-cli releases --org 'wan' --project 'wanmask' info ${VERSION}`)
   })
   return versionAlreadyExists
 }

@@ -26,9 +26,6 @@ function EnsInput () {
 }
 
 EnsInput.prototype.onChange = function (recipient) {
-
-  const network = this.props.network
-
   this.props.onChange({ toAddress: recipient })
 
   if (recipient.match(ensRE) === null) {
@@ -62,11 +59,10 @@ EnsInput.prototype.render = function () {
 }
 
 EnsInput.prototype.componentDidMount = function () {
-  const network = this.props.network
   this.setState({ ensResolution: ZERO_ADDRESS })
 
   const provider = global.ethereumProvider
-  const registryAddress = "0xee8d418fd33e69782015ea4313dfd8eb7b1b91ce"
+  const registryAddress = '0xee8d418fd33e69782015ea4313dfd8eb7b1b91ce'
   this.ens = new ENS({ provider, registryAddress })
   this.checkName = debounce(this.lookupEnsName.bind(this), 200)
 }
@@ -117,7 +113,7 @@ EnsInput.prototype.componentDidUpdate = function (prevProps, prevState) {
   const nickname = state.nickname || ' '
   if (prevProps.network !== this.props.network) {
     const provider = global.ethereumProvider
-    const registryAddress = "0xee8d418fd33e69782015ea4313dfd8eb7b1b91ce"
+    const registryAddress = '0xee8d418fd33e69782015ea4313dfd8eb7b1b91ce'
     this.ens = new ENS({ provider, registryAddress })
     this.onChange(ensResolution)
   }

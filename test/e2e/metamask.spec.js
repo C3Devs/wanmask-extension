@@ -3,7 +3,7 @@ const assert = require('assert')
 const { By, Key, until } = require('selenium-webdriver')
 const { delay, createModifiedTestBuild, setupBrowserAndExtension, verboseReportOnFailure } = require('./func')
 
-describe('Metamask popup page', function () {
+describe('Wanmask popup page', function () {
   const browser = process.env.SELENIUM_BROWSER
   let driver, accountAddress, tokenAddress, extensionUri
 
@@ -66,9 +66,9 @@ describe('Metamask popup page', function () {
 
   describe('Account Creation', () => {
 
-    it('matches MetaMask title', async () => {
+    it('matches WanMask title', async () => {
       const title = await driver.getTitle()
-      assert.equal(title, 'MetaMask', 'title matches MetaMask')
+      assert.equal(title, 'WanMask', 'title matches WanMask')
       await delay(300)
     })
 
@@ -95,6 +95,16 @@ describe('Metamask popup page', function () {
     it('shows privacy notice', async () => {
       const privacy = await driver.findElement(By.css('.terms-header')).getText()
       assert.equal(privacy, 'PRIVACY NOTICE', 'shows privacy notice')
+      await driver.findElement(By.css('button')).click()
+      await delay(300)
+    })
+
+    it('shows seed phrase alert', async () => {
+      const noticeHeader = await driver.findElement(By.css('.terms-header')).getText()
+      assert.equal(noticeHeader, 'SEED PHRASE ALERT', 'shows seed phrase alert')
+      const element = await driver.findElement(By.css('.markdown'))
+      await driver.executeScript('arguments[0].scrollTop = arguments[0].scrollHeight', element)
+      await delay(300)
       await driver.findElement(By.css('button')).click()
       await delay(300)
     })
@@ -207,6 +217,7 @@ describe('Metamask popup page', function () {
       await delay(200)
     })
 
+    /* TODO: make wan ganache
     it('sends transaction', async function () {
      const sendButton = await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > div > div.flex-row > button:nth-child(4)'))
      assert.equal(await sendButton.getText(), 'SEND')
@@ -219,7 +230,7 @@ describe('Metamask popup page', function () {
       assert.equal(sendTranscationScreen, 'SEND TRANSACTION')
       const inputAddress = await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > section:nth-child(3) > div > input'))
       const inputAmmount = await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > section:nth-child(4) > input'))
-      await inputAddress.sendKeys('0x2f318C334780961FB129D2a6c30D0763d9a5C970')
+      await inputAddress.sendKeys('0x2f318c334780961fb129d2a6c30d0763d9a5c970')
       await inputAmmount.sendKeys('10')
       await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > section:nth-child(4) > button')).click()
       await delay(300)
@@ -239,9 +250,11 @@ describe('Metamask popup page', function () {
       const tranasactionAmount = await driver.findElement(By.css('#app-content > div > div.app-primary.from-left > div > section > section > div > div > div > div.ether-balance.ether-balance-amount > div > div > div > div:nth-child(1)'))
       assert.equal(await tranasactionAmount.getText(), '10.0')
     })
+    */
   })
 
   describe('Token Factory', function () {
+    /* TODO: make wan ganache
 
     it('navigates to token factory', async function () {
       await driver.get('http://tokenfactory.surge.sh/')
@@ -268,7 +281,7 @@ describe('Metamask popup page', function () {
     })
 
     // There is an issue with blank confirmation window in Firefox, but the button is still there and the driver is able to clicked (?.?)
-    it('confirms transaction in MetaMask popup', async function () {
+    it('confirms transaction in WanMask popup', async function () {
       const windowHandles = await driver.getAllWindowHandles()
       await driver.switchTo().window(windowHandles[windowHandles.length - 1])
       const byMetamaskSubmit = By.css('#pending-tx-form > div.flex-row.flex-space-around.conf-buttons > input')
@@ -285,10 +298,13 @@ describe('Metamask popup page', function () {
       await delay(500)
     })
 
-    it('navigates back to MetaMask popup in the tab', async function () {
+    it('navigates back to WanMask popup in the tab', async function () {
       await driver.get(extensionUri)
       await delay(700)
     })
+    */
+    tokenAddress = '0x28362cd634646620ef2290058744f9244bb90ed9'
+
   })
 
   describe('Add Token', function () {
@@ -310,7 +326,7 @@ describe('Metamask popup page', function () {
       const addTokenScreen = await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > div.section-title.flex-row.flex-center > h2'))
       assert.equal(await addTokenScreen.getText(), 'ADD TOKEN')
     })
-
+    /* TODO: make wan ganache
     it('adds token parameters', async function () {
       const tokenContractAddress = await driver.findElement(By.css('#token-address'))
       await tokenContractAddress.sendKeys(tokenAddress)
@@ -321,8 +337,9 @@ describe('Metamask popup page', function () {
 
     it('checks the token balance', async function () {
       const tokenBalance = await driver.findElement(By.css('#app-content > div > div.app-primary.from-left > div > section > div.full-flex-height > ol > li:nth-child(2) > h3'))
-      assert.equal(await tokenBalance.getText(), '100 TST')
+      assert.equal(await tokenBalance.getText(), '0 WETH')
     })
+    */
   })
 
   async function setProviderType (type) {

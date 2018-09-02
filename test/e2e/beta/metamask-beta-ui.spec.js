@@ -174,6 +174,17 @@ describe('MetaMask', function () {
       await delay(regularDelayMs)
     })
 
+
+    it('shows seed phrase alert', async () => {
+      // seed phrase
+      const noticeElement = await driver.findElement(By.css('.markdown'))
+      await driver.executeScript('arguments[0].scrollTop = arguments[0].scrollHeight', noticeElement)
+      await delay(regularDelayMs)
+      const nextScreen = await findElement(driver, By.css('.tou button'))
+      await nextScreen.click()
+      await delay(regularDelayMs)
+    })
+
     it('clicks through the phishing notice', async () => {
       // phishing notice
       const noticeElement = await driver.findElement(By.css('.markdown'))
@@ -370,11 +381,11 @@ describe('MetaMask', function () {
 
     it('balance renders', async () => {
       const balance = await findElement(driver, By.css('.balance-display .token-amount'))
-      await driver.wait(until.elementTextMatches(balance, /100.+ETH/))
+      await driver.wait(until.elementTextMatches(balance, /100.+WAN/))
       await delay(regularDelayMs)
     })
   })
-
+/* TODO: make wan ganache
   describe('Send ETH from inside MetaMask', () => {
     it('starts to send a transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
@@ -979,7 +990,7 @@ describe('MetaMask', function () {
       await driver.wait(until.stalenessOf(confirmHideModal))
     })
   })
-
+*/
   describe('Add existing token using search', () => {
     it('clicks on the Add Token button', async () => {
       const addToken = await findElement(driver, By.xpath(`//button[contains(text(), 'Add Token')]`))
