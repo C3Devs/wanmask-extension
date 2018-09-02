@@ -34,7 +34,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "WanMask",
     "description": "The name of the application"
   },
   "approved": {
@@ -75,7 +75,7 @@
     "message": "Borrow With Dharma (Beta)"
   },
   "builtInCalifornia": {
-    "message": "MetaMask在加利福尼亚设计和制造。"
+    "message": "WanMask在加利福尼亚设计和制造。"
   },
   "buy": {
     "message": "购买"
@@ -193,7 +193,7 @@
     "message": "默认以太坊交易网络为主网。"
   },
   "denExplainer": {
-    "message": "你的 DEN 是存储在 MetaMask 中的已加密密码。"
+    "message": "你的 DEN 是存储在 WanMask 中的已加密密码。"
   },
   "deposit": {
     "message": "存入"
@@ -221,7 +221,7 @@
     "message": "从 ShapeShift 存入"
   },
   "depositShapeShiftExplainer": {
-    "message": "如果你拥有其他加密货币，你可以直接交易并存入 Ether 到你的 MetaMask 钱包。 不需要帐户。"
+    "message": "如果你拥有其他加密货币，你可以直接交易并存入 Ether 到你的 WanMask 钱包。 不需要帐户。"
   },
   "details": {
     "message": "详情"
@@ -381,7 +381,7 @@
     "message": "导入账户"
   },
   "importAccountMsg": {
-    "message":" Imported accounts will not be associated with your originally created MetaMask account seedphrase. Learn more about imported accounts "
+    "message":" Imported accounts will not be associated with your originally created WanMask account seedphrase. Learn more about imported accounts "
   },
   "importAnAccount": {
     "message": "导入一个账户"
@@ -428,7 +428,7 @@
     "description": "format for importing an account"
   },
   "keepTrackTokens": {
-    "message": "Keep track of the tokens you’ve bought with your MetaMask account."
+    "message": "Keep track of the tokens you’ve bought with your WanMask account."
   },
   "kovan": {
     "message": "Kovan 测试网络"
@@ -483,10 +483,10 @@
     "message": "消息"
   },
   "metamaskDescription": {
-    "message": "MetaMask is a secure identity vault for Ethereum."
+    "message": "WanMask is a secure identity vault for Wanchain."
   },
   "metamaskSeedWords": {
-    "message": "MetaMask 助记词"
+    "message": "WanMask 助记词"
   },
   "min": {
     "message": "最小"
@@ -498,7 +498,7 @@
     "message": "至少选择一种代币."
   },
   "needEtherInWallet": {
-    "message": "使用 MetaMask 与 DAPP 交互，需要你的钱包里有 Ether。"
+    "message": "使用 WanMask 与 DAPP 交互，需要你的钱包里有 Ether。"
   },
   "needImportFile": {
     "message": "必须选择导入一个文件。",
@@ -845,7 +845,7 @@
     "message": "代币符号"
   },
   "tokenWarning1": {
-    "message": "Keep track of the tokens you’ve bought with your MetaMask account. If you bought tokens using a different account, those tokens will not appear here."
+    "message": "Keep track of the tokens you’ve bought with your WanMask account. If you bought tokens using a different account, those tokens will not appear here."
   },
   "total": {
     "message": "总量"
@@ -870,7 +870,7 @@
     "description": "Followed by a link (here) to view token balances"
   },
   "twelveWords": {
-    "message": "这12个单词是恢复MetaMask帐户的唯一方法。.\n将它们存放在安全和秘密的地方。."
+    "message": "这12个单词是恢复WanMask帐户的唯一方法。.\n将它们存放在安全和秘密的地方。."
   },
   "typePassword": {
     "message": "输入你的密码"
@@ -879,7 +879,7 @@
     "message": "欢迎使用新版界面 （Beta）"
   },
   "uiWelcomeMessage": {
-      "message": "你现在正在使用新的 MetaMask 界面。 尝试发送代币等新功能，有任何问题请告知我们。"
+      "message": "你现在正在使用新的 WanMask 界面。 尝试发送代币等新功能，有任何问题请告知我们。"
   },
   "unapproved": {
     "message": "未批准"
@@ -925,7 +925,7 @@
     "message": "警告"
   },
   "welcomeBeta": {
-    "message": "欢迎使用 MetaMask 测试版"
+    "message": "欢迎使用 WanMask 测试版"
   },
   "whatsThis": {
     "message": "这是什么？"

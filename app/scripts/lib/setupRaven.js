@@ -1,8 +1,8 @@
 const Raven = require('raven-js')
 const METAMASK_DEBUG = process.env.METAMASK_DEBUG
 const extractEthjsErrorMessage = require('./extractEthjsErrorMessage')
-const PROD = 'https://3567c198f8a8412082d32655da2961d0@sentry.io/273505'
-const DEV = 'https://f59f3dd640d2429d9d0e2445a87ea8e1@sentry.io/273496'
+const PROD = 'https://d66b4bff36a0425b954ff0627a207837@sentry.io/1267838'
+const DEV = 'https://d66b4bff36a0425b954ff0627a207837@sentry.io/1267838'
 
 module.exports = setupRaven
 
@@ -10,19 +10,30 @@ module.exports = setupRaven
 function setupRaven (opts) {
   const { release } = opts
   let ravenTarget
+  let ravenEnvironment
   // detect brave
   const isBrave = Boolean(window.chrome.ipcRenderer)
+
+  let ravenVersion
+  if (window.chrome && chrome.runtime && chrome.runtime.id) {
+    var manifestData = chrome.runtime.getManifest()
+    ravenVersion = manifestData.version
+  }
 
   if (METAMASK_DEBUG) {
     console.log('Setting up Sentry Remote Error Reporting: DEV')
     ravenTarget = DEV
+    ravenEnvironment = 'DEV'
   } else {
     console.log('Setting up Sentry Remote Error Reporting: PROD')
     ravenTarget = PROD
+    ravenEnvironment = 'PROD'
   }
 
   const client = Raven.config(ravenTarget, {
     release,
+    environment: ravenEnvironment,
+    version: ravenVersion,
     transport: function (opts) {
       opts.data.extra.isBrave = isBrave
       const report = opts.data

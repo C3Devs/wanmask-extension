@@ -233,7 +233,7 @@ ShapeshiftForm.prototype.updateCoin = function (event) {
   var coinOptions = this.props.buyView.formView.coinOptions
   var coin = document.getElementById('fromCoin').value
 
-  if (!coinOptions[coin.toUpperCase()] || coin.toUpperCase() === 'ETH') {
+  if (!coinOptions[coin.toUpperCase()] || coin.toUpperCase() === 'WAN') {
     var message = 'Not a valid coin'
     return props.dispatch(actions.displayWarning(message))
   } else {
@@ -246,7 +246,7 @@ ShapeshiftForm.prototype.handleLiveInput = function () {
   var coinOptions = this.props.buyView.formView.coinOptions
   var coin = document.getElementById('fromCoin').value
 
-  if (!coinOptions[coin.toUpperCase()] || coin.toUpperCase() === 'ETH') {
+  if (!coinOptions[coin.toUpperCase()] || coin.toUpperCase() === 'WAN') {
     return null
   } else {
     return props.dispatch(actions.pairUpdate(coin))

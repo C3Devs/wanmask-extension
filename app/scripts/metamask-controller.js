@@ -44,6 +44,7 @@ const Mutex = require('await-semaphore').Mutex
 const version = require('../manifest.json').version
 const BN = require('ethereumjs-util').BN
 const GWEI_BN = new BN('1000000000')
+const GWEI180_BN = new BN('180000000000')
 const percentile = require('percentile')
 const seedPhraseVerifier = require('./lib/seed-phrase-verifier')
 const log = require('loglevel')
@@ -1335,12 +1336,12 @@ module.exports = class MetamaskController extends EventEmitter {
 
     // Return 1 gwei if no blocks have been observed:
     if (recentBlocks.length === 0) {
-      return '0x' + GWEI_BN.toString(16)
+      return '0x' + GWEI180_BN.toString(16)
     }
 
     const lowestPrices = recentBlocks.map((block) => {
       if (!block.gasPrices || block.gasPrices.length < 1) {
-        return GWEI_BN
+        return GWEI180_BN
       }
       return block.gasPrices
       .map(hexPrefix => hexPrefix.substr(2))

@@ -3,7 +3,6 @@ const h = require('react-hyperscript')
 const inherits = require('util').inherits
 const connect = require('react-redux').connect
 const Identicon = require('./identicon')
-const prefixForNetwork = require('../../lib/etherscan-prefix-for-network')
 const selectors = require('../selectors')
 const actions = require('../actions')
 const { conversionUtil, multiplyCurrencies } = require('../conversion-util')
@@ -154,8 +153,7 @@ function navigateTo (url) {
 }
 
 function etherscanLinkFor (tokenAddress, address, network) {
-  const prefix = prefixForNetwork(network)
-  return `https://${prefix}etherscan.io/token/${tokenAddress}?a=${address}`
+  return `https://wanscan.io/token/${tokenAddress}?a=${address}`
 }
 
 function tokenFactoryFor (tokenAddress) {

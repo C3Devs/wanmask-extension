@@ -59,14 +59,14 @@ async function runSendFlowTest (assert, done) {
   reactTriggerChange(selectState[0])
 
   const sendScreenButton = await queryAsync($, 'button.btn-primary.hero-balance-button')
-  assert.ok(sendScreenButton[1], 'send screen button present')
-  sendScreenButton[1].click()
+  assert.ok(sendScreenButton[0], 'send screen button present')
+  sendScreenButton[0].click()
 
   const sendTitle = await queryAsync($, '.page-container__title')
-  assert.equal(sendTitle[0].textContent, 'Send ETH', 'Send screen title is correct')
+  assert.equal(sendTitle[0].textContent, 'Send WAN', 'Send screen title is correct')
 
   const sendCopy = await queryAsync($, '.page-container__subtitle')
-  assert.equal(sendCopy[0].textContent, 'Only send ETH to an Ethereum address.', 'Send screen has copy')
+  assert.equal(sendCopy[0].textContent, 'Only send WAN to an Wanchain address.', 'Send screen has copy')
 
   const sendFromField = await queryAsync($, '.send-v2__form-field')
   assert.ok(sendFromField[0], 'send screen has a from field')

@@ -305,7 +305,7 @@ export function updateTxDataAndCalculate (txData) {
       value, toCurrency: currentCurrency, conversionRate, numberOfDecimals: 2,
     })
     const ethTransactionAmount = getTransactionAmount({
-      value, toCurrency: 'ETH', conversionRate, numberOfDecimals: 6,
+      value, toCurrency: 'WAN', conversionRate, numberOfDecimals: 6,
     })
 
     dispatch(updateTransactionAmounts({ fiatTransactionAmount, ethTransactionAmount }))
@@ -322,7 +322,7 @@ export function updateTxDataAndCalculate (txData) {
     })
     const ethTransactionFee = getTransactionFee({
       value: hexGasTotal,
-      toCurrency: 'ETH',
+      toCurrency: 'WAN',
       numberOfDecimals: 6,
       conversionRate,
     })

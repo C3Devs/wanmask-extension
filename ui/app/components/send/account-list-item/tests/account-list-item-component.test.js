@@ -123,7 +123,7 @@ describe('AccountListItem Component', function () {
           convertedBalanceClassName: 'account-list-item__account-secondary-balance',
           convertedCurrency: 'mockCurrentyCurrency',
           primaryBalanceClassName: 'account-list-item__account-primary-balance',
-          primaryCurrency: 'ETH',
+          primaryCurrency: 'WAN',
           readOnly: true,
           value: 'mockBalance',
         }

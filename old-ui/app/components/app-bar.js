@@ -78,7 +78,7 @@ module.exports = class AppBar extends Component {
           zIndex: 12,
         },
       }, [
-        'Try the New MetaMask',
+        'Try the New WanMask',
         AppBar.renderSpace(),
         h('span.banner__link', {
           async onClick () {
@@ -232,58 +232,16 @@ module.exports = class AppBar extends Component {
       },
     }, [
       h(DropdownMenuItem, {
-        key: 'main',
+        key: 'wanchain',
         closeMenu: () => this.setState({ isNetworkMenuOpen: !isOpen }),
-        onClick: () => dispatch(actions.setProviderType('mainnet')),
-        style: {
-          fontSize: '18px',
-        },
-      }, [
-        h('.menu-icon.diamond'),
-        'Main Ethereum Network',
-        providerType === 'mainnet'
-          ? h('.check', '✓')
-          : null,
-      ]),
-      h(DropdownMenuItem, {
-        key: 'ropsten',
-        closeMenu: () => this.setState({ isNetworkMenuOpen: !isOpen }),
-        onClick: () => dispatch(actions.setProviderType('ropsten')),
-        style: {
-          fontSize: '18px',
-        },
-      }, [
-        h('.menu-icon.red-dot'),
-        'Ropsten Test Network',
-        providerType === 'ropsten'
-          ? h('.check', '✓')
-          : null,
-      ]),
-      h(DropdownMenuItem, {
-        key: 'kovan',
-        closeMenu: () => this.setState({ isNetworkMenuOpen: !isOpen }),
-        onClick: () => dispatch(actions.setProviderType('kovan')),
-        style: {
-          fontSize: '18px',
-        },
-      }, [
-        h('.menu-icon.hollow-diamond'),
-        'Kovan Test Network',
-        providerType === 'kovan'
-          ? h('.check', '✓')
-          : null,
-      ]),
-      h(DropdownMenuItem, {
-        key: 'rinkeby',
-        closeMenu: () => this.setState({ isNetworkMenuOpen: !isOpen }),
-        onClick: () => dispatch(actions.setProviderType('rinkeby')),
+        onClick: () => dispatch(actions.setProviderType('wanchain')),
         style: {
           fontSize: '18px',
         },
       }, [
         h('.menu-icon.golden-square'),
-        'Rinkeby Test Network',
-        providerType === 'rinkeby'
+        'Wanchain Network',
+        providerType === 'wanchain'
           ? h('.check', '✓')
           : null,
       ]),

@@ -25,7 +25,8 @@ function AccountImportSubview () {
 AccountImportSubview.prototype.getMenuItemTexts = function () {
   return [
     this.context.t('privateKey'),
-    this.context.t('jsonFile'),
+// TODO: Fix Json import
+//    this.context.t('jsonFile'),
   ]
 }
 

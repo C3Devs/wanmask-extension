@@ -2,6 +2,10 @@
 
 ## Current Develop Branch
 
+## 0.0.5 WNS Support Added
+
+## 0.0.4 Beta release for Wanchain. Below Changelog of MetaMask kept for Reference
+
 ## 4.9.3 Wed Aug 15 2018
 
 - (#4897)[https://github.com/MetaMask/metamask-extension/pull/4897]: QR code scan for recipient addresses.

@@ -1,6 +1,6 @@
 {
-  "name": "metamask-crx",
-  "version": "0.0.0",
+  "name": "wanmask-crx",
+  "version": "0.0.5",
   "public": false,
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "watch:test:unit": "nodemon --exec \"npm run test:unit\" ./test ./app ./ui",
     "test:unit": "cross-env METAMASK_ENV=test mocha --exit --require test/setup.js --recursive \"test/unit/**/*.js\" \"ui/app/**/*.test.js\" && dot-only-hunter",
     "test:single": "cross-env METAMASK_ENV=test mocha --require test/helper.js",
-    "test:integration": "npm run test:integration:build && npm run test:flat && npm run test:mascara",
+    "test:integration": "npm run test:integration:build && npm run test:flat && npm run test:mascara && npm run test:coverage",
     "test:integration:build": "gulp build:scss",
     "test:e2e:chrome": "shell-parallel -s 'npm run ganache:start' -x 'sleep 3 && npm run test:e2e:run:chrome'",
     "test:e2e:chrome:beta": "SELENIUM_BROWSER=chrome test/e2e/beta/run-all.sh",
@@ -216,6 +216,7 @@
     "textarea-caret": "^3.0.1",
     "valid-url": "^1.0.9",
     "vreme": "^3.0.2",
+    "wanchain-util": "^1.2.0",
     "web3": "^0.20.1",
     "web3-stream-provider": "^3.0.1",
     "webrtc-adapter": "^6.3.0",

@@ -12,8 +12,11 @@ const createJsonRpcClient = require('./createJsonRpcClient')
 const createLocalhostClient = require('./createLocalhostClient')
 const { createSwappableProxy, createEventEmitterProxy } = require('swappable-obj-proxy')
 
+const WANCHAIN_RPC_URL = 'https://mywanwallet.nl/api'
+
 const {
   ROPSTEN,
+  WANCHAIN,
   RINKEBY,
   KOVAN,
   MAINNET,
@@ -26,7 +29,7 @@ const METAMASK_DEBUG = process.env.METAMASK_DEBUG
 const testMode = (METAMASK_DEBUG || env === 'test')
 
 const defaultProviderConfig = {
-  type: testMode ? RINKEBY : MAINNET,
+  type: testMode ? WANCHAIN : WANCHAIN,
 }
 
 module.exports = class NetworkController extends EventEmitter {
@@ -103,7 +106,7 @@ module.exports = class NetworkController extends EventEmitter {
 
   async setProviderType (type) {
     assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
-    assert(INFURA_PROVIDER_TYPES.includes(type) || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
+    assert(INFURA_PROVIDER_TYPES.includes(type) || type === 'wanchain' || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
     const providerConfig = { type }
     this.providerConfig = providerConfig
   }
@@ -143,6 +146,8 @@ module.exports = class NetworkController extends EventEmitter {
     // url-based rpc endpoints
     } else if (type === 'rpc') {
       this._configureStandardProvider({ rpcUrl: rpcTarget })
+    } else if (type === 'wanchain') {
+      this._configureStandardProvider({ rpcUrl: WANCHAIN_RPC_URL })
     } else {
       throw new Error(`NetworkController - _configureProvider - unknown type "${type}"`)
     }

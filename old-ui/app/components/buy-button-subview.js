@@ -130,13 +130,30 @@ BuyButtonSubview.prototype.headerSubview = function () {
 BuyButtonSubview.prototype.primarySubview = function () {
   const props = this.props
   const network = props.network
-
   switch (network) {
     case 'loading':
       return
 
-    case '1':
+    case '0':
       return this.mainnetSubview()
+
+    // Wanchain
+    case '1':
+      return (
+        h('div.flex-column', {
+          style: {
+            alignItems: 'center',
+            margin: '20px 50px',
+          },
+        }, [
+          h('button.text-transform-uppercase', {
+            onClick: () => this.props.dispatch(actions.buyEth({ network })),
+            style: {
+              marginTop: '15px',
+            },
+          }, 'Wanchain Faucet'),
+      ])
+    )
 
     // Ropsten, Rinkeby, Kovan
     case '3':

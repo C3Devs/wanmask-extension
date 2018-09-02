@@ -1,5 +1,7 @@
 const extension = require('extensionizer')
-const explorerLink = require('etherscan-link').createExplorerLink
+const explorerLink = function (hash, network) {
+  return `http://wanscan.io/tx/${hash}`
+}
 
 class ExtensionPlatform {
 

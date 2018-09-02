@@ -125,7 +125,7 @@ ConfigScreen.prototype.render = function () {
                   if (err) {
                     state.dispatch(actions.displayWarning('Error in retrieving state logs.'))
                   } else {
-                    exportAsFile('MetaMask State Logs.json', result)
+                    exportAsFile('WanMask State Logs.json', result)
                   }
                 })
               },
@@ -247,6 +247,11 @@ function currentProviderDisplay (metamaskState) {
     case 'rinkeby':
       title = 'Current Network'
       value = 'Rinkeby Test Network'
+      break
+
+    case 'wanchain':
+      title = 'Current Network'
+      value = 'Wanchain Network'
       break
 
     default:
