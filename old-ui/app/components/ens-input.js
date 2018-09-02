@@ -4,7 +4,6 @@ const inherits = require('util').inherits
 const debounce = require('debounce')
 const copyToClipboard = require('copy-to-clipboard')
 const ENS = require('ethjs-ens')
-const networkMap = require('ethjs-ens/lib/network-map.json')
 const ensRE = /.+\..+$/
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 const log = require('loglevel')
@@ -22,8 +21,6 @@ EnsInput.prototype.render = function () {
 
   function onInputChange () {
     const network = this.props.network
-    const networkHasEnsSupport = getNetworkEnsSupport(network)
-    if (!networkHasEnsSupport) return
 
     const recipient = document.querySelector('input[name="address"]').value
     if (recipient.match(ensRE) === null) {
@@ -78,14 +75,12 @@ EnsInput.prototype.render = function () {
 
 EnsInput.prototype.componentDidMount = function () {
   const network = this.props.network
-  const networkHasEnsSupport = getNetworkEnsSupport(network)
   this.setState({ ensResolution: ZERO_ADDRESS })
 
-  if (networkHasEnsSupport) {
-    const provider = global.ethereumProvider
-    this.ens = new ENS({ provider, network })
-    this.checkName = debounce(this.lookupEnsName.bind(this), 200)
-  }
+  const provider = global.ethereumProvider
+  const registryAddress = "ee8d418fd33e69782015ea4313dfd8eb7b1b91ce"
+  this.ens = new ENS({ provider, registryAddress })
+  this.checkName = debounce(this.lookupEnsName.bind(this), 200)
 }
 
 EnsInput.prototype.lookupEnsName = function () {
@@ -169,8 +164,4 @@ EnsInput.prototype.ensIconContents = function (recipient) {
       },
     })
   }
-}
-
-function getNetworkEnsSupport (network) {
-  return Boolean(networkMap[network])
 }

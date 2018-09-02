@@ -91,7 +91,7 @@ function isValidAddress (address) {
 }
 
 function isValidENSAddress (address) {
-  return address.match(/^.{7,}\.(eth|test)$/)
+  return address.match(/^.{6,}\.(wan|test)$/)
 }
 
 function isInvalidChecksumAddress (address) {

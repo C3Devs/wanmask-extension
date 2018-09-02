@@ -12,7 +12,7 @@ function ens (name, provider) {
   const contract = new EthContract(eth)
   const Registrar = contract(registrarAbi).at(getRegistrar(provider.type))
   return new Promise((resolve, reject) => {
-    if (provider.type === 'mainnet' || provider.type === 'ropsten') {
+    if (provider.type === 'wanchain') {
       Registrar.resolver(hash).then((address) => {
         if (address === '0x0000000000000000000000000000000000000000') {
           reject(null)
@@ -38,10 +38,6 @@ function ens (name, provider) {
 
 function getProvider (type) {
   switch (type) {
-    case 'mainnet':
-      return 'https://mainnet.infura.io/'
-    case 'ropsten':
-      return 'https://ropsten.infura.io/'
     case 'wanchain':
       return 'https://mywanwallet.nl/api/'
     default:
@@ -51,10 +47,8 @@ function getProvider (type) {
 
 function getRegistrar (type) {
   switch (type) {
-    case 'mainnet':
-      return '0x314159265dd8dbb310642f98f50c066173c1259b'
-    case 'ropsten':
-      return '0x112234455c3a32fd11230c42e7bccd4a84e02010'
+    case 'wanchain':
+      return '0xee8d418fd33e69782015ea4313dfd8eb7b1b91ce'
     default:
       return '0x0000000000000000000000000000000000000000'
   }
@@ -63,7 +57,7 @@ function getRegistrar (type) {
 module.exports.resolve = function (name, provider) {
   const path = name.split('.')
   const topLevelDomain = path[path.length - 1]
-  if (topLevelDomain === 'eth' || topLevelDomain === 'test') {
+  if (topLevelDomain === 'wan' || topLevelDomain === 'test') {
     return ens(name, provider)
   } else {
     return new Promise((resolve, reject) => {
