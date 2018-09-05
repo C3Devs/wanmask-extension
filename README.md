@@ -1,5 +1,5 @@
 # WanMask Browser Extension
-[![Build Status][travis-image]][travis-url] [![dependency status][dep-image]][dep-url][![Coverage Status][coveralls-image]][coveralls-url]
+[![CircleCI](https://circleci.com/gh/TyrionShared/wanmask-extension.svg?style=svg)](https://circleci.com/gh/TyrionShared/wanmask-extension) [![dependency status][dep-image]][dep-url][![Coverage Status][coveralls-image]][coveralls-url]
 
 ## Support
 
@@ -40,9 +40,7 @@ npm run dist
 ```
 compressed builds can be found in `/builds` once they're built.
 
-[travis-image]: https://travis-ci.org/tyrion70/metamask-extension.svg
-[travis-url]: https://travis-ci.org/tyrion70/metamask-extension
-[dep-image]: https://david-dm.org/tyrion70/metamask-extension.svg
-[dep-url]: https://david-dm.org/tyrion70/metamask-extension
-[coveralls-image]: https://coveralls.io/repos/github/tyrion70/metamask-extension/badge.svg?branch=WanMask
-[coveralls-url]: https://coveralls.io/github/tyrion70/metamask-extension?branch=WanMask
+[dep-image]: https://david-dm.org/TyrionShared/wanmask-extension.svg
+[dep-url]: https://david-dm.org/TyrionShared/wanmask-extension
+[coveralls-image]: https://coveralls.io/repos/github/TyrionShared/wanmask-extension/badge.svg
+[coveralls-url]: https://coveralls.io/github/TyrionShared/wanmask-extension

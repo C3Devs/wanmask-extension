@@ -25,11 +25,25 @@ const uglify = require('gulp-uglify-es').default
 const pify = require('pify')
 const gulpMultiProcess = require('gulp-multi-process')
 const endOfStream = pify(require('end-of-stream'))
+const bump = require('gulp-bump')
 
 function gulpParallel (...args) {
   return function spawnGulpChildProcess (cb) {
     return gulpMultiProcess(args, cb, true)
   }
+}
+
+// Bumps Version Number
+function bumpFunc (done, t) {
+  gulp.src(['./app/manifest.json'])
+    .pipe(bump({ type: t }))
+    .pipe(gulp.dest('./app'))
+
+  gulp.src(['./package.json'])
+    .pipe(bump({ type: t }))
+    .pipe(gulp.dest('./'))
+
+  done()
 }
 
 const browserPlatforms = [
@@ -428,6 +442,10 @@ gulp.task('dist',
     'zip'
   )
 )
+
+gulp.task('bump-major', function (done) { return bumpFunc(done, 'major') })
+gulp.task('bump-minor', function (done) { return bumpFunc(done, 'minor') })
+gulp.task('bump', function (done) { return bumpFunc(done, 'patch') })
 
 // task generators
 

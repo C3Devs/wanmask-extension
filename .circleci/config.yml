@@ -282,27 +282,34 @@ jobs:
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
-      - run:
-          name: build:announce
-          command: ./development/metamaskbot-build-announce.js
-
+#      - run:
+#          name: build:announce
+#          command: ./development/metamaskbot-build-announce.js
   job-publish-release:
     docker:
-      - image: circleci/node:8.11.3-browsers
+      - image: circleci/golang:1.8
     steps:
       - checkout
       - attach_workspace:
           at: .
+#      - run:
+#          name: sentry sourcemaps upload
+#          command: npm run sentry:publish
+#      - run:
+#          name: github gh-pages docs publish
+#          command: >
+#            git config user.name metamaskbot
+#            git config user.email admin@metamask.io
+#            gh-pages -d docs/jsdocs
       - run:
-          name: sentry sourcemaps upload
-          command: npm run sentry:publish
-      - run:
-          name: github gh-pages docs publish
-          command: >
-            git config user.name metamaskbot
-            git config user.email admin@metamask.io
-            gh-pages -d docs/jsdocs
-
+          name: "Publish Release on GitHub"
+          command: |
+            go get github.com/tcnksm/ghr
+            VERSION=v$(jq -r '.version' package.json)
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./builds/
+      - store_artifacts:
+          path: releases
+          destination: releases
   test-unit:
     docker:
       - image: circleci/node:8.11.3-browsers
