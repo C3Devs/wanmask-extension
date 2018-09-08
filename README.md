@@ -1,5 +1,8 @@
 # WanMask Browser Extension
-[![CircleCI](https://circleci.com/gh/C3Devs/wanmask-extension.svg?style=svg)](https://circleci.com/gh/C3Devs/wanmask-extension) [![dependency status][dep-image]][dep-url][![Coverage Status][coveralls-image]][coveralls-url]
+
+[![CircleCI][circle-image]][circle-url]
+[![dependency status][dep-image]][dep-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
 
 ## Support
 
@@ -40,7 +43,9 @@ npm run dist
 ```
 compressed builds can be found in `/builds` once they're built.
 
+[circle-image]: https://circleci.com/gh/C3Devs/wanmask-extension.svg?style=svg
+[circle-url]: https://circleci.com/gh/C3Devs/wanmask-extension
 [dep-image]: https://david-dm.org/C3Devs/wanmask-extension.svg
 [dep-url]: https://david-dm.org/C3Devs/wanmask-extension
-[coveralls-image]: https://coveralls.io/repos/github/C3Devs/wanmask-extension/badge.svg
-[coveralls-url]: https://coveralls.io/github/C3Devs/wanmask-extension
+[coveralls-image]: https://coveralls.io/repos/github/C3Devs/wanmask-extension/badge.svg?branch=develop
+[coveralls-url]: https://coveralls.io/github/C3Devs/wanmask-extension?branch=develop
