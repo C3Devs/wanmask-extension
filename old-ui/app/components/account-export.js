@@ -4,7 +4,7 @@ const inherits = require('util').inherits
 const exportAsFile = require('../util').exportAsFile
 const copyToClipboard = require('copy-to-clipboard')
 const actions = require('../../../ui/app/actions')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const connect = require('react-redux').connect
 
 module.exports = connect(mapStateToProps)(ExportAccountView)

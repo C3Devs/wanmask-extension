@@ -1,7 +1,7 @@
 const Component = require('react').Component
 const h = require('react-hyperscript')
 const inherits = require('util').inherits
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const BN = ethUtil.BN
 const extend = require('xtend')
 

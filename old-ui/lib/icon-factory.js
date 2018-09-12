@@ -1,6 +1,6 @@
 var iconFactory
-const isValidAddress = require('ethereumjs-util').isValidAddress
-const toChecksumAddress = require('wanchain-util').toChecksumAddress
+const isValidAddress = require('wanchainjs-util').isValidAddress
+const toChecksumAddress = require('wanchainjs-util').toChecksumAddress
 const contractMap = require('eth-contract-metadata')
 
 module.exports = function (jazzicon) {

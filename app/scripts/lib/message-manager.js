@@ -1,6 +1,6 @@
 const EventEmitter = require('events')
 const ObservableStore = require('obs-store')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const createId = require('./random-id')
 
 /**

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ethUtil from 'ethereumjs-util'
+import ethUtil from 'wanchainjs-util'
 import ConfirmTransactionBase from '../confirm-transaction-base'
 
 export default class ConfirmDeployContract extends Component {

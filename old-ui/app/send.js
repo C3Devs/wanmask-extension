@@ -10,7 +10,7 @@ const addressSummary = require('./util').addressSummary
 const isHex = require('./util').isHex
 const EthBalance = require('./components/eth-balance')
 const EnsInput = require('./components/ens-input')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 module.exports = connect(mapStateToProps)(SendTransactionScreen)
 
 function mapStateToProps (state) {

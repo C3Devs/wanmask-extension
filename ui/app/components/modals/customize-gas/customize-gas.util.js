@@ -1,4 +1,4 @@
-import ethUtil from 'ethereumjs-util'
+import ethUtil from 'wanchainjs-util'
 import { conversionUtil } from '../../../conversion-util'
 
 export function getDecimalGasLimit (hexGasLimit) {

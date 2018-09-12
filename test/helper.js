@@ -1,4 +1,4 @@
-const Ganache = require('ganache-core')
+const Ganache = require('wanache-core')
 const nock = require('nock')
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-15'
@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() })
 // disallow promises from swallowing errors
 enableFailureOnUnhandledPromiseRejection()
 
-// ganache server
+// wanache server
 const server = Ganache.server()
 server.listen(8545, () => {
   console.log('Ganache Testrpc is running on "http://localhost:8545"')

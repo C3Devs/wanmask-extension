@@ -3,7 +3,7 @@ const {PureComponent} = require('react')
 const h = require('react-hyperscript')
 const {qrcode: qrCode} = require('qrcode-npm')
 const {connect} = require('react-redux')
-const {isHexPrefixed} = require('ethereumjs-util')
+const {isHexPrefixed} = require('wanchainjs-util')
 const actions = require('../../ui/app/actions')
 const CopyButton = require('./components/copyButton')
 

@@ -6,7 +6,7 @@ const version = 25
 normalizes txParams on unconfirmed txs
 
 */
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const clone = require('clone')
 
 module.exports = {

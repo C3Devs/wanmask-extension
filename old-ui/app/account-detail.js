@@ -9,7 +9,7 @@ const Identicon = require('./components/identicon')
 const EthBalance = require('./components/eth-balance')
 const TransactionList = require('./components/transaction-list')
 const ExportAccountView = require('./components/account-export')
-const wanUtil = require('wanchain-util')
+const ethUtil = require('wanchainjs-util')
 
 const EditableLabel = require('./components/editable-label')
 const TabBar = require('./components/tab-bar')
@@ -45,7 +45,7 @@ function AccountDetailScreen () {
 AccountDetailScreen.prototype.render = function () {
   var props = this.props
   var selected = props.address || Object.keys(props.accounts)[0]
-  var checksumAddress = selected && wanUtil.toChecksumAddress(selected)
+  var checksumAddress = selected && ethUtil.toChecksumAddress(selected)
   var identity = props.identities[selected]
   var account = props.accounts[selected]
   const { network, conversionRate, currentCurrency } = props
