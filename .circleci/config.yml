@@ -283,6 +283,15 @@ jobs:
           path: test-artifacts
           destination: test-artifacts
 #      - run:
+#          name: sentry sourcemaps upload
+#          command: npm run sentry:publish
+      - run:
+          name: github gh-pages docs publish
+          command: |
+            git config user.name wanmaskbot
+            git config user.email admin@wanmask.io
+            gh-pages -d docs/jsdocs
+#      - run:
 #          name: build:announce
 #          command: ./development/metamaskbot-build-announce.js
   job-publish-release:
@@ -292,15 +301,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-#      - run:
-#          name: sentry sourcemaps upload
-#          command: npm run sentry:publish
-      - run:
-          name: github gh-pages docs publish
-          command: |
-            git config user.name wanmaskbot
-            git config user.email admin@wanmask.io
-            gh-pages -d docs/jsdocs
       - run:
           name: "Publish Release on GitHub"
           command: |
