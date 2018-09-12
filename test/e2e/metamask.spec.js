@@ -338,7 +338,7 @@ describe('Wanmask popup page', function () {
 
     it('checks the token balance', async function () {
       const tokenBalance = await driver.findElement(By.css('#app-content > div > div.app-primary.from-left > div > section > div.full-flex-height > ol > li:nth-child(2) > h3'))
-      assert.equal(await tokenBalance.getText(), '0 WETH')
+      assert.equal(await tokenBalance.getText(), '100 TST')
     })
     /**/
   })
