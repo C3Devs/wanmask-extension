@@ -77,9 +77,9 @@ deployButton.addEventListener('click', async function (event) {
 sendButton.addEventListener('click', function (event) {
   web3.eth.sendTransaction({
     from: web3.eth.accounts[0],
-    to: '0x2f318C334780961FB129D2a6c30D0763d9a5C970',
+    to: '0x2f318c334780961fb129d2a6c30d0763d9a5c970',
     value: '0x29a2241af62c0000',
-    gas: 21000,
+    gas: 53000,
     gasPrice: 20000000000,
   }, (result) => {
     console.log(result)
@@ -112,7 +112,7 @@ createToken.addEventListener('click', async function (event) {
 
         transferTokens.addEventListener('click', function (event) {
           console.log(`event`, event)
-          contract.transfer('0x2f318C334780961FB129D2a6c30D0763d9a5C970', '7', {
+          contract.transfer('0x2f318c334780961fb129d2a6c30d0763d9a5c970', '7', {
             from: web3.eth.accounts[0],
             to: contract.address,
             data: '0xa9059cbb0000000000000000000000002f318C334780961FB129D2a6c30D0763d9a5C970000000000000000000000000000000000000000000000000000000000000000a',

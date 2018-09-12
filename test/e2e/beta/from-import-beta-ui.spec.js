@@ -201,6 +201,7 @@ describe('Using MetaMask with an existing account', function () {
       await delay(regularDelayMs)
 
       const [address] = await findElements(driver, By.css('input.qr-ellip-address'))
+      await delay(5000)
       assert.equal(await address.getAttribute('value'), testAddress)
 
       await driver.executeScript("document.querySelector('.account-modal-close').click()")
@@ -286,7 +287,7 @@ describe('Using MetaMask with an existing account', function () {
     })
   })
 /* TODO: make wan ganache */
-  describe('Send ETH from inside MetaMask', () => {
+  describe('Send WAN from inside MetaMask', () => {
     it('starts to send a transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
       await sendButton.click()
@@ -294,7 +295,7 @@ describe('Using MetaMask with an existing account', function () {
 
       const inputAddress = await findElement(driver, By.css('input[placeholder="Recipient Address"]'))
       const inputAmount = await findElement(driver, By.css('.currency-display__input'))
-      await inputAddress.sendKeys('0x2f318C334780961FB129D2a6c30D0763d9a5C970')
+      await inputAddress.sendKeys('0x2f318c334780961fb129d2a6c30d0763d9a5c970')
       await inputAmount.sendKeys('1')
 
       // Set the gas limit
@@ -326,7 +327,7 @@ describe('Using MetaMask with an existing account', function () {
 
       const txValues = await findElements(driver, By.css('.tx-list-value'))
       assert.equal(txValues.length, 1)
-      assert.equal(await txValues[0].getText(), '1 ETH')
+      assert.equal(await txValues[0].getText(), '1 WAN')
     })
   })
 /**/
@@ -372,7 +373,7 @@ describe('Using MetaMask with an existing account', function () {
       await delay(regularDelayMs)
     })
 
-    /* TODO: Fix trezor and add ledger tests */
+    /* TODO: Fix trezor and add ledger tests
     it('should open the TREZOR Connect popup', async () => {
       const trezorButton = await findElements(driver, By.css('.hw-connect__btn'))
       await trezorButton[1].click()
@@ -389,7 +390,7 @@ describe('Using MetaMask with an existing account', function () {
           assert.equal(allWindows.length, 1)
       }
     })
-
+    */
     it('should show the "Browser not supported" screen for non Chrome browsers', async () => {
       if (process.env.SELENIUM_BROWSER !== 'chrome') {
         const title = await findElements(driver, By.xpath(`//h3[contains(text(), 'Your Browser is not supported...')]`))

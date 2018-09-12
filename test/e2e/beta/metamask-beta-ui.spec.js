@@ -398,7 +398,7 @@ describe('MetaMask', function () {
     })
   })
 /* TODO: make wan ganache */
-  describe('Send ETH from inside MetaMask', () => {
+  describe('Send WAN from inside MetaMask', () => {
     it('starts to send a transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
       await sendButton.click()
@@ -406,7 +406,7 @@ describe('MetaMask', function () {
 
       const inputAddress = await findElement(driver, By.css('input[placeholder="Recipient Address"]'))
       const inputAmount = await findElement(driver, By.css('.currency-display__input'))
-      await inputAddress.sendKeys('0x2f318C334780961FB129D2a6c30D0763d9a5C970')
+      await inputAddress.sendKeys('0x2f318c334780961fb129d2a6c30d0763d9a5c970')
       await inputAmount.sendKeys('1')
 
       const inputValue = await inputAmount.getAttribute('value')
@@ -442,12 +442,12 @@ describe('MetaMask', function () {
 
       if (process.env.SELENIUM_BROWSER !== 'firefox') {
         const txValues = await findElement(driver, By.css('.tx-list-value'))
-        await driver.wait(until.elementTextMatches(txValues, /1\sETH/), 10000)
+        await driver.wait(until.elementTextMatches(txValues, /1\sWAN/), 10000)
       }
     })
   })
 
-  describe('Send ETH from dapp', () => {
+  describe('Send WAN from dapp', () => {
     it('starts a send transaction inside the dapp', async () => {
       await openNewPage(driver, 'http://127.0.0.1:8080/')
       await delay(regularDelayMs)
@@ -487,7 +487,7 @@ describe('MetaMask', function () {
       await driver.wait(until.elementTextMatches(txStatuses[0], /Confirmed/))
 
       const txValues = await findElement(driver, By.css('.tx-list-value'))
-      await driver.wait(until.elementTextMatches(txValues, /3\sETH/), 10000)
+      await driver.wait(until.elementTextMatches(txValues, /3\sWAN/), 10000)
     })
   })
 
@@ -544,7 +544,7 @@ describe('MetaMask', function () {
       await delay(regularDelayMs)
     })
 
-    it('calls and confirms a contract method where ETH is sent', async () => {
+    it('calls and confirms a contract method where WAN is sent', async () => {
       await driver.switchTo().window(dapp)
       await delay(regularDelayMs)
 
@@ -563,7 +563,7 @@ describe('MetaMask', function () {
 
       await findElements(driver, By.css('.tx-list-pending-item-container'))
       const [txListValue] = await findElements(driver, By.css('.tx-list-value'))
-      await driver.wait(until.elementTextMatches(txListValue, /4\sETH/), 10000)
+      await driver.wait(until.elementTextMatches(txListValue, /4\sWAN/), 10000)
       await txListValue.click()
       await delay(regularDelayMs)
 
@@ -595,14 +595,14 @@ describe('MetaMask', function () {
       await driver.wait(until.elementTextMatches(txStatuses[0], /Confirmed/))
 
       const txValues = await findElement(driver, By.css('.tx-list-value'))
-      await driver.wait(until.elementTextMatches(txValues, /4\sETH/), 10000)
+      await driver.wait(until.elementTextMatches(txValues, /4\sWAN/), 10000)
 
       const txAccounts = await findElements(driver, By.css('.tx-list-account'))
       const firstTxAddress = await txAccounts[0].getText()
       assert(firstTxAddress.match(/^0x\w{8}\.{3}\w{4}$/))
     })
 
-    it('calls and confirms a contract method where ETH is received', async () => {
+    it('calls and confirms a contract method where WAN is received', async () => {
       await driver.switchTo().window(dapp)
       await delay(regularDelayMs)
 
@@ -625,19 +625,19 @@ describe('MetaMask', function () {
       await driver.wait(until.elementTextMatches(txStatuses[0], /Confirmed/))
 
       const txValues = await findElement(driver, By.css('.tx-list-value'))
-      await driver.wait(until.elementTextMatches(txValues, /0\sETH/), 10000)
+      await driver.wait(until.elementTextMatches(txValues, /0\sWAN/), 10000)
 
       await closeAllWindowHandlesExcept(driver, [extension, dapp])
       await driver.switchTo().window(extension)
     })
 
-    it('renders the correct ETH balance', async () => {
+    it('renders the correct WAN balance', async () => {
       const balance = await findElement(driver, By.css('.tx-view .balance-display .token-amount'))
       await delay(regularDelayMs)
       if (process.env.SELENIUM_BROWSER !== 'firefox') {
-        await driver.wait(until.elementTextMatches(balance, /^92.*ETH.*$/), 10000)
+        await driver.wait(until.elementTextMatches(balance, /^92.*WAN.*$/), 10000)
         const tokenAmount = await balance.getText()
-        assert.ok(/^92.*ETH.*$/.test(tokenAmount))
+        assert.ok(/^92.*WAN.*$/.test(tokenAmount))
         await delay(regularDelayMs)
       }
     })
@@ -723,7 +723,7 @@ describe('MetaMask', function () {
 
       const inputAddress = await findElement(driver, By.css('input[placeholder="Recipient Address"]'))
       const inputAmount = await findElement(driver, By.css('.currency-display__input'))
-      await inputAddress.sendKeys('0x2f318C334780961FB129D2a6c30D0763d9a5C970')
+      await inputAddress.sendKeys('0x2f318c334780961fb129d2a6c30d0763d9a5c970')
       await inputAmount.sendKeys('50')
 
       // Set the gas limit
@@ -905,7 +905,7 @@ describe('MetaMask', function () {
 
       const [txListItem] = await findElements(driver, By.css('.tx-list-item'))
       const [txListValue] = await findElements(driver, By.css('.tx-list-value'))
-      await driver.wait(until.elementTextMatches(txListValue, /0\sETH/))
+      await driver.wait(until.elementTextMatches(txListValue, /0\sWAN/))
       await txListItem.click()
       await delay(regularDelayMs)
     })
@@ -977,7 +977,7 @@ describe('MetaMask', function () {
 
     it('finds the transaction in the transactions list', async function () {
       const txValues = await findElements(driver, By.css('.tx-list-value'))
-      await driver.wait(until.elementTextMatches(txValues[0], /0\sETH/))
+      await driver.wait(until.elementTextMatches(txValues[0], /0\sWAN/))
       const txStatuses = await findElements(driver, By.css('.tx-list-status'))
       await driver.wait(until.elementTextMatches(txStatuses[0], /Confirmed/))
     })
