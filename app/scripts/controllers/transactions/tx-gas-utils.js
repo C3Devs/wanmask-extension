@@ -4,7 +4,7 @@ const {
   BnMultiplyByFraction,
   bnToHex,
 } = require('../../lib/util')
-const { addHexPrefix } = require('ethereumjs-util')
+const { addHexPrefix } = require('wanchainjs-util')
 const SIMPLE_GAS_COST = '0x5208' // Hex for 21000, cost of a simple send.
 
 /**

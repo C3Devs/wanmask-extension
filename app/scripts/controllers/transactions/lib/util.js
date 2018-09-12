@@ -1,7 +1,7 @@
 const {
   addHexPrefix,
   isValidAddress,
-} = require('ethereumjs-util')
+} = require('wanchainjs-util')
 
 /**
 @module

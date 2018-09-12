@@ -295,12 +295,12 @@ jobs:
 #      - run:
 #          name: sentry sourcemaps upload
 #          command: npm run sentry:publish
-#      - run:
-#          name: github gh-pages docs publish
-#          command: >
-#            git config user.name metamaskbot
-#            git config user.email admin@metamask.io
-#            gh-pages -d docs/jsdocs
+      - run:
+          name: github gh-pages docs publish
+          command: >
+            git config user.name wanmaskbot
+            git config user.email admin@wanmask.io
+            gh-pages -d docs/jsdocs
       - run:
           name: "Publish Release on GitHub"
           command: |

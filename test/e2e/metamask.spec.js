@@ -1,13 +1,13 @@
 const path = require('path')
 const assert = require('assert')
-// const { By, Key, until } = require('selenium-webdriver')
-const { By, Key } = require('selenium-webdriver')
+const { By, Key, until } = require('selenium-webdriver')
+// const { By, Key } = require('selenium-webdriver')
 const { delay, createModifiedTestBuild, setupBrowserAndExtension, verboseReportOnFailure } = require('./func')
 
 describe('Wanmask popup page', function () {
   const browser = process.env.SELENIUM_BROWSER
-  // let driver, accountAddress, tokenAddress, extensionUri
-  let driver, accountAddress, extensionUri
+  let driver, accountAddress, tokenAddress, extensionUri
+  // let driver, accountAddress, extensionUri
 
   this.timeout(0)
 
@@ -219,7 +219,7 @@ describe('Wanmask popup page', function () {
       await delay(200)
     })
 
-    /* TODO: make wan ganache
+    /* TODO: make wan ganache */
     it('sends transaction', async function () {
      const sendButton = await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > div > div.flex-row > button:nth-child(4)'))
      assert.equal(await sendButton.getText(), 'SEND')
@@ -252,11 +252,11 @@ describe('Wanmask popup page', function () {
       const tranasactionAmount = await driver.findElement(By.css('#app-content > div > div.app-primary.from-left > div > section > section > div > div > div > div.ether-balance.ether-balance-amount > div > div > div > div:nth-child(1)'))
       assert.equal(await tranasactionAmount.getText(), '10.0')
     })
-    */
+    /**/
   })
 
   describe('Token Factory', function () {
-    /* TODO: make wan ganache
+    /* TODO: make wan ganache */
 
     it('navigates to token factory', async function () {
       await driver.get('http://tokenfactory.surge.sh/')
@@ -304,7 +304,7 @@ describe('Wanmask popup page', function () {
       await driver.get(extensionUri)
       await delay(700)
     })
-    */
+    /**/
 
   })
 
@@ -327,7 +327,7 @@ describe('Wanmask popup page', function () {
       const addTokenScreen = await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > div.section-title.flex-row.flex-center > h2'))
       assert.equal(await addTokenScreen.getText(), 'ADD TOKEN')
     })
-    /* TODO: make wan ganache
+    /* TODO: make wan ganache */
     it('adds token parameters', async function () {
       const tokenContractAddress = await driver.findElement(By.css('#token-address'))
       await tokenContractAddress.sendKeys(tokenAddress)
@@ -338,9 +338,9 @@ describe('Wanmask popup page', function () {
 
     it('checks the token balance', async function () {
       const tokenBalance = await driver.findElement(By.css('#app-content > div > div.app-primary.from-left > div > section > div.full-flex-height > ol > li:nth-child(2) > h3'))
-      assert.equal(await tokenBalance.getText(), '0 WETH')
+      assert.equal(await tokenBalance.getText(), '100 TST')
     })
-    */
+    /**/
   })
 
   async function setProviderType (type) {

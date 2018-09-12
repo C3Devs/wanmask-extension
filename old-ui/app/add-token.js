@@ -6,7 +6,7 @@ const actions = require('../../ui/app/actions')
 const Tooltip = require('./components/tooltip.js')
 
 
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const abi = require('human-standard-token-abi')
 const Eth = require('ethjs-query')
 const EthContract = require('ethjs-contract')

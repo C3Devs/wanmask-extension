@@ -9,7 +9,7 @@ const connect = require('react-redux').connect
 const Dropdown = require('./dropdown').Dropdown
 const DropdownMenuItem = require('./dropdown').DropdownMenuItem
 const Identicon = require('./identicon')
-const wanUtil = require('wanchain-util')
+const ethUtil = require('wanchainjs-util')
 const copyToClipboard = require('copy-to-clipboard')
 
 class AccountDropdowns extends Component {
@@ -215,7 +215,7 @@ class AccountDropdowns extends Component {
             closeMenu: () => {},
             onClick: () => {
               const { selected } = this.props
-              const checkSumAddress = selected && wanUtil.toChecksumAddress(selected)
+              const checkSumAddress = selected && ethUtil.toChecksumAddress(selected)
               copyToClipboard(checkSumAddress)
             },
           },

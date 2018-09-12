@@ -1,6 +1,6 @@
 const Wallet = require('ethereumjs-wallet')
 const importers = require('ethereumjs-wallet/thirdparty')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 
 const accountImporter = {
 

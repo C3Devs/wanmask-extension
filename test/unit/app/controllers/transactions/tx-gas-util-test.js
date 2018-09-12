@@ -1,5 +1,5 @@
 const assert = require('assert')
-const Transaction = require('ethereumjs-tx')
+const Transaction = require('wanchainjs-tx')
 
 
 const { hexToBn, bnToHex } = require('../../../../../app/scripts/lib/util')

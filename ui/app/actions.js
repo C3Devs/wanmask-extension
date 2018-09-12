@@ -7,7 +7,7 @@ const {
   calcTokenBalance,
   estimateGas,
 } = require('./components/send/send.utils')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const { fetchLocale } = require('../i18n-helper')
 const log = require('loglevel')
 const { ENVIRONMENT_TYPE_NOTIFICATION } = require('../../app/scripts/lib/enums')

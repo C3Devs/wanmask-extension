@@ -1,5 +1,4 @@
-const ethUtil = require('ethereumjs-util')
-const wanUtil = require('wanchain-util')
+const ethUtil = require('wanchainjs-util')
 
 var valueTable = {
   wei: '1000000000000000000',
@@ -49,7 +48,7 @@ function valuesFor (obj) {
 
 function addressSummary (address, firstSegLength = 10, lastSegLength = 4, includeHex = true) {
   if (!address) return ''
-  let checked = wanUtil.toChecksumAddress(address)
+  let checked = ethUtil.toChecksumAddress(address)
   if (!includeHex) {
     checked = ethUtil.stripHexPrefix(checked)
   }
@@ -58,20 +57,20 @@ function addressSummary (address, firstSegLength = 10, lastSegLength = 4, includ
 
 function miniAddressSummary (address) {
   if (!address) return ''
-  var checked = wanUtil.toChecksumAddress(address)
+  var checked = ethUtil.toChecksumAddress(address)
   return checked ? checked.slice(0, 4) + '...' + checked.slice(-4) : '...'
 }
 
 function isValidAddress (address) {
   var prefixed = ethUtil.addHexPrefix(address)
   if (address === '0x0000000000000000000000000000000000000000') return false
-  return (isAllOneCase(prefixed) && wanUtil.isValidAddress(prefixed)) || wanUtil.isValidChecksumAddress(prefixed)
+  return (isAllOneCase(prefixed) && ethUtil.isValidAddress(prefixed)) || ethUtil.isValidChecksumAddress(prefixed)
 }
 
 function isInvalidChecksumAddress (address) {
   var prefixed = ethUtil.addHexPrefix(address)
   if (address === '0x0000000000000000000000000000000000000000') return false
-  return !isAllOneCase(prefixed) && !wanUtil.isValidChecksumAddress(prefixed) && wanUtil.isValidAddress(prefixed)
+  return !isAllOneCase(prefixed) && !ethUtil.isValidChecksumAddress(prefixed) && ethUtil.isValidAddress(prefixed)
 }
 
 function isAllOneCase (address) {

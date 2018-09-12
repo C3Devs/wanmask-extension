@@ -1,6 +1,5 @@
 const abi = require('human-standard-token-abi')
-const ethUtil = require('ethereumjs-util')
-const wanUtil = require('wanchain-util')
+const ethUtil = require('wanchainjs-util')
 const hexToBn = require('../../app/scripts/lib/hex-to-bn')
 const vreme = new (require('vreme'))()
 
@@ -87,7 +86,7 @@ function miniAddressSummary (address) {
 function isValidAddress (address) {
   var prefixed = ethUtil.addHexPrefix(address)
   if (address === '0x0000000000000000000000000000000000000000') return false
-  return (isAllOneCase(prefixed) && wanUtil.isValidAddress(prefixed)) || wanUtil.isValidChecksumAddress(prefixed)
+  return (isAllOneCase(prefixed) && ethUtil.isValidAddress(prefixed)) || ethUtil.isValidChecksumAddress(prefixed)
 }
 
 function isValidENSAddress (address) {
@@ -97,7 +96,7 @@ function isValidENSAddress (address) {
 function isInvalidChecksumAddress (address) {
   var prefixed = ethUtil.addHexPrefix(address)
   if (address === '0x0000000000000000000000000000000000000000') return false
-  return !isAllOneCase(prefixed) && !wanUtil.isValidChecksumAddress(prefixed) && wanUtil.isValidAddress(prefixed)
+  return !isAllOneCase(prefixed) && !ethUtil.isValidChecksumAddress(prefixed) && ethUtil.isValidAddress(prefixed)
 }
 
 function isAllOneCase (address) {
@@ -303,7 +302,7 @@ function getTokenAddressFromTokenObject (token) {
  * @returns {String} - checksummed address
  */
 function checksumAddress (address) {
-  return address ? wanUtil.toChecksumAddress(address) : ''
+  return address ? ethUtil.toChecksumAddress(address) : ''
 }
 
 function addressSlicer (address = '') {

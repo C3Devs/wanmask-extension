@@ -1,5 +1,5 @@
 const ethAbi = require('ethereumjs-abi')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const { TOKEN_TRANSFER_FUNCTION_SIGNATURE } = require('../send.constants')
 
 function addHexPrefixToObjectValues (obj) {
