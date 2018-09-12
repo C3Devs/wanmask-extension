@@ -267,9 +267,10 @@ jobs:
       - run:
           name: build documentation
           command: npm run doc
-      - run: git config --global user.name wanmaskbot
-      - run: git config --global user.email admin@wanmask.io
-      - run: npm run gh-pages
+# gh-pages not working with token
+#      - run: git config --global user.name wanmaskbot
+#      - run: git config --global user.email admin@wanmask.io
+#      - run: npm run gh-pages
 #      - run:
 #          name: build:announce
 #          command: ./development/metamaskbot-build-announce.js
