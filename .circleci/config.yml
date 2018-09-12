@@ -297,7 +297,7 @@ jobs:
 #          command: npm run sentry:publish
       - run:
           name: github gh-pages docs publish
-          command: >
+          command: |
             git config user.name wanmaskbot
             git config user.email admin@wanmask.io
             gh-pages -d docs/jsdocs
