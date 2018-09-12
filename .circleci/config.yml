@@ -8,9 +8,6 @@ workflows:
       - prep-build:
           requires:
             - prep-deps-npm
-      - prep-docs:
-          requires:
-            - prep-deps-npm
       - prep-scss:
           requires:
             - prep-deps-npm
@@ -85,10 +82,8 @@ workflows:
           requires:
             - prep-deps-npm
             - prep-build
-            - prep-docs
             - job-screens
             - all-tests-pass
-
 jobs:
   prep-deps-npm:
     docker:
@@ -129,22 +124,6 @@ jobs:
           paths:
             - dist
             - builds
-
-  prep-docs:
-    docker:
-      - image: circleci/node:8.11.3-browsers
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          name: build:dist
-          command: npm run doc
-      - persist_to_workspace:
-          root: .
-          paths:
-            - docs/jsdocs
-
   prep-scss:
     docker:
       - image: circleci/node:8.11.3-browsers
@@ -285,6 +264,9 @@ jobs:
 #      - run:
 #          name: sentry sourcemaps upload
 #          command: npm run sentry:publish
+      - run:
+          name: build documentation
+          command: npm run doc
       - run:
           name: github gh-pages docs publish
           command: |
