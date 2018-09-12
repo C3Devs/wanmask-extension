@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="google" content="notranslate">
     <meta http-equiv="Content-Language" content="en">
-    <title>contentscript.js - Documentation</title>
+    <title>controllers/transactions/lib/recipient-blacklist-checker - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -37,222 +37,211 @@
 
 <div id="main">
     
-    <h1 class="page-title">contentscript.js</h1>
+    <h1 class="page-title">controllers/transactions/lib/recipient-blacklist-checker</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const fs = require('fs')
-const path = require('path')
-const pump = require('pump')
-const LocalMessageDuplexStream = require('post-message-stream')
-const PongStream = require('ping-pong-stream/pong')
-const ObjectMultiplex = require('obj-multiplex')
-const extension = require('extensionizer')
-const PortStream = require('extension-port-stream')
+        
+    
+</header>
 
-const inpageContent = fs.readFileSync(path.join(__dirname, '..', '..', 'dist', 'chrome', 'inpage.js')).toString()
-const inpageSuffix = '//# sourceURL=' + extension.extension.getURL('inpage.js') + '\n'
-const inpageBundle = inpageContent + inpageSuffix
+<article>
+    <div class="container-overview">
+    
+        
 
-// Eventually this streaming injection could be replaced with:
-// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Language_Bindings/Components.utils.exportFunction
-//
-// But for now that is only Firefox
-// If we create a FireFox-only code path using that API,
-// MetaMask will be much faster loading and performant on Firefox.
+        
+    
+    </div>
 
-if (shouldInjectWeb3()) {
-  setupInjection()
-  setupStreams()
-}
+    
 
-/**
- * Creates a script tag that injects inpage.js
- */
-function setupInjection () {
-  try {
-    // inject in-page script
-    var scriptTag = document.createElement('script')
-    scriptTag.textContent = inpageBundle
-    scriptTag.onload = function () { this.parentNode.removeChild(this) }
-    var container = document.head || document.documentElement
-    // append as first child
-    container.insertBefore(scriptTag, container.children[0])
-  } catch (e) {
-    console.error('Metamask injection failed.', e)
-  }
-}
+    
 
-/**
- * Sets up two-way communication streams between the
- * browser extension and local per-page browser context
- */
-function setupStreams () {
-  // setup communication to page and plugin
-  const pageStream = new LocalMessageDuplexStream({
-    name: 'contentscript',
-    target: 'inpage',
-  })
-  const pluginPort = extension.runtime.connect({ name: 'contentscript' })
-  const pluginStream = new PortStream(pluginPort)
+    
 
-  // forward communication plugin->inpage
-  pump(
-    pageStream,
-    pluginStream,
-    pageStream,
-    (err) => logStreamDisconnectWarning('MetaMask Contentscript Forwarding', err)
-  )
+     
 
-  // setup local multistream channels
-  const mux = new ObjectMultiplex()
-  mux.setMaxListeners(25)
+    
 
-  pump(
-    mux,
-    pageStream,
-    mux,
-    (err) => logStreamDisconnectWarning('MetaMask Inpage', err)
-  )
-  pump(
-    mux,
-    pluginStream,
-    mux,
-    (err) => logStreamDisconnectWarning('MetaMask Background', err)
-  )
+    
 
-  // connect ping stream
-  const pongStream = new PongStream({ objectMode: true })
-  pump(
-    mux,
-    pongStream,
-    mux,
-    (err) => logStreamDisconnectWarning('MetaMask PingPongStream', err)
-  )
+    
+        <h3 class="subsection-title">Methods</h3>
 
-  // connect phishing warning stream
-  const phishingStream = mux.createStream('phishing')
-  phishingStream.once('data', redirectToPhishingWarning)
+        
+            
 
-  // ignore unused channels (handled by background, inpage)
-  mux.ignoreStream('provider')
-  mux.ignoreStream('publicConfig')
-}
+    
+
+    <h4 class="name" id="~checkAccount"><span class="type-signature">(inner) </span>checkAccount<span class="signature">(networkId, account)</span><span class="type-signature"></span></h4>
+
+    
 
 
-/**
- * Error handler for page to plugin stream disconnections
- *
- * @param {string} remoteLabel Remote stream name
- * @param {Error} err Stream connection error
- */
-function logStreamDisconnectWarning (remoteLabel, err) {
-  let warningMsg = `MetamaskContentscript - lost connection to ${remoteLabel}`
-  if (err) warningMsg += '\n' + err.stack
-  console.warn(warningMsg)
-}
 
-/**
- * Determines if Web3 should be injected
- *
- * @returns {boolean} {@code true} if Web3 should be injected
- */
-function shouldInjectWeb3 () {
-  return doctypeCheck() &amp;&amp; suffixCheck() &amp;&amp;
-    documentElementCheck() &amp;&amp; !blacklistedDomainCheck()
-}
 
-/**
- * Checks the doctype of the current document if it exists
- *
- * @returns {boolean} {@code true} if the doctype is html or if none exists
- */
-function doctypeCheck () {
-  const doctype = window.document.doctype
-  if (doctype) {
-    return doctype.name === 'html'
-  } else {
-    return true
-  }
-}
+<dl class="details">
 
-/**
- * Checks the current document extension
- *
- * @returns {boolean} {@code true} if the current extension is not prohibited
- */
-function suffixCheck () {
-  var prohibitedTypes = ['xml', 'pdf']
-  var currentUrl = window.location.href
-  var currentRegex
-  for (let i = 0; i &lt; prohibitedTypes.length; i++) {
-    currentRegex = new RegExp(`\\.${prohibitedTypes[i]}$`)
-    if (currentRegex.test(currentUrl)) {
-      return false
-    }
-  }
-  return true
-}
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_transactions_lib_recipient-blacklist-checker.js.html">controllers/transactions/lib/recipient-blacklist-checker.js</a>, <a href="controllers_transactions_lib_recipient-blacklist-checker.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
 
-/**
- * Checks the documentElement of the current document
- *
- * @returns {boolean} {@code true} if the documentElement is an html node or if none exists
- */
-function documentElementCheck () {
-  var documentElement = document.documentElement.nodeName
-  if (documentElement) {
-    return documentElement.toLowerCase() === 'html'
-  }
-  return true
-}
+    
 
-/**
- * Checks if the current domain is blacklisted
- *
- * @returns {boolean} {@code true} if the current domain is blacklisted
- */
-function blacklistedDomainCheck () {
-  var blacklistedDomains = [
-    'uscourts.gov',
-    'dropbox.com',
-    'webbyawards.com',
-    'cdn.shopify.com/s/javascripts/tricorder/xtld-read-only-frame.html',
-    'adyen.com',
-    'gravityforms.com',
-    'harbourair.com',
-    'ani.gamer.com.tw',
-    'blueskybooking.com',
-  ]
-  var currentUrl = window.location.href
-  var currentRegex
-  for (let i = 0; i &lt; blacklistedDomains.length; i++) {
-    const blacklistedDomain = blacklistedDomains[i].replace('.', '\\.')
-    currentRegex = new RegExp(`(?:https?:\\/\\/)(?:(?!${blacklistedDomain}).)*$`)
-    if (!currentRegex.test(currentUrl)) {
-      return true
-    }
-  }
-  return false
-}
+    
 
-/**
- * Redirects the current page to a phishing information page
- */
-function redirectToPhishingWarning () {
-  console.log('MetaMask - routing to Phishing Warning component')
-  const extensionURL = extension.runtime.getURL('phishing.html')
-  window.location.href = extensionURL
-}
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Checks if a specified account on a specified network is blacklisted.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>networkId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>account</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
