@@ -267,9 +267,8 @@ jobs:
       - run:
           name: build documentation
           command: npm run doc
-      - run: git config user.name wanmaskbot
-      - run: git config user.name wanmaskbot
-      - run: git config user.email admin@wanmask.io
+      - run: git config --global user.name wanmaskbot
+      - run: git config --global user.email admin@wanmask.io
       - run: npm run gh-pages
 #      - run:
 #          name: build:announce
