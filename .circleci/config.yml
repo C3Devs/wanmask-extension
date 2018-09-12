@@ -290,7 +290,7 @@ jobs:
           command: |
             git config user.name wanmaskbot
             git config user.email admin@wanmask.io
-            gh-pages -d docs/jsdocs
+            npm run gh-pages
 #      - run:
 #          name: build:announce
 #          command: ./development/metamaskbot-build-announce.js
