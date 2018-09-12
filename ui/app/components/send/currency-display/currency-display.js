@@ -5,7 +5,7 @@ const { conversionUtil, multiplyCurrencies } = require('../../../conversion-util
 const { removeLeadingZeroes } = require('../send.utils')
 const currencyFormatter = require('currency-formatter')
 const currencies = require('currency-formatter/currencies')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const PropTypes = require('prop-types')
 
 CurrencyDisplay.contextTypes = {

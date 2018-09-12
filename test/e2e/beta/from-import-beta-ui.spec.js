@@ -285,7 +285,7 @@ describe('Using MetaMask with an existing account', function () {
       await delay(regularDelayMs)
     })
   })
-/* TODO: make wan ganache
+/* TODO: make wan ganache */
   describe('Send ETH from inside MetaMask', () => {
     it('starts to send a transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
@@ -329,7 +329,7 @@ describe('Using MetaMask with an existing account', function () {
       assert.equal(await txValues[0].getText(), '1 ETH')
     })
   })
-*/
+/**/
   describe('Imports an account with private key', () => {
     it('choose Create Account from the account menu', async () => {
       await driver.findElement(By.css('.account-menu__icon')).click()
@@ -372,7 +372,7 @@ describe('Using MetaMask with an existing account', function () {
       await delay(regularDelayMs)
     })
 
-    /* TODO: Fix trezor and add ledger tests
+    /* TODO: Fix trezor and add ledger tests */
     it('should open the TREZOR Connect popup', async () => {
       const trezorButton = await findElements(driver, By.css('.hw-connect__btn'))
       await trezorButton[1].click()
@@ -412,6 +412,6 @@ describe('Using MetaMask with an existing account', function () {
         await driver.switchTo().window(newUITab)
       }
     })
-    */
+    /**/
   })
 })

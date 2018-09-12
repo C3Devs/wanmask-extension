@@ -6,7 +6,7 @@ const connect = require('react-redux').connect
 const actions = require('../../actions')
 const GasModalCard = require('./gas-modal-card')
 
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 
 import {
   updateSendErrors,

@@ -1,6 +1,6 @@
 const ObservableStore = require('obs-store')
 const PendingBalanceCalculator = require('../lib/pending-balance-calculator')
-const BN = require('ethereumjs-util').BN
+const BN = require('wanchainjs-util').BN
 
 class BalanceController {
 

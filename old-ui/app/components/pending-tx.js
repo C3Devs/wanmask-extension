@@ -5,7 +5,7 @@ const actions = require('../../../ui/app/actions')
 const clone = require('clone')
 const log = require('loglevel')
 
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const BN = ethUtil.BN
 const hexToBn = require('../../../app/scripts/lib/hex-to-bn')
 const util = require('../util')
@@ -15,7 +15,6 @@ const EthBalance = require('./eth-balance')
 const addressSummary = util.addressSummary
 const nameForAddress = require('../../lib/contract-namer')
 const BNInput = require('./bn-as-decimal-input')
-const wanUtil = require('wanchain-util')
 
 const MIN_GAS_PRICE_BN = new BN('0')
 const MIN_GAS_LIMIT_BN = new BN('21000')
@@ -117,7 +116,7 @@ PendingTx.prototype.render = function () {
               }, identity.name),
 
               h(Copyable, {
-                value: wanUtil.toChecksumAddress(address),
+                value: ethUtil.toChecksumAddress(address),
               }, [
                 h('span.font-small', {
                   style: {
@@ -381,7 +380,7 @@ PendingTx.prototype.miniAccountPanelForRecipient = function () {
       }, nameForAddress(txParams.to, props.identities)),
 
       h(Copyable, {
-        value: wanUtil.toChecksumAddress(txParams.to),
+        value: ethUtil.toChecksumAddress(txParams.to),
       }, [
         h('span.font-small', {
           style: {

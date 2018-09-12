@@ -1,7 +1,7 @@
 const assert = require('assert')
 const PendingBalanceCalculator = require('../../../app/scripts/lib/pending-balance-calculator')
 const MockTxGen = require('../../lib/mock-tx-gen')
-const BN = require('ethereumjs-util').BN
+const BN = require('wanchainjs-util').BN
 
 const zeroBn = new BN(0)
 const etherBn = new BN(String(1e18))

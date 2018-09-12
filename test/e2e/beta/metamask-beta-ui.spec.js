@@ -10,7 +10,7 @@ const {
   getExtensionIdChrome,
   getExtensionIdFirefox,
 } = require('../func')
-/*
+
 const {
   assertElementNotPresent,
   checkBrowserForConsoleErrors,
@@ -23,7 +23,7 @@ const {
   verboseReportOnFailure,
   waitUntilXWindowHandles,
 } = require('./helpers')
-*/
+/*
 const {
   checkBrowserForConsoleErrors,
   closeAllWindowHandlesExcept,
@@ -32,12 +32,13 @@ const {
   loadExtension,
   verboseReportOnFailure,
 } = require('./helpers')
+*/
 
 
 describe('MetaMask', function () {
   let extensionId
   let driver
-// let tokenAddress
+  let tokenAddress
 
   const testSeedPhrase = 'phrase upgrade clock rough situate wedding elder clever doctor stamp excess tent'
   const tinyDelayMs = 200
@@ -396,7 +397,7 @@ describe('MetaMask', function () {
       await delay(regularDelayMs)
     })
   })
-/* TODO: make wan ganache
+/* TODO: make wan ganache */
   describe('Send ETH from inside MetaMask', () => {
     it('starts to send a transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
@@ -1001,7 +1002,7 @@ describe('MetaMask', function () {
       await driver.wait(until.stalenessOf(confirmHideModal))
     })
   })
-*/
+/**/
   describe('Add existing token using search', () => {
     it('clicks on the Add Token button', async () => {
       const addToken = await findElement(driver, By.xpath(`//button[contains(text(), 'Add Token')]`))

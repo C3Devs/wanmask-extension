@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import ethUtil from 'ethereumjs-util'
+import ethUtil from 'wanchainjs-util'
 import {
   addToAddressBook,
   clearSend,

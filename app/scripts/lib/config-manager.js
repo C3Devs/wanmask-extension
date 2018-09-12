@@ -1,4 +1,4 @@
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const normalize = require('eth-sig-util').normalize
 const {
   MAINNET_RPC_URL,

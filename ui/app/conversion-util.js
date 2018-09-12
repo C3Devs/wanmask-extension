@@ -23,10 +23,10 @@
 */
 
 const BigNumber = require('bignumber.js')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const BN = ethUtil.BN
 const R = require('ramda')
-const { stripHexPrefix } = require('ethereumjs-util')
+const { stripHexPrefix } = require('wanchainjs-util')
 
 BigNumber.config({
   ROUNDING_MODE: BigNumber.ROUND_HALF_DOWN,

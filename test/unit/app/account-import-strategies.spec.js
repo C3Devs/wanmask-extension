@@ -1,5 +1,5 @@
 const assert = require('assert')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const accountImporter = require('../../../app/scripts/account-import-strategies/index')
 const { assertRejects } = require('../test-utils')
 

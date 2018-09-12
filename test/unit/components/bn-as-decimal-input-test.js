@@ -3,7 +3,7 @@ var assert = require('assert')
 const additions = require('react-testutils-additions')
 const h = require('react-hyperscript')
 const ReactTestUtils = require('react-addons-test-utils')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('wanchainjs-util')
 const BN = ethUtil.BN
 
 var BnInput = require('../../../old-ui/app/components/bn-as-decimal-input')
