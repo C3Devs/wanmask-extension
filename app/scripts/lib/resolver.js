@@ -1,4 +1,4 @@
-const namehash = require('eth-ens-namehash')
+const namehash = require('wan-wns-namehash')
 const multihash = require('multihashes')
 const HttpProvider = require('ethjs-provider-http')
 const Eth = require('ethjs-query')
