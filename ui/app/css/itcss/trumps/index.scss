@@ -70,3 +70,96 @@ i.fa.fa-question-circle.fa-lg.menu-icon {
   font-size: 16px;
 }
 /* stylelint-enable */
+.tx-view.flex-column {
+  background: #1b344d;
+  color: white;
+}
+.token-amount {
+  color: greenyellow!important;
+}
+.flex-column.tx-list-item-wrapper {
+  background: #0c0c0c;
+  color: white;
+}.app-header.app-header--back-drop {
+  background: #0a121b;
+  color: white;
+}.network-component.pointer {
+  border: 2px solid #cdcdcd;
+  border-radius: 82px;
+  padding: 7px 3px;
+  flex: 0 0 auto;
+  display: flex;
+  width: 216px;
+  text-align: center;
+  display: block;
+  text-align: left;
+  color: white!important;
+  border: none;
+  background: #222;
+}.network-name {
+  color: white;
+}.menu-droppo{
+  border-radius: 4px;
+    padding: 18px 8px!important;
+    background: black!important;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 2px;
+    left: -26px !important;
+    position: relative !important;
+}.selected-account__clickable:hover {
+  background: black;
+}button.btn-primary.hero-balance-button {
+  background: #00BCD4;
+  border-radius: 0px;
+  border: none;
+  color: white;
+  padding: 9px!important;
+  height: auto!important;
+  width: 200px;
+}.app-header.app-header--back-drop {
+  background: #14202d;
+  color: white;
+}.network-component.pointer {
+  border: 2px solid #cdcdcd;
+  border-radius: 82px;
+  padding: 7px 3px;
+  flex: 0 0 auto;
+  display: flex;
+  width: 216px;
+  text-align: center;
+  display: block;
+  text-align: left;
+  color: white!important;
+  border: none;
+  background: #384850;
+}.sidebar .token-amount {
+  color: #0c0c0c!important;
+}.sidebar .wallet-balance {
+  background: lightgrey;
+  color: black;
+}.open-in-browser {
+  background: white!important;
+  position: relative;
+  right: 6px;
+  border-radius: 100%;
+}.unlock-page {
+  background: #1b344d;
+  color: white;
+}.unlock-page__link--import {
+  color: #54f71c;
+}.unlock-page__title {
+  margin-top: 5px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+}button.MuiButtonBase-root-54.MuiButtonBase-disabled-55.MuiButton-root-38.MuiButton-raised-44.MuiButton-sizeLarge-52.MuiButton-disabled-48.MuiButton-fullWidth-53 {
+  background: #060611!important;
+}.MuiInput-input-33:focus {
+  outline: 0;
+  color: white;
+  border-bottom: solid 3px white;
+}button.MuiButtonBase-root-54.MuiButton-root-38.MuiButton-raised-44.MuiButton-sizeLarge-52.MuiButton-fullWidth-53 {
+  background: #09bd09!important;
+}.app-header {
+  background: black;
+  padding-right: 55px;
+}

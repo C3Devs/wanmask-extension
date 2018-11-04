@@ -5,7 +5,7 @@
 // // WARNING: only supports reload command.
 
 // var LIVERELOAD_HOST = 'localhost:';
-// var LIVERELOAD_PORT = 35729;
+// var LIVERELOAD_PORT = 35730;
 // var connection = new WebSocket('ws://' + LIVERELOAD_HOST + LIVERELOAD_PORT + '/livereload');
 
 // connection.onopen = function(event) {
@@ -513,7 +513,7 @@ window.LiveReloadOptions = { host: 'localhost' };
       function Options () {
         this.https = false
         this.host = null
-        this.port = 35729
+        this.port = 35730
         this.snipver = null
         this.ext = null
         this.extver = null

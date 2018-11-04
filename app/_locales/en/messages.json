@@ -817,6 +817,9 @@
   "wanchain": {
     "message": "Wanchain Network"
   },
+  "wanchaintestnet": {
+    "message": "Wanchain Testnet"
+  },
   "ropsten": {
     "message": "Ropsten Test Network"
   },
@@ -837,6 +840,12 @@
   },
   "connectingToRinkeby": {
     "message": "Connecting to Rinkeby Test Network"
+  },
+  "connectingToWanchain": {
+    "message": "Connecting to Wanchain Network"
+  },
+  "connectingToWanchainTestnet": {
+    "message": "Connecting to Wanchain Testnet"
   },
   "connectingToUnknown": {
     "message": "Connecting to Unknown Network"

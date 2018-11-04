@@ -132,7 +132,27 @@ NetworkDropdown.prototype.render = function () {
         }, this.context.t('wanchain')),
       ]
     ),
-
+    h(
+      DropdownMenuItem,
+      {
+        key: 'wanchaintestnet',
+        closeMenu: () => this.props.hideNetworkDropdown(),
+        onClick: () => props.setProviderType('wanchaintestnet'),
+        style: dropdownMenuItemStyle,
+      },
+      [
+        providerType === 'wanchaintestnet' ? h('i.fa.fa-check') : h('.network-check__transparent', '✓'),
+        h(NetworkDropdownIcon, {
+          backgroundColor: '#E91550', // $saffron
+          isSelected: providerType === 'wanchaintestnet',
+        }),
+        h('span.network-name-item', {
+          style: {
+            color: providerType === 'wanchaintestnet' ? '#ffffff' : '#9b9b9b',
+          },
+        }, this.context.t('wanchaintestnet')),
+      ]
+    ),
     h(
       DropdownMenuItem,
       {
@@ -188,7 +208,7 @@ NetworkDropdown.prototype.getNetworkName = function () {
   const providerName = provider.type
 
   let name
-
+/*
   if (providerName === 'mainnet') {
     name = this.context.t('mainnet')
   } else if (providerName === 'ropsten') {
@@ -197,8 +217,11 @@ NetworkDropdown.prototype.getNetworkName = function () {
     name = this.context.t('kovan')
   } else if (providerName === 'rinkeby') {
     name = this.context.t('rinkeby')
-  } else if (providerName === 'wanchain') {
+  } else */
+  if (providerName === 'wanchain') {
     name = this.context.t('wanchain')
+  } else if (providerName === 'wanchaintestnet') {
+    name = this.context.t('wanchaintestnet')
   } else {
     name = this.context.t('unknownNetwork')
   }

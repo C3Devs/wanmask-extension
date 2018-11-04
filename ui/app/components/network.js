@@ -48,24 +48,28 @@ Network.prototype.render = function () {
         src: 'images/loading.svg',
       }),
     ])
-  } else if (providerName === 'mainnet') {
-    hoverText = context.t('mainnet')
-    iconName = 'ethereum-network'
+  /* } else if (providerName === 'mainnet') {
+      hoverText = context.t('mainnet')
+      iconName = 'ethereum-network'
+   } else if (providerName === 'ropsten') {
+     hoverText = context.t('ropsten')
+     iconName = 'ropsten-test-network'
+   } else if (parseInt(networkNumber) === 3) {
+     hoverText = context.t('ropsten')
+     iconName = 'ropsten-test-network'
+   } else if (providerName === 'kovan') {
+     hoverText = context.t('kovan')
+     iconName = 'kovan-test-network'
+   } else if (providerName === 'rinkeby') {
+     hoverText = context.t('rinkeby')
+     iconName = 'rinkeby-test-network'
+   } */
   } else if (providerName === 'wanchain') {
     hoverText = context.t('wanchain')
     iconName = 'wanchain-network'
-  } else if (providerName === 'ropsten') {
-    hoverText = context.t('ropsten')
-    iconName = 'ropsten-test-network'
-  } else if (parseInt(networkNumber) === 3) {
-    hoverText = context.t('ropsten')
-    iconName = 'ropsten-test-network'
-  } else if (providerName === 'kovan') {
-    hoverText = context.t('kovan')
-    iconName = 'kovan-test-network'
-  } else if (providerName === 'rinkeby') {
-    hoverText = context.t('rinkeby')
-    iconName = 'rinkeby-test-network'
+  } else if (providerName === 'wanchaintestnet') {
+    hoverText = context.t('wanchaintestnet')
+    iconName = 'wanchaintestnet-network'
   } else {
     hoverText = context.t('unknownNetwork')
     iconName = 'unknown-private-network'
@@ -75,11 +79,14 @@ Network.prototype.render = function () {
     h('div.network-component.pointer', {
       className: classnames({
         'network-component--disabled': this.props.disabled,
+/*
         'ethereum-network': providerName === 'mainnet',
         'ropsten-test-network': providerName === 'ropsten' || parseInt(networkNumber) === 3,
         'kovan-test-network': providerName === 'kovan',
         'rinkeby-test-network': providerName === 'rinkeby',
+         */
         'wanchain-network': providerName === 'wanchain',
+        'wanchaintestnet-network': providerName === 'wanchaintestnet' || parseInt(networkNumber) === 3,
       }),
       title: hoverText,
       onClick: (event) => {
@@ -90,6 +97,7 @@ Network.prototype.render = function () {
     }, [
       (function () {
         switch (iconName) {
+/*
           case 'ethereum-network':
             return h('.network-indicator', [
               h(NetworkDropdownIcon, {
@@ -126,6 +134,7 @@ Network.prototype.render = function () {
               h('.network-name', context.t('rinkeby')),
               h('i.fa.fa-chevron-down.fa-lg.network-caret'),
             ])
+*/
           case 'wanchain-network':
             return h('.network-indicator', [
               h(NetworkDropdownIcon, {
@@ -133,6 +142,15 @@ Network.prototype.render = function () {
                 nonSelectBackgroundColor: '#f2a539',
               }),
               h('.network-name', context.t('wanchain')),
+              h('i.fa.fa-chevron-down.fa-lg.network-caret'),
+            ])
+          case 'wanchaintestnet-network':
+            return h('.network-indicator', [
+              h(NetworkDropdownIcon, {
+                backgroundColor: '#e91550', // $crimson
+                nonSelectBackgroundColor: '#ec2c50',
+              }),
+              h('.network-name', context.t('wanchaintestnet')),
               h('i.fa.fa-chevron-down.fa-lg.network-caret'),
             ])
           default:

@@ -1,5 +1,7 @@
 # WanMask Browser Extension
 
+<img src="https://d3vv6lp55qjaqc.cloudfront.net/items/1u2D3m1V1i1i180N0V1z/Screen%20Shot%202018-11-04%20at%2010.46.18%20AM.png?X-CloudApp-Visitor-Id=2750703&v=1550fbf2">
+
 [![CircleCI][circle-image]][circle-url]
 [![dependency status][dep-image]][dep-url]
 [![Coverage Status][coveralls-image]][coveralls-url]

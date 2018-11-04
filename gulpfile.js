@@ -63,7 +63,7 @@ const commonPlatforms = [
 
 gulp.task('dev:reload', function () {
   livereload.listen({
-    port: 35729,
+    port: 35730,
   })
 })
 
@@ -551,7 +551,7 @@ function bundleTask (opts) {
       buildStream = buildStream
       .pipe(uglify({
         mangle: {
-          reserved: [ 'MetamaskInpageProvider' ],
+          reserved: [ 'WanmaskInpageProvider' ],
         },
       }))
     }

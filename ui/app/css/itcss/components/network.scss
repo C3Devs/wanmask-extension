@@ -33,6 +33,10 @@
   &.wanchain-network .menu-icon-circle div {
     background-color: rgba(132, 77, 0, .7) !important;
   }
+
+  &.wanchaintestnet-network .menu-icon-circle div {
+    background-color: rgba(233, 21, 80, .7) !important;
+  }
 }
 
 .dropdown-menu-item {

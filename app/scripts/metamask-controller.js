@@ -1166,8 +1166,8 @@ module.exports = class MetamaskController extends EventEmitter {
     // setup multiplexing
     const mux = setupMultiplex(connectionStream)
     // connect features
-    this.setupProviderConnection(mux.createStream('provider'), originDomain)
-    this.setupPublicConfig(mux.createStream('publicConfig'))
+    this.setupProviderConnection(mux.createStream('provider2'), originDomain)
+    this.setupPublicConfig(mux.createStream('publicConfig2'))
   }
 
   /**
@@ -1184,8 +1184,8 @@ module.exports = class MetamaskController extends EventEmitter {
     // setup multiplexing
     const mux = setupMultiplex(connectionStream)
     // connect features
-    this.setupControllerConnection(mux.createStream('controller'))
-    this.setupProviderConnection(mux.createStream('provider'), originDomain)
+    this.setupControllerConnection(mux.createStream('controller2'))
+    this.setupProviderConnection(mux.createStream('provider2'), originDomain)
   }
 
   /**
@@ -1199,7 +1199,7 @@ module.exports = class MetamaskController extends EventEmitter {
    */
   sendPhishingWarning (connectionStream, hostname) {
     const mux = setupMultiplex(connectionStream)
-    const phishingStream = mux.createStream('phishing')
+    const phishingStream = mux.createStream('phishing2')
     phishingStream.write({ hostname })
   }
 
@@ -1272,7 +1272,7 @@ module.exports = class MetamaskController extends EventEmitter {
    * This includes info we like to be synchronous if possible, like
    * the current selected account, and network ID.
    *
-   * Since synchronous methods have been deprecated in web3,
+   * Since synchronous methods have been deprecated in wan3,
    * this is a good candidate for deprecation.
    *
    * @param {*} outStream - The stream to provide public config over.

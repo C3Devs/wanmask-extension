@@ -228,7 +228,7 @@ function currentProviderDisplay (metamaskState) {
   var title, value
 
   switch (provider.type) {
-
+/*
     case 'mainnet':
       title = 'Current Network'
       value = 'Main Ethereum Network'
@@ -248,10 +248,15 @@ function currentProviderDisplay (metamaskState) {
       title = 'Current Network'
       value = 'Rinkeby Test Network'
       break
-
+*/
     case 'wanchain':
       title = 'Current Network'
       value = 'Wanchain Network'
+      break
+
+    case 'wanchaintestnet':
+      title = 'Current Network'
+      value = 'Wanchain Testnet'
       break
 
     default:

@@ -2175,6 +2175,9 @@ function updateNetworkNonce (address) {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       global.ethQuery.getTransactionCount(address, (err, data) => {
+        if (err) {
+          log.error(err)
+        }
         dispatch(setNetworkNonce(data))
         resolve(data)
       })

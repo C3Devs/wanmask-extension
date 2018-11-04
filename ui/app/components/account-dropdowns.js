@@ -3,7 +3,11 @@ const PropTypes = require('prop-types')
 const h = require('react-hyperscript')
 const actions = require('../actions')
 const genAccountLink = function (address, network) {
-  return `http://wanscan.io/addr/${address}`
+  if (network === '3') {
+    return `http://18.217.171.41/addr/${address}`
+  } else {
+    return `https://wanscan.io/addr/${address}`
+  }
 }
 const connect = require('react-redux').connect
 const Dropdown = require('./dropdown').Dropdown

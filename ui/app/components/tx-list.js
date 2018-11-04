@@ -165,5 +165,9 @@ function navigateTo (url) {
 }
 
 function etherscanLinkFor (txHash, network) {
-  return `https://wanscan.io/tx/${txHash}`
+  if (network === '3') {
+    return `http://18.217.171.41/tx/${txHash}`
+  } else {
+    return `https://wanscan.io/tx/${txHash}`
+  }
 }
