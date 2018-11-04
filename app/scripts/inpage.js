@@ -4,7 +4,7 @@ const Wan3 = require('web3')
 const log = require('loglevel')
 const LocalMessageDuplexStream = require('post-message-stream')
 const setupDappAutoReload = require('./lib/auto-reload.js')
-const WanmaskwanPageProvider = require('metamask-inpage-provider')
+const WanmaskPageProvider = require('metamask-inpage-provider')
 restoreContextAfterImports()
 
 log.setDefaultLevel(process.env.METAMASK_DEBUG ? 'debug' : 'warn')
@@ -20,7 +20,7 @@ var wanMaskStream = new LocalMessageDuplexStream({
 })
 
 // compose the inpage provider
-var wanPageProvider = new WanmaskwanPageProvider(wanMaskStream)
+var wanPageProvider = new WanmaskPageProvider(wanMaskStream)
 
 //
 // setup wan3
