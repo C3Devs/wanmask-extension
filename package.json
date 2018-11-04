@@ -219,7 +219,7 @@
     "wan-wns-namehash": "^2.0.8",
     "wanchainjs-tx": "^1.5.0",
     "wanchainjs-util": "^5.2.1",
-    "wanjs-wns": "^2.0.0",
+    "wanjs-wns": "^2.0.2",
     "web3": "^0.20.7",
     "web3-stream-provider": "^3.0.1",
     "webrtc-adapter": "^6.3.0",
