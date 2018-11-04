@@ -1272,7 +1272,7 @@ module.exports = class MetamaskController extends EventEmitter {
    * This includes info we like to be synchronous if possible, like
    * the current selected account, and network ID.
    *
-   * Since synchronous methods have been deprecated in web3,
+   * Since synchronous methods have been deprecated in wan3,
    * this is a good candidate for deprecation.
    *
    * @param {*} outStream - The stream to provide public config over.

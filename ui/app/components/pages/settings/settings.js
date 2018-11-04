@@ -117,7 +117,7 @@ class Settings extends Component {
     let title, value, color
 
     switch (provider.type) {
-
+/*
       case 'mainnet':
         title = this.context.t('currentNetwork')
         value = this.context.t('mainnet')
@@ -141,11 +141,17 @@ class Settings extends Component {
         value = this.context.t('rinkeby')
         color = '#ebb33f'
         break
-
+*/
       case 'wanchain':
         title = this.context.t('currentNetwork')
         value = this.context.t('wanchain')
         color = '#844d00'
+        break
+
+      case 'wanchaintestnet':
+        title = this.context.t('currentNetwork')
+        value = this.context.t('wanchaintestnet')
+        color = '#e91550'
         break
 
       default:
