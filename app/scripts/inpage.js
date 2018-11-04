@@ -1,10 +1,10 @@
-/*global Web3*/
+
 cleanContextForImports()
-require('web3/dist/web3.min.js')
+const Wan3 = require('web3')
 const log = require('loglevel')
 const LocalMessageDuplexStream = require('post-message-stream')
 const setupDappAutoReload = require('./lib/auto-reload.js')
-const MetamaskInpageProvider = require('metamask-inpage-provider')
+const WanmaskwanPageProvider = require('metamask-inpage-provider')
 restoreContextAfterImports()
 
 log.setDefaultLevel(process.env.METAMASK_DEBUG ? 'debug' : 'warn')
@@ -14,13 +14,13 @@ log.setDefaultLevel(process.env.METAMASK_DEBUG ? 'debug' : 'warn')
 //
 
 // setup background connection
-var metamaskStream = new LocalMessageDuplexStream({
-  name: 'inpage',
-  target: 'contentscript',
+var wanMaskStream = new LocalMessageDuplexStream({
+  name: 'inpage2',
+  target: 'contentscript2',
 })
 
 // compose the inpage provider
-var inpageProvider = new MetamaskInpageProvider(metamaskStream)
+var wanPageProvider = new WanmaskwanPageProvider(wanMaskStream)
 
 //
 // setup wan3
@@ -33,13 +33,15 @@ if (typeof window.wan3 !== 'undefined') {
      or WanMask and another wan3 extension. Please remove one
      and try again.`)
 }
-var wan3 = new Web3(inpageProvider)
-wan3.setProvider = function () {
-  log.debug('MetaMask - overrode wan3.setProvider')
-}
-log.debug('MetaMask - injected wan3')
 
-setupDappAutoReload(wan3, inpageProvider.publicConfigStore)
+var wan3 = new Wan3(wanPageProvider)
+
+wan3.setProvider = function () {
+  log.debug('WanMask - overrode wan3.setProvider')
+}
+log.debug('WanMask - injected wan3')
+console.log(wanPageProvider)
+setupDappAutoReload(wan3, wanPageProvider.publicConfigStore)
 
 // export global wan3, with usage-detection and deprecation warning
 
@@ -63,7 +65,7 @@ global.wan3 = new Proxy(wan3, {
 */
 
 // set wan3 defaultAccount
-inpageProvider.publicConfigStore.subscribe(function (state) {
+wanPageProvider.publicConfigStore.subscribe(function (state) {
   wan3.eth.defaultAccount = state.selectedAddress
 })
 

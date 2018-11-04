@@ -34,8 +34,8 @@ function connectToAccountManager (connectionStream, cb) {
   // setup multiplexing
   var mx = setupMultiplex(connectionStream)
   // connect features
-  setupControllerConnection(mx.createStream('controller'), cb)
-  setupWan3Connection(mx.createStream('provider'))
+  setupControllerConnection(mx.createStream('controller2'), cb)
+  setupWan3Connection(mx.createStream('provider2'))
 }
 
 /**

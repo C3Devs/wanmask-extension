@@ -9,7 +9,7 @@ module.exports = function (address, network) {
 //      link = `https://morden.etherscan.io/address/${address}`
 //      break
     case 3: // wanchain testnet
-      link = `http://47.104.61.26/block/addr/${address}`
+      link = `http://18.217.171.41/address/${address}`
       break
 //    case 4: // rinkeby test net
 //      link = `https://rinkeby.etherscan.io/address/${address}`
