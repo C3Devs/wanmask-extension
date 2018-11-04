@@ -1,4 +1,3 @@
-
 cleanContextForImports()
 const Wan3 = require('web3')
 const log = require('loglevel')
@@ -40,7 +39,6 @@ wan3.setProvider = function () {
   log.debug('WanMask - overrode wan3.setProvider')
 }
 log.debug('WanMask - injected wan3')
-console.log(wanPageProvider)
 setupDappAutoReload(wan3, wanPageProvider.publicConfigStore)
 
 // export global wan3, with usage-detection and deprecation warning
@@ -84,7 +82,7 @@ function cleanContextForImports () {
   try {
     global.define = undefined
   } catch (_) {
-    console.warn('MetaMask - global.define could not be deleted.')
+    console.warn('WanMask - global.define could not be deleted.')
   }
 }
 
@@ -95,6 +93,6 @@ function restoreContextAfterImports () {
   try {
     global.define = __define
   } catch (_) {
-    console.warn('MetaMask - global.define could not be overwritten.')
+    console.warn('WanMask - global.define could not be overwritten.')
   }
 }

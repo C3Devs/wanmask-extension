@@ -48,7 +48,7 @@ describe('DetectTokensController', () => {
     clock = sandbox.useFakeTimers()
     const network = new NetworkController()
     network.initializeProvider(networkControllerProviderConfig)
-    network.setProviderType('mainnet')
+    network.setProviderType('wanchain')
     const preferences = new PreferencesController({ network })
     const controller = new DetectTokensController({ preferences: preferences, network: network, keyringMemStore: keyringMemStore })
     controller.isOpen = true

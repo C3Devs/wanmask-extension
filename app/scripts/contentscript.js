@@ -92,8 +92,8 @@ function setupStreams () {
   phishingStream.once('data', redirectToPhishingWarning)
 
   // ignore unused channels (handled by background, inpage)
-   mux.ignoreStream('provider2')
-   mux.ignoreStream('publicConfig2')
+  mux.ignoreStream('provider2')
+  mux.ignoreStream('publicConfig2')
 }
 
 
@@ -197,7 +197,7 @@ function blacklistedDomainCheck () {
  * Redirects the current page to a phishing information page
  */
 function redirectToPhishingWarning () {
-  console.log('MetaMask - routing to Phishing Warning component')
+  console.log('WanMask - routing to Phishing Warning component')
   const extensionURL = extension.runtime.getURL('phishing.html')
   window.location.href = extensionURL
 }

@@ -781,7 +781,7 @@ describe('MetaMaskController', function () {
 
     it('sets up controller dnode api for trusted communication', function (done) {
       streamTest = createThoughStream((chunk, enc, cb) => {
-        assert.equal(chunk.name, 'controller')
+        assert.equal(chunk.name, 'controller2')
         cb()
         done()
       })

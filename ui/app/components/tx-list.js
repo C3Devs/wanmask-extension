@@ -170,5 +170,4 @@ function etherscanLinkFor (txHash, network) {
   } else {
     return `https://wanscan.io/tx/${txHash}`
   }
-  
 }

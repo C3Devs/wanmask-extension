@@ -55,12 +55,12 @@ describe('# Network Controller', function () {
 
     describe('#setProviderType', function () {
       it('should update provider.type', function () {
-        networkController.setProviderType('mainnet')
+        networkController.setProviderType('wanchain')
         const type = networkController.getProviderConfig().type
-        assert.equal(type, 'mainnet', 'provider type is updated')
+        assert.equal(type, 'wanchain', 'provider type is updated')
       })
       it('should set the network to loading', function () {
-        networkController.setProviderType('mainnet')
+        networkController.setProviderType('wanchain')
         const loading = networkController.isNetworkLoading()
         assert.ok(loading, 'network is loading')
       })
@@ -73,25 +73,13 @@ describe('Network utils', () => {
     const tests = [
       {
         input: 3,
-        expected: 'Ropsten',
+        expected: 'Wanchain Testnet',
       }, {
-        input: 4,
-        expected: 'Rinkeby',
+        input: 'wanchain',
+        expected: 'Wanchain',
       }, {
-        input: 42,
-        expected: 'Kovan',
-      }, {
-        input: 'ropsten',
-        expected: 'Ropsten',
-      }, {
-        input: 'rinkeby',
-        expected: 'Rinkeby',
-      }, {
-        input: 'kovan',
-        expected: 'Kovan',
-      }, {
-        input: 'mainnet',
-        expected: 'Main Ethereum Network',
+        input: 'wanchaintestnet',
+        expected: 'Wanchain Testnet',
       },
     ]
 
