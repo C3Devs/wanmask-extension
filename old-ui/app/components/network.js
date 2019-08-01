@@ -40,6 +40,7 @@ Network.prototype.render = function () {
       }),
       h('i.fa.fa-caret-down'),
     ])
+/*
   } else if (providerName === 'mainnet') {
     hoverText = 'Main Ethereum Network'
     iconName = 'ethereum-network'
@@ -52,12 +53,19 @@ Network.prototype.render = function () {
   } else if (providerName === 'kovan') {
     hoverText = 'Kovan Test Network'
     iconName = 'kovan-test-network'
-  } else if (providerName === 'wanchain') {
-    hoverText = 'Wanchain Network'
-    iconName = 'wanchain-network'
   } else if (providerName === 'rinkeby') {
     hoverText = 'Rinkeby Test Network'
     iconName = 'rinkeby-test-network'
+*/
+  } else if (providerName === 'wanchain') {
+    hoverText = 'Wanchain Network'
+    iconName = 'wanchain-network'
+  } else if (providerName === 'wanchaintestnet') {
+    hoverText = 'Wanchain Testnet'
+    iconName = 'wanchaintestnet-network'
+  } else if (parseInt(networkNumber) === 3) {
+    hoverText = 'Wanchain Testnet'
+    iconName = 'wanchaintestnet-network'
   } else {
     hoverText = 'Unknown Private Network'
     iconName = 'unknown-private-network'
@@ -71,6 +79,7 @@ Network.prototype.render = function () {
     }, [
       (function () {
         switch (iconName) {
+/*
           case 'ethereum-network':
             return h('.network-indicator', [
               h('.menu-icon.diamond'),
@@ -111,14 +120,25 @@ Network.prototype.render = function () {
               'Rinkeby Test Net'),
               props.onClick && h('i.fa.fa-caret-down.fa-lg'),
             ])
+*/
           case 'wanchain-network':
             return h('.network-indicator', [
               h('.menu-icon.golden-square'),
               h('.network-name', {
                 style: {
-                  color: '#f2a539',
+                  color: '#844d00',
                 }},
               'Wanchain Network'),
+              props.onClick && h('i.fa.fa-caret-down.fa-lg'),
+            ])
+          case 'wanchaintestnet-network':
+            return h('.network-indicator', [
+              h('.menu-icon.golden-square'),
+              h('.network-name', {
+                  style: {
+                    color: '#e91550',
+                  }},
+                'Wanchain Testnet'),
               props.onClick && h('i.fa.fa-caret-down.fa-lg'),
             ])
           default:

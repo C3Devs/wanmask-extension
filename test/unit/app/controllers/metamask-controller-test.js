@@ -761,7 +761,7 @@ describe('MetaMaskController', function () {
       const { promise, resolve } = deferredPromise()
 
       streamTest = createThoughStream((chunk, enc, cb) => {
-        if (chunk.name !== 'phishing') return cb()
+        if (chunk.name !== 'phishing2') return cb()
         assert.equal(chunk.data.hostname, phishingUrl)
         resolve()
         cb()
@@ -781,7 +781,7 @@ describe('MetaMaskController', function () {
 
     it('sets up controller dnode api for trusted communication', function (done) {
       streamTest = createThoughStream((chunk, enc, cb) => {
-        assert.equal(chunk.name, 'controller')
+        assert.equal(chunk.name, 'controller2')
         cb()
         done()
       })

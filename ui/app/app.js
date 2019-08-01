@@ -220,7 +220,7 @@ class App extends Component {
 
     let name
 
-    if (providerName === 'mainnet') {
+/*    if (providerName === 'mainnet') {
       name = this.context.t('connectingToMainnet')
     } else if (providerName === 'ropsten') {
       name = this.context.t('connectingToRopsten')
@@ -228,8 +228,11 @@ class App extends Component {
       name = this.context.t('connectingToRopsten')
     } else if (providerName === 'rinkeby') {
       name = this.context.t('connectingToRinkeby')
-    } else if (providerName === 'wanchain') {
+    } else */
+    if (providerName === 'wanchain') {
       name = this.context.t('connectingToWanchain')
+    } else if (providerName === 'wanchaintestnet') {
+      name = this.context.t('connectingToWanchainTestnet')
     } else {
       name = this.context.t('connectingToUnknown')
     }
@@ -242,7 +245,7 @@ class App extends Component {
     const providerName = provider.type
 
     let name
-
+/*
     if (providerName === 'mainnet') {
       name = this.context.t('mainnet')
     } else if (providerName === 'ropsten') {
@@ -251,8 +254,11 @@ class App extends Component {
       name = this.context.t('kovan')
     } else if (providerName === 'rinkeby') {
       name = this.context.t('rinkeby')
-    } else if (providerName === 'wanchain') {
+    } else */
+    if (providerName === 'wanchain') {
       name = this.context.t('wanchain')
+    } else if (providerName === 'wanchaintestnet') {
+      name = this.context.t('wanchaintestnet')
     } else {
       name = this.context.t('unknownNetwork')
     }

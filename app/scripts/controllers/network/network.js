@@ -13,23 +13,26 @@ const createLocalhostClient = require('./createLocalhostClient')
 const { createSwappableProxy, createEventEmitterProxy } = require('swappable-obj-proxy')
 
 const WANCHAIN_RPC_URL = 'https://mywanwallet.nl/api'
+const WANCHAIN_TESTNET_RPC_URL = 'https://mywanwallet.nl/testnet'
 
 const {
-  ROPSTEN,
+//  ROPSTEN,
   WANCHAIN,
-  RINKEBY,
-  KOVAN,
-  MAINNET,
+  WANCHAIN_TESTNET,
+//  RINKEBY,
+//  KOVAN,
+//  MAINNET,
   LOCALHOST,
 } = require('./enums')
-const INFURA_PROVIDER_TYPES = [ROPSTEN, RINKEBY, KOVAN, MAINNET]
+// const INFURA_PROVIDER_TYPES = [ROPSTEN, RINKEBY, KOVAN, MAINNET]
+const INFURA_PROVIDER_TYPES = []
 
 const env = process.env.METAMASK_ENV
 const METAMASK_DEBUG = process.env.METAMASK_DEBUG
 const testMode = (METAMASK_DEBUG || env === 'test')
 
 const defaultProviderConfig = {
-  type: testMode ? WANCHAIN : WANCHAIN,
+  type: testMode ? WANCHAIN_TESTNET : WANCHAIN,
 }
 
 module.exports = class NetworkController extends EventEmitter {
@@ -91,7 +94,7 @@ module.exports = class NetworkController extends EventEmitter {
     const ethQuery = new EthQuery(this._provider)
     ethQuery.sendAsync({ method: 'net_version' }, (err, network) => {
       if (err) return this.setNetworkState('loading')
-      log.info('web3.getNetwork returned ' + network)
+      log.info('wan3.getNetwork returned ' + network)
       this.setNetworkState(network)
     })
   }
@@ -106,7 +109,7 @@ module.exports = class NetworkController extends EventEmitter {
 
   async setProviderType (type) {
     assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
-    assert(INFURA_PROVIDER_TYPES.includes(type) || type === 'wanchain' || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
+    assert(INFURA_PROVIDER_TYPES.includes(type) || type === 'wanchain' || type === 'wanchaintestnet' || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
     const providerConfig = { type }
     this.providerConfig = providerConfig
   }
@@ -148,6 +151,8 @@ module.exports = class NetworkController extends EventEmitter {
       this._configureStandardProvider({ rpcUrl: rpcTarget })
     } else if (type === 'wanchain') {
       this._configureStandardProvider({ rpcUrl: WANCHAIN_RPC_URL })
+    } else if (type === 'wanchaintestnet') {
+      this._configureStandardProvider({ rpcUrl: WANCHAIN_TESTNET_RPC_URL })
     } else {
       throw new Error(`NetworkController - _configureProvider - unknown type "${type}"`)
     }

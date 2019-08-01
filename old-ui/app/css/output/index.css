@@ -1168,6 +1168,7 @@ h2.page-subtitle {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto; }
+/*
   .network-component.pointer.ethereum-network {
     border-color: #038789; }
     .network-component.pointer.ethereum-network .menu-icon-circle div {
@@ -1184,10 +1185,15 @@ h2.page-subtitle {
     border-color: #ebb33f; }
     .network-component.pointer.rinkeby-test-network .menu-icon-circle div {
       background-color: rgba(235, 179, 63, 0.7) !important; }
+*/
   .network-component.pointer.wanchain-network {
     border-color: #844d00; }
-    .network-component.pointer.rinkeby-test-network .menu-icon-circle div {
+    .network-component.pointer.wanchain-network .menu-icon-circle div {
       background-color: rgba(132, 77, 0, 0.7) !important; }
+  .network-component.pointer.wanchaintestnet-network {
+    border-color: #e91550; }
+    .network-component.pointer.wanchaintestnet-network .menu-icon-circle div {
+      background-color: rgba(233, 21, 80, 0.7) !important; }
 
 .dropdown-menu-item .menu-icon-circle,
 .dropdown-menu-item .menu-icon-circle--active {

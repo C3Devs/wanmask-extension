@@ -1,4 +1,4 @@
-const namehash = require('eth-ens-namehash')
+const namehash = require('wan-wns-namehash')
 const multihash = require('multihashes')
 const HttpProvider = require('ethjs-provider-http')
 const Eth = require('ethjs-query')
@@ -40,6 +40,8 @@ function getProvider (type) {
   switch (type) {
     case 'wanchain':
       return 'https://mywanwallet.nl/api/'
+    case 'wanchaintestnet':
+      return 'https://mywanwallet.nl/testnet/'
     default:
       return 'http://localhost:8545/'
   }
@@ -49,6 +51,8 @@ function getRegistrar (type) {
   switch (type) {
     case 'wanchain':
       return '0xee8d418fd33e69782015ea4313dfd8eb7b1b91ce'
+    case 'wanchaintestnet':
+      return '0xe85cfdf43a0db4aa0ec054a57451af7c73d4625b'
     default:
       return '0x0000000000000000000000000000000000000000'
   }

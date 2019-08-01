@@ -6,7 +6,11 @@ const connect = require('react-redux').connect
 const EthBalance = require('./eth-balance')
 const addressSummary = require('../util').addressSummary
 const explorerLink = function (hash, network) {
-  return `http://wanscan.io/tx/${hash}`
+  if (network === '3') {
+    return `http://18.217.171.41/tx/${hash}`
+  } else {
+    return `https://wanscan.io/tx/${hash}`
+  }
 }
 const CopyButton = require('./copyButton')
 const vreme = new (require('vreme'))()

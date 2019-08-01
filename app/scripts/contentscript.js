@@ -18,7 +18,7 @@ const inpageBundle = inpageContent + inpageSuffix
 // If we create a FireFox-only code path using that API,
 // MetaMask will be much faster loading and performant on Firefox.
 
-if (shouldInjectWeb3()) {
+if (shouldInjectWan3()) {
   setupInjection()
   setupStreams()
 }
@@ -36,7 +36,7 @@ function setupInjection () {
     // append as first child
     container.insertBefore(scriptTag, container.children[0])
   } catch (e) {
-    console.error('Metamask injection failed.', e)
+    console.error('WanMask injection failed.', e)
   }
 }
 
@@ -47,10 +47,10 @@ function setupInjection () {
 function setupStreams () {
   // setup communication to page and plugin
   const pageStream = new LocalMessageDuplexStream({
-    name: 'contentscript',
-    target: 'inpage',
+    name: 'contentscript2',
+    target: 'inpage2',
   })
-  const pluginPort = extension.runtime.connect({ name: 'contentscript' })
+  const pluginPort = extension.runtime.connect({ name: 'contentscript2' })
   const pluginStream = new PortStream(pluginPort)
 
   // forward communication plugin->inpage
@@ -58,7 +58,7 @@ function setupStreams () {
     pageStream,
     pluginStream,
     pageStream,
-    (err) => logStreamDisconnectWarning('MetaMask Contentscript Forwarding', err)
+    (err) => logStreamDisconnectWarning('WanMask Contentscript Forwarding', err)
   )
 
   // setup local multistream channels
@@ -69,13 +69,13 @@ function setupStreams () {
     mux,
     pageStream,
     mux,
-    (err) => logStreamDisconnectWarning('MetaMask Inpage', err)
+    (err) => logStreamDisconnectWarning('WanMask Inpage', err)
   )
   pump(
     mux,
     pluginStream,
     mux,
-    (err) => logStreamDisconnectWarning('MetaMask Background', err)
+    (err) => logStreamDisconnectWarning('WanMask Background', err)
   )
 
   // connect ping stream
@@ -84,16 +84,16 @@ function setupStreams () {
     mux,
     pongStream,
     mux,
-    (err) => logStreamDisconnectWarning('MetaMask PingPongStream', err)
+    (err) => logStreamDisconnectWarning('WanMask PingPongStream', err)
   )
 
   // connect phishing warning stream
-  const phishingStream = mux.createStream('phishing')
+  const phishingStream = mux.createStream('phishing2')
   phishingStream.once('data', redirectToPhishingWarning)
 
   // ignore unused channels (handled by background, inpage)
-  mux.ignoreStream('provider')
-  mux.ignoreStream('publicConfig')
+  mux.ignoreStream('provider2')
+  mux.ignoreStream('publicConfig2')
 }
 
 
@@ -104,17 +104,17 @@ function setupStreams () {
  * @param {Error} err Stream connection error
  */
 function logStreamDisconnectWarning (remoteLabel, err) {
-  let warningMsg = `MetamaskContentscript - lost connection to ${remoteLabel}`
+  let warningMsg = `WanMaskContentscript - lost connection to ${remoteLabel}`
   if (err) warningMsg += '\n' + err.stack
   console.warn(warningMsg)
 }
 
 /**
- * Determines if Web3 should be injected
+ * Determines if Wan3 should be injected
  *
- * @returns {boolean} {@code true} if Web3 should be injected
+ * @returns {boolean} {@code true} if Wan3 should be injected
  */
-function shouldInjectWeb3 () {
+function shouldInjectWan3 () {
   return doctypeCheck() && suffixCheck() &&
     documentElementCheck() && !blacklistedDomainCheck()
 }
@@ -197,7 +197,7 @@ function blacklistedDomainCheck () {
  * Redirects the current page to a phishing information page
  */
 function redirectToPhishingWarning () {
-  console.log('MetaMask - routing to Phishing Warning component')
+  console.log('WanMask - routing to Phishing Warning component')
   const extensionURL = extension.runtime.getURL('phishing.html')
   window.location.href = extensionURL
 }

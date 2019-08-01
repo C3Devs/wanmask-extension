@@ -1,11 +1,12 @@
 const ethUtil = require('wanchainjs-util')
 const normalize = require('eth-sig-util').normalize
 const {
-  MAINNET_RPC_URL,
-  ROPSTEN_RPC_URL,
-  KOVAN_RPC_URL,
-  RINKEBY_RPC_URL,
+//  MAINNET_RPC_URL,
+//  ROPSTEN_RPC_URL,
+//  KOVAN_RPC_URL,
+//  RINKEBY_RPC_URL,
   WANCHAIN_RPC_URL,
+  WANCHAIN_TESTNET_RPC_URL,
 } = require('../controllers/network/enums')
 
 /* The config-manager is a convenience object
@@ -152,7 +153,7 @@ ConfigManager.prototype.getCurrentRpcAddress = function () {
   var provider = this.getProvider()
   if (!provider) return null
   switch (provider.type) {
-
+/*
     case 'mainnet':
       return MAINNET_RPC_URL
 
@@ -164,12 +165,15 @@ ConfigManager.prototype.getCurrentRpcAddress = function () {
 
     case 'rinkeby':
       return RINKEBY_RPC_URL
-
+*/
     case 'wanchain':
       return WANCHAIN_RPC_URL
 
+    case 'wanchaintestnet':
+      return WANCHAIN_TESTNET_RPC_URL
+
     default:
-      return provider && provider.rpcTarget ? provider.rpcTarget : RINKEBY_RPC_URL
+      return provider && provider.rpcTarget ? provider.rpcTarget : WANCHAIN_RPC_URL
   }
 }
 

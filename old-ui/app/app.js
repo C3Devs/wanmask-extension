@@ -290,6 +290,7 @@ App.prototype.getNetworkName = function () {
 
   let name
 
+/*
   if (providerName === 'mainnet') {
     name = 'Main Ethereum Network'
   } else if (providerName === 'ropsten') {
@@ -298,8 +299,12 @@ App.prototype.getNetworkName = function () {
     name = 'Kovan Test Network'
   } else if (providerName === 'rinkeby') {
     name = 'Rinkeby Test Network'
-  } else if (providerName === 'wanchain') {
+  } else
+*/
+  if (providerName === 'wanchain') {
     name = 'Wanchain Network'
+  } else if (providerName === 'wanchaintestnet') {
+    name = 'Wanchain Testnet'
   } else {
     name = 'Unknown Private Network'
   }

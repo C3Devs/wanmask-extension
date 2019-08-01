@@ -6,8 +6,8 @@ const { delay, createModifiedTestBuild, setupBrowserAndExtension, verboseReportO
 
 describe('Wanmask popup page', function () {
   const browser = process.env.SELENIUM_BROWSER
-  let driver, accountAddress, tokenAddress, extensionUri
-  // let driver, accountAddress, extensionUri
+  // let driver, accountAddress, tokenAddress, extensionUri
+  let driver, accountAddress, extensionUri
 
   this.timeout(0)
 
@@ -255,8 +255,8 @@ describe('Wanmask popup page', function () {
     /**/
   })
 
+/* TODO: tokenfactory won't work with wan3
   describe('Token Factory', function () {
-    /* TODO: make wan ganache */
 
     it('navigates to token factory', async function () {
       await driver.get('http://tokenfactory.surge.sh/')
@@ -304,11 +304,14 @@ describe('Wanmask popup page', function () {
       await driver.get(extensionUri)
       await delay(700)
     })
-    /**/
 
   })
-
+*/
   describe('Add Token', function () {
+    it('navigates back to WanMask popup in the tab', async function () {
+      await driver.get(extensionUri)
+      await delay(700)
+    })
 
     it('switches to the add token screen', async function () {
       const tokensTab = await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > section > div > div.inactiveForm.pointer'))
@@ -327,20 +330,21 @@ describe('Wanmask popup page', function () {
       const addTokenScreen = await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > div.section-title.flex-row.flex-center > h2'))
       assert.equal(await addTokenScreen.getText(), 'ADD TOKEN')
     })
-    /* TODO: make wan ganache */
+
+/* TODO: tokenfactory won't work with wan3
     it('adds token parameters', async function () {
       const tokenContractAddress = await driver.findElement(By.css('#token-address'))
       await tokenContractAddress.sendKeys(tokenAddress)
       await delay(300)
       await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > div.flex-column.flex-justify-center.flex-grow.select-none > div > button')).click()
-      await delay(200)
+      await delay(20000)
     })
 
     it('checks the token balance', async function () {
       const tokenBalance = await driver.findElement(By.css('#app-content > div > div.app-primary.from-left > div > section > div.full-flex-height > ol > li:nth-child(2) > h3'))
       assert.equal(await tokenBalance.getText(), '100 TST')
     })
-    /**/
+*/
   })
 
   async function setProviderType (type) {

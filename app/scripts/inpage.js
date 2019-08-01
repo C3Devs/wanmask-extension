@@ -1,10 +1,9 @@
-/*global Web3*/
 cleanContextForImports()
-require('web3/dist/web3.min.js')
+const Wan3 = require('web3')
 const log = require('loglevel')
 const LocalMessageDuplexStream = require('post-message-stream')
 const setupDappAutoReload = require('./lib/auto-reload.js')
-const MetamaskInpageProvider = require('metamask-inpage-provider')
+const WanmaskPageProvider = require('wanmask-inpage-provider')
 restoreContextAfterImports()
 
 log.setDefaultLevel(process.env.METAMASK_DEBUG ? 'debug' : 'warn')
@@ -14,62 +13,63 @@ log.setDefaultLevel(process.env.METAMASK_DEBUG ? 'debug' : 'warn')
 //
 
 // setup background connection
-var metamaskStream = new LocalMessageDuplexStream({
-  name: 'inpage',
-  target: 'contentscript',
+var wanMaskStream = new LocalMessageDuplexStream({
+  name: 'inpage2',
+  target: 'contentscript2',
 })
 
 // compose the inpage provider
-var inpageProvider = new MetamaskInpageProvider(metamaskStream)
+var wanPageProvider = new WanmaskPageProvider(wanMaskStream)
 
 //
-// setup web3
+// setup wan3
 //
 
-if (typeof window.web3 !== 'undefined') {
-  throw new Error(`MetaMask detected another web3.
-     MetaMask will not work reliably with another web3 extension.
-     This usually happens if you have two MetaMasks installed,
-     or MetaMask and another web3 extension. Please remove one
+if (typeof window.wan3 !== 'undefined') {
+  throw new Error(`WanMask detected another wan3.
+     WanMask will not work reliably with another wan3 extension.
+     This usually happens if you have two WanMasks installed,
+     or WanMask and another wan3 extension. Please remove one
      and try again.`)
 }
-var web3 = new Web3(inpageProvider)
-web3.setProvider = function () {
-  log.debug('MetaMask - overrode web3.setProvider')
+
+var wan3 = new Wan3(wanPageProvider)
+
+wan3.setProvider = function () {
+  log.debug('WanMask - overrode wan3.setProvider')
 }
-log.debug('MetaMask - injected web3')
+log.debug('WanMask - injected wan3')
+setupDappAutoReload(wan3, wanPageProvider.publicConfigStore)
 
-setupDappAutoReload(web3, inpageProvider.publicConfigStore)
-
-// export global web3, with usage-detection and deprecation warning
+// export global wan3, with usage-detection and deprecation warning
 
 /* TODO: Uncomment this area once auto-reload.js has been deprecated:
 let hasBeenWarned = false
-global.web3 = new Proxy(web3, {
-  get: (_web3, key) => {
-    // show warning once on web3 access
+global.wan3 = new Proxy(wan3, {
+  get: (_wan3, key) => {
+    // show warning once on wan3 access
     if (!hasBeenWarned && key !== 'currentProvider') {
-      console.warn('MetaMask: web3 will be deprecated in the near future in favor of the ethereumProvider \nhttps://github.com/MetaMask/faq/blob/master/detecting_metamask.md#web3-deprecation')
+      console.warn('WanMask: wan3 will be deprecated in the near future in favor of the ethereumProvider \nhttps://github.com/MetaMask/faq/blob/master/detecting_metamask.md#web3-deprecation')
       hasBeenWarned = true
     }
     // return value normally
-    return _web3[key]
+    return _wan3[key]
   },
-  set: (_web3, key, value) => {
+  set: (_wan3, key, value) => {
     // set value normally
-    _web3[key] = value
+    _wan3[key] = value
   },
 })
 */
 
-// set web3 defaultAccount
-inpageProvider.publicConfigStore.subscribe(function (state) {
-  web3.eth.defaultAccount = state.selectedAddress
+// set wan3 defaultAccount
+wanPageProvider.publicConfigStore.subscribe(function (state) {
+  wan3.eth.defaultAccount = state.selectedAddress
 })
 
 // need to make sure we aren't affected by overlapping namespaces
 // and that we dont affect the app with our namespace
-// mostly a fix for web3's BigNumber if AMD's "define" is defined...
+// mostly a fix for wan3's BigNumber if AMD's "define" is defined...
 var __define
 
 /**
@@ -82,7 +82,7 @@ function cleanContextForImports () {
   try {
     global.define = undefined
   } catch (_) {
-    console.warn('MetaMask - global.define could not be deleted.')
+    console.warn('WanMask - global.define could not be deleted.')
   }
 }
 
@@ -93,6 +93,6 @@ function restoreContextAfterImports () {
   try {
     global.define = __define
   } catch (_) {
-    console.warn('MetaMask - global.define could not be overwritten.')
+    console.warn('WanMask - global.define could not be overwritten.')
   }
 }

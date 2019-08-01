@@ -13,7 +13,7 @@ const Migrator = require('../../app/scripts/lib/migrator/')
 const migrations = require('../../app/scripts/migrations/')
 const firstTimeState = require('../../app/scripts/first-time-state')
 
-const STORAGE_KEY = 'metamask-config'
+const STORAGE_KEY = 'wanmask-config'
 const METAMASK_DEBUG = process.env.METAMASK_DEBUG
 global.metamaskPopupIsOpen = false
 
@@ -106,7 +106,7 @@ async function setupController (initState, client) {
     var isMetaMaskInternalProcess = (context === 'popup')
     if (isMetaMaskInternalProcess) {
       // communication with popup
-      controller.setupTrustedCommunication(connectionStream, 'MetaMask')
+      controller.setupTrustedCommunication(connectionStream, 'WanMask')
       global.metamaskPopupIsOpen = true
     } else {
       // communication with page
@@ -118,8 +118,8 @@ async function setupController (initState, client) {
     // setup multiplexing
     var mx = setupMultiplex(connectionStream)
     // connect features
-    controller.setupProviderConnection(mx.createStream('provider'), originDomain)
-    controller.setupPublicConfig(mx.createStream('publicConfig'))
+    controller.setupProviderConnection(mx.createStream('provider2'), originDomain)
+    controller.setupPublicConfig(mx.createStream('publicConfig2'))
   }
 }
 // // this will be useful later but commented out for linting for now (liiiinting)

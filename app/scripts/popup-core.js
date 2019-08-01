@@ -24,7 +24,7 @@ function initializePopup ({ container, connectionStream }, cb) {
 }
 
 /**
- * Establishes streamed connections to background scripts and a Web3 provider
+ * Establishes streamed connections to background scripts and a Wan3 provider
  *
  * @param {PortDuplexStream} connectionStream PortStream instance establishing a background connection
  * @param {Function} cb Called when controller connection is established
@@ -34,16 +34,16 @@ function connectToAccountManager (connectionStream, cb) {
   // setup multiplexing
   var mx = setupMultiplex(connectionStream)
   // connect features
-  setupControllerConnection(mx.createStream('controller'), cb)
-  setupWeb3Connection(mx.createStream('provider'))
+  setupControllerConnection(mx.createStream('controller2'), cb)
+  setupWan3Connection(mx.createStream('provider2'))
 }
 
 /**
- * Establishes a streamed connection to a Web3 provider
+ * Establishes a streamed connection to a Wan3 provider
  *
  * @param {PortDuplexStream} connectionStream PortStream instance establishing a background connection
  */
-function setupWeb3Connection (connectionStream) {
+function setupWan3Connection (connectionStream) {
   var providerStream = new StreamProvider()
   providerStream.pipe(connectionStream).pipe(providerStream)
   connectionStream.on('error', console.error.bind(console))
