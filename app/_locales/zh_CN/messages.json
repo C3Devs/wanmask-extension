@@ -30,7 +30,7 @@
     "message": "数量 + Gas"
   },
   "appDescription": {
-    "message": "以太坊浏览器插件",
+    "message": "万维链浏览器插件",
     "description": "The description of the application"
   },
   "appName": {
@@ -221,7 +221,7 @@
     "message": "从 ShapeShift 存入"
   },
   "depositShapeShiftExplainer": {
-    "message": "如果你拥有其他加密货币，你可以直接交易并存入 Ether 到你的 WanMask 钱包。 不需要帐户。"
+    "message": "如果你拥有其他加密货币，你可以直接交易并存入 Wan 到你的 WanMask 钱包。 不需要帐户。"
   },
   "details": {
     "message": "详情"
@@ -230,10 +230,10 @@
     "message": "直接存入"
   },
   "directDepositEther": {
-    "message": "直接存入 Ether"
+    "message": "直接存入 Wan"
   },
   "directDepositEtherExplainer": {
-    "message": "如果你已经有了一些 Ether，通过直接转入是你的新钱包获取 Ether 的最快捷方式。"
+    "message": "如果你已经有了一些 Wan，通过直接转入是你的新钱包获取 Wan 的最快捷方式。"
   },
   "done": {
     "message": "完成"
@@ -272,7 +272,7 @@
     "message": "密码不匹配"
   },
   "etherscanView": {
-    "message": "在 Etherscan 上查看账户"
+    "message": "在 Wanscan 上查看账户"
   },
   "exchangeRate": {
     "message": "兑换比率"
@@ -537,7 +537,7 @@
     "message": "下一步"
   },
   "noAddressForName": {
-    "message": "此 ENS 名字还没有指定地址。"
+    "message": "此 WNS 名字还没有指定地址。"
   },
   "noDeposits": {
     "message": "没有已收的存款"
