@@ -153,7 +153,6 @@ jobs:
       - run:
           name: Test
           command: npm run lint
-
   test-deps:
     docker:
       - image: circleci/node:8.11.3-browsers
@@ -163,8 +162,7 @@ jobs:
           at: .
       - run:
           name: Test
-          command: npx nsp check
-
+          command: npm audit --audit-level high || true
   test-e2e-chrome:
     docker:
       - image: circleci/node:8.11.3-browsers
