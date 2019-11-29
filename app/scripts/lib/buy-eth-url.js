@@ -19,7 +19,7 @@ function getBuyEthUrl ({ network, amount, address }) {
       break
 
     case '3':
-      url = 'https://faucet.metamask.io/'
+      url = 'https://wanfaucet.net/testnet'
       break
 
     case '4':

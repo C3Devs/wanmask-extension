@@ -12,12 +12,28 @@ class AccountList extends Component {
     getHdPaths () {
       return [
         {
+          label: `Ledger MyWanWallet`,
+          value: `m/44'/5718350'/0'`,
+        },
+        {
           label: `Ledger Live`,
+          value: `m/44'/5718350'/0'/0/0`,
+        },
+        {
+          label: `Trezor MyWanWallet`,
+          value: `m/44'/5718350'/0'/0`,
+        },
+        {
+          label: `ETH Legacy Ledger Live`,
           value: `m/44'/60'/0'/0/0`,
         },
         {
-          label: `Legacy (MEW / MyCrypto)`,
+          label: `ETH Legacy MEW / MyCrypto`,
           value: `m/44'/60'/0'`,
+        },
+        {
+          label: `ETH Legacy Trezor`,
+          value: `m/44'/60'/0'/0`,
         },
       ]
     }

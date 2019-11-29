@@ -5,7 +5,7 @@ const h = require('react-hyperscript')
 const connect = require('react-redux').connect
 const vreme = new (require('vreme'))()
 const explorerLink = function (hash, network) {
-  return `http://wanscan.io/tx/${hash}`
+  return `https://wanscan.org/tx/${hash}`
 }
 const actions = require('../actions')
 const addressSummary = require('../util').addressSummary

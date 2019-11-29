@@ -153,7 +153,7 @@ function navigateTo (url) {
 }
 
 function etherscanLinkFor (tokenAddress, address, network) {
-  return `https://wanscan.io/token/${tokenAddress}?a=${address}`
+  return `https://wanscan.org/token/${tokenAddress}?a=${address}`
 }
 
 function tokenFactoryFor (tokenAddress) {

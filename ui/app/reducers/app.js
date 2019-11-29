@@ -68,8 +68,8 @@ function reduceApp (state, action) {
     gasIsLoading: false,
     networkNonce: null,
     defaultHdPaths: {
-      trezor: `m/44'/60'/0'/0`,
-      ledger: `m/44'/60'/0'/0/0`,
+      trezor: `m/44'/5718350'/0'/0`,
+      ledger: `m/44'/5718350'/0'`,
     },
   }, state.appState)
 

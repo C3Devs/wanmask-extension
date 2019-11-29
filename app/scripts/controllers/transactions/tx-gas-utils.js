@@ -1,7 +1,6 @@
 const EthQuery = require('ethjs-query')
 const {
   hexToBn,
-  BnMultiplyByFraction,
   bnToHex,
 } = require('../../lib/util')
 const { addHexPrefix } = require('wanchainjs-util')
@@ -70,8 +69,7 @@ class TxGasUtil {
 
     // if not, fall back to block gasLimit
     const blockGasLimitBN = hexToBn(blockGasLimitHex)
-    const saferGasLimitBN = BnMultiplyByFraction(blockGasLimitBN, 19, 20)
-    txParams.gas = bnToHex(saferGasLimitBN)
+    txParams.gas = bnToHex(blockGasLimitBN)
 
     // run tx
     return await this.query.estimateGas(txParams)

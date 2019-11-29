@@ -3,20 +3,11 @@ module.exports = function (address, network) {
   let link
   switch (net) {
     case 1: // main net
-      link = `https://wanscan.io/addr/${address}`
+      link = `https://wanscan.org/address/${address}`
       break
-//    case 2: // morden test net
-//      link = `https://morden.etherscan.io/address/${address}`
-//      break
     case 3: // wanchain testnet
-      link = `http://18.217.171.41/address/${address}`
+      link = `https://testnet.wanscan.org/address/${address}`
       break
-//    case 4: // rinkeby test net
-//      link = `https://rinkeby.etherscan.io/address/${address}`
-//      break
-//    case 42: // kovan test net
-//      link = `https://kovan.etherscan.io/address/${address}`
-//      break
     default:
       link = ''
       break

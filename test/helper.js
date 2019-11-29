@@ -29,10 +29,12 @@ global.log = log
 global.fetch = require('isomorphic-fetch')
 
 // dom
-require('jsdom-global')()
-
-// localStorage
-window.localStorage = {}
+require('jsdom-global')(
+    undefined,
+    {
+        url: 'http://localhost',
+    }
+)
 
 // crypto.getRandomValues
 if (!window.crypto) window.crypto = {}

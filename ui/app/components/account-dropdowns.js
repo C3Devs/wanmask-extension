@@ -4,9 +4,9 @@ const h = require('react-hyperscript')
 const actions = require('../actions')
 const genAccountLink = function (address, network) {
   if (network === '3') {
-    return `http://18.217.171.41/addr/${address}`
+    return `https://testnet.wanscan.org/address/${address}`
   } else {
-    return `https://wanscan.io/addr/${address}`
+    return `https://wanscan.org/address/${address}`
   }
 }
 const connect = require('react-redux').connect

@@ -22,7 +22,7 @@ describe('', function () {
 
   it('returns metamask ropsten faucet for network 3', function () {
     const ropstenUrl = getBuyEthUrl(ropsten)
-    assert.equal(ropstenUrl, 'https://faucet.metamask.io/')
+    assert.equal(ropstenUrl, 'https://wanfaucet.net/testnet')
   })
 
   it('returns rinkeby dapp for network 4', function () {

@@ -247,14 +247,14 @@ function createScssBuildTask ({ src, dest, devMode, pattern }) {
     return buildScss()
   }
 
-  function buildScss () {
-    return gulp.src(src)
-      .pipe(sourcemaps.init())
-      .pipe(sass().on('error', sass.logError))
-      .pipe(sourcemaps.write())
-      .pipe(autoprefixer())
-      .pipe(gulp.dest(dest))
-  }
+function buildScss () {
+  return gulp.src(src)
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(dest))
+}
 }
 
 gulp.task('lint-scss', function () {

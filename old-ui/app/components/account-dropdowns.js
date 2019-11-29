@@ -3,7 +3,7 @@ const PropTypes = require('prop-types')
 const h = require('react-hyperscript')
 const actions = require('../../../ui/app/actions')
 const genAccountLink = function (address, network) {
-  return `http://wanscan.io/addr/${address}`
+  return `https://wanscan.org/address/${address}`
 }
 const connect = require('react-redux').connect
 const Dropdown = require('./dropdown').Dropdown

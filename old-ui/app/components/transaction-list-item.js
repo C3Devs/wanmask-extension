@@ -7,9 +7,9 @@ const EthBalance = require('./eth-balance')
 const addressSummary = require('../util').addressSummary
 const explorerLink = function (hash, network) {
   if (network === '3') {
-    return `http://18.217.171.41/tx/${hash}`
+    return `https://testnet.wanscan.org/tx/${hash}`
   } else {
-    return `https://wanscan.io/tx/${hash}`
+    return `https://wanscan.org/tx/${hash}`
   }
 }
 const CopyButton = require('./copyButton')
