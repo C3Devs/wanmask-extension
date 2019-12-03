@@ -67,7 +67,7 @@
     "*://*.eth/",
     "*://*.wan/",
     "*://*.test/",
-    "notifications"
+    "notifications",
   ],
   "web_accessible_resources": [
     "inpage.js",

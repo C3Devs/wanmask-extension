@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Using MetaMask, but it's not working as you expect?
+about: Using WanMask, but it's not working as you expect?
 
 ---
 
@@ -27,7 +27,7 @@ If applicable, add screenshots to help explain your problem.
 **Browser details (please complete the following information):**
  - OS: [e.g. iOS]
  - Browser [e.g. chrome, safari]
- - MetaMask Version [e.g. 4.9.0]
+ - WanMask Version [e.g. 2.0.3]
  - Old UI or New / Beta UI?
 
 **Additional context**
