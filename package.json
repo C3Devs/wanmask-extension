@@ -1,6 +1,6 @@
 {
   "name": "wanmask-crx",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "public": false,
   "private": true,
   "precommit": "npm run lint",

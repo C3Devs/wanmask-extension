@@ -1,7 +1,7 @@
 {
   "name": "__MSG_appName__",
   "short_name": "__MSG_appName__",
-  "version": "2.0.3",
+  "version": "2.0.5",
   "manifest_version": 2,
   "author": "tyrion70@gmail.com",
   "description": "__MSG_appDescription__",
@@ -67,7 +67,7 @@
     "*://*.eth/",
     "*://*.wan/",
     "*://*.test/",
-    "notifications",
+    "notifications"
   ],
   "web_accessible_resources": [
     "inpage.js",
