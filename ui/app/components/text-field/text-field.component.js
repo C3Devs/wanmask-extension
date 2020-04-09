@@ -53,6 +53,9 @@ const styles = {
       border: '1px solid #2f9ae0',
     },
   },
+  input: {
+    color: '#000',
+  },
   largeInputLabel: {
     ...inputLabelBase,
     fontSize: '1rem',
