@@ -125,7 +125,7 @@ class CreatePasswordScreen extends Component {
               MetaMask is a secure identity vault for Ethereum.
             </div>
             <div className="info">
-              It allows you to hold ether & tokens, and interact with decentralized applications.
+              It allows you to hold wan & tokens, and interact with decentralized applications.
             </div>
           </div>}
           <div className="create-password">

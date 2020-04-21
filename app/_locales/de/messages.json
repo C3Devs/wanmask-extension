@@ -227,7 +227,7 @@
     "message": "Sofort Ether einzahlen"
   },
   "directDepositEtherExplainer": {
-    "message": "Wenn du bereits Ether besitzt, ist die sofortige Einzahlung die schnellste Methode Ether in deine neue Wallet zu bekommen."
+    "message": "Wenn du bereits Ether besitzt, ist die sofortige Einzahlung die schnellste Methode Wan in deine neue Wallet zu bekommen."
   },
   "done": {
     "message": "Fertig"
@@ -477,7 +477,7 @@
     "message": "Du musst mindestens 1 Token auswählen."
   },
   "needEtherInWallet": {
-    "message": "Um dezentralisierte Applikationen mit WanMask verwenden zu können, benötigst du Ether in deiner Wallet."
+    "message": "Um dezentralisierte Applikationen mit WanMask verwenden zu können, benötigst du Wan in deiner Wallet."
   },
   "needImportFile": {
     "message": "Für den Import musst du eine Datei auswählen.",

@@ -5,7 +5,11 @@ const inherits = require('util').inherits
 const connect = require('react-redux').connect
 const actions = require('../../actions')
 const genAccountLink = function (address, network) {
-  return `https://wanscan.org/address/${address}`
+  if (network === '1') {
+    return `https://www.wanscan.org/address/${address}`
+  } else {
+    return `https://testnet.wanscan.org/address/${address}`
+  }
 }
 const copyToClipboard = require('copy-to-clipboard')
 const { Menu, Item, CloseArea } = require('./components/menu')
