@@ -8,6 +8,7 @@ import {
 } from '../../../../ui/app/actions'
 import { INITIALIZE_NOTICE_ROUTE } from '../../../../ui/app/routes'
 import TextField from '../../../../ui/app/components/text-field'
+import RadioButtons from '../../../../ui/app/components/radio-buttons'
 
 class ImportSeedPhraseScreen extends Component {
   static contextTypes = {
@@ -25,6 +26,7 @@ class ImportSeedPhraseScreen extends Component {
   state = {
     seedPhrase: '',
     password: '',
+    pathType: 'WAN',
     confirmPassword: '',
     seedPhraseError: null,
     passwordError: null,
@@ -78,8 +80,12 @@ class ImportSeedPhraseScreen extends Component {
     this.setState({ confirmPassword, confirmPasswordError })
   }
 
+  handleSelectPathChange (pathType) {
+    this.setState({ pathType })
+  }
+
   onClick = () => {
-    const { password, seedPhrase } = this.state
+    const { password, seedPhrase, pathType } = this.state
     const {
       createNewVaultAndRestore,
       leaveImportSeedScreenState,
@@ -87,7 +93,7 @@ class ImportSeedPhraseScreen extends Component {
     } = this.props
 
     leaveImportSeedScreenState()
-    createNewVaultAndRestore(password, this.parseSeedPhrase(seedPhrase))
+    createNewVaultAndRestore(password, this.parseSeedPhrase(seedPhrase), pathType)
       .then(() => history.push(INITIALIZE_NOTICE_ROUTE))
   }
 
@@ -165,6 +171,11 @@ class ImportSeedPhraseScreen extends Component {
               margin="normal"
               largeLabel
             />
+            <RadioButtons
+              id="select-path"
+              value={this.state.pathType}
+              onChange={event => this.handleSelectPathChange(event.target.value)}
+            />
             <button
               className="first-time-flow__button"
               onClick={() => !disabled && this.onClick()}
@@ -185,6 +196,6 @@ export default connect(
     leaveImportSeedScreenState: () => {
       dispatch(unMarkPasswordForgotten())
     },
-    createNewVaultAndRestore: (pw, seed) => dispatch(createNewVaultAndRestore(pw, seed)),
+    createNewVaultAndRestore: (pw, seed, pathType) => dispatch(createNewVaultAndRestore(pw, seed, pathType)),
   })
 )(ImportSeedPhraseScreen)

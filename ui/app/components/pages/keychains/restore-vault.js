@@ -7,6 +7,7 @@ import {
 } from '../../../actions'
 import { DEFAULT_ROUTE } from '../../../routes'
 import TextField from '../../text-field'
+import RadioButtons from '../../radio-buttons'
 
 class RestoreVaultPage extends Component {
   static contextTypes = {
@@ -24,6 +25,7 @@ class RestoreVaultPage extends Component {
   state = {
     seedPhrase: '',
     password: '',
+    pathType: 'WAN',
     confirmPassword: '',
     seedPhraseError: null,
     passwordError: null,
@@ -73,8 +75,12 @@ class RestoreVaultPage extends Component {
     this.setState({ confirmPassword, confirmPasswordError })
   }
 
+  handleSelectPathChange (pathType) {
+    this.setState({ pathType })
+  }
+
   onClick = () => {
-    const { password, seedPhrase } = this.state
+    const { password, seedPhrase, pathType } = this.state
     const {
       createNewVaultAndRestore,
       leaveImportSeedScreenState,
@@ -82,7 +88,7 @@ class RestoreVaultPage extends Component {
     } = this.props
 
     leaveImportSeedScreenState()
-    createNewVaultAndRestore(password, this.parseSeedPhrase(seedPhrase))
+    createNewVaultAndRestore(password, this.parseSeedPhrase(seedPhrase), pathType)
       .then(() => history.push(DEFAULT_ROUTE))
   }
 
@@ -160,6 +166,11 @@ class RestoreVaultPage extends Component {
               margin="normal"
               largeLabel
             />
+            <RadioButtons
+              id="select-path"
+              value={this.state.pathType}
+              onChange={event => this.handleSelectPathChange(event.target.value)}
+            />
             <button
               className="first-time-flow__button"
               onClick={() => !disabled && this.onClick()}
@@ -184,6 +195,6 @@ export default connect(
     leaveImportSeedScreenState: () => {
       dispatch(unMarkPasswordForgotten())
     },
-    createNewVaultAndRestore: (pw, seed) => dispatch(createNewVaultAndRestore(pw, seed)),
+    createNewVaultAndRestore: (pw, seed, pathType) => dispatch(createNewVaultAndRestore(pw, seed, pathType)),
   })
 )(RestoreVaultPage)

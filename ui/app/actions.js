@@ -404,13 +404,13 @@ function confirmSeedWords () {
   }
 }
 
-function createNewVaultAndRestore (password, seed) {
+function createNewVaultAndRestore (password, seed, pathType) {
   return (dispatch) => {
     dispatch(actions.showLoadingIndication())
     log.debug(`background.createNewVaultAndRestore`)
 
     return new Promise((resolve, reject) => {
-      background.createNewVaultAndRestore(password, seed, err => {
+      background.createNewVaultAndRestore(password, seed, pathType, err => {
         if (err) {
           return reject(err)
         }
@@ -430,13 +430,13 @@ function createNewVaultAndRestore (password, seed) {
   }
 }
 
-function createNewVaultAndKeychain (password) {
+function createNewVaultAndKeychain (password, pathType) {
   return dispatch => {
     dispatch(actions.showLoadingIndication())
     log.debug(`background.createNewVaultAndKeychain`)
 
     return new Promise((resolve, reject) => {
-      background.createNewVaultAndKeychain(password, err => {
+      background.createNewVaultAndKeychain(password, pathType, err => {
         if (err) {
           dispatch(actions.displayWarning(err.message))
           return reject(err)

@@ -8,6 +8,7 @@ const actions = require('../../../ui/app/actions')
 const Tooltip = require('../components/tooltip')
 const getCaretCoordinates = require('textarea-caret')
 
+const PATHTYPE = 'WAN'
 module.exports = connect(mapStateToProps)(InitializeMenuScreen)
 
 inherits(InitializeMenuScreen, Component)
@@ -164,7 +165,7 @@ InitializeMenuScreen.prototype.createNewVaultAndKeychain = function () {
     return
   }
 
-  this.props.dispatch(actions.createNewVaultAndKeychain(password))
+  this.props.dispatch(actions.createNewVaultAndKeychain(password, PATHTYPE))
 }
 
 InitializeMenuScreen.prototype.inputChanged = function (event) {

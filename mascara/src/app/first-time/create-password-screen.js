@@ -15,6 +15,7 @@ import {
 } from '../../../../ui/app/routes'
 import TextField from '../../../../ui/app/components/text-field'
 
+const PATHTYPE = 'WAN'
 class CreatePasswordScreen extends Component {
   static contextTypes = {
     t: PropTypes.func,
@@ -72,7 +73,7 @@ class CreatePasswordScreen extends Component {
     const { createAccount, history } = this.props
 
     this.setState({ isLoading: true })
-    createAccount(password)
+    createAccount(password, PATHTYPE)
       .then(() => history.push(INITIALIZE_UNIQUE_IMAGE_ROUTE))
   }
 
@@ -213,7 +214,7 @@ export default compose(
   connect(
     mapStateToProps,
     dispatch => ({
-      createAccount: password => dispatch(createNewVaultAndKeychain(password)),
+      createAccount: (password, pathType) => dispatch(createNewVaultAndKeychain(password, pathType)),
     })
   )
 )(CreatePasswordScreen)
