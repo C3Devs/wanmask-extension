@@ -275,7 +275,7 @@
     "message": "Directly Deposit Wan"
   },
   "directDepositEtherExplainer": {
-    "message": "If you already have some Wan, the quickest way to get Ether in your new wallet by direct deposit."
+    "message": "If you already have some Wan, the quickest way to get Wan in your new wallet by direct deposit."
   },
   "done": {
     "message": "Done"
@@ -455,7 +455,7 @@
     "message": "How would you like to deposit Wan?"
   },
   "holdEther": {
-    "message": "It allows you to hold ether & tokens, and serves as your bridge to decentralized applications."
+    "message": "It allows you to hold wan & tokens, and serves as your bridge to decentralized applications."
   },
   "import": {
     "message": "Import",

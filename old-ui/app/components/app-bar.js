@@ -224,7 +224,7 @@ module.exports = class AppBar extends Component {
       zIndex: 11,
       style: {
         position: 'absolute',
-        left: '2px',
+        left: '65px',
         top: '64px',
       },
       innerStyle: {
@@ -242,6 +242,20 @@ module.exports = class AppBar extends Component {
         h('.menu-icon.golden-square'),
         'Wanchain Network',
         providerType === 'wanchain'
+          ? h('.check', '✓')
+          : null,
+      ]),
+      h(DropdownMenuItem, {
+        key: 'wanchaintestnet',
+        closeMenu: () => this.setState({ isNetworkMenuOpen: !isOpen }),
+        onClick: () => dispatch(actions.setProviderType('wanchaintestnet')),
+        style: {
+          fontSize: '18px',
+        },
+      }, [
+        h('.menu-icon.golden-square'),
+        'Wanchain Testnet',
+        providerType === 'wanchaintestnet'
           ? h('.check', '✓')
           : null,
       ]),

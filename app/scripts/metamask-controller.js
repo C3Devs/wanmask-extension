@@ -51,6 +51,9 @@ const log = require('loglevel')
 const TrezorKeyring = require('eth-trezor-keyring')
 const LedgerBridgeKeyring = require('eth-ledger-bridge-keyring')
 const EthQuery = require('eth-query')
+const sigUtil = require('eth-sig-util')
+const normalizeAddress = sigUtil.normalize
+const bip39 = require('bip39')
 
 module.exports = class MetamaskController extends EventEmitter {
 
@@ -447,7 +450,7 @@ module.exports = class MetamaskController extends EventEmitter {
    *
    * @returns {Object} vault
    */
-  async createNewVaultAndKeychain (password) {
+  async createNewVaultAndKeychain (password, pathType = 'ETH') {
     const releaseLock = await this.createVaultMutex.acquire()
     try {
       let vault
@@ -455,7 +458,11 @@ module.exports = class MetamaskController extends EventEmitter {
       if (accounts.length > 0) {
         vault = await this.keyringController.fullUpdate()
       } else {
-        vault = await this.keyringController.createNewVaultAndKeychain(password)
+        if (pathType === 'ETH') {
+          vault = await this.keyringController.createNewVaultAndKeychain(password)
+        } else {
+          vault = await this.customCreateNewVaultAndKeychain(password)
+        }
         const accounts = await this.keyringController.getAccounts()
         this.preferencesController.setAddresses(accounts)
         this.selectFirstIdentity()
@@ -468,23 +475,82 @@ module.exports = class MetamaskController extends EventEmitter {
     }
   }
 
+  customCreateNewVaultAndKeychain (password) {
+    const self = this.keyringController
+    return self.persistAllKeyrings(password)
+      .then(this.customCreateFirstKeyTree.bind(self))
+      .then(self.persistAllKeyrings.bind(self, password))
+      .then(self.fullUpdate.bind(self))
+  }
+
+  customCreateFirstKeyTree () {
+    this.clearKeyrings()
+    return this.addNewKeyring('HD Key Tree', { numberOfAccounts: 1, hdPath: `m/44'/5718350'/0'/0` })
+    .then((keyring) => {
+      return keyring.getAccounts()
+    })
+    .then((accounts) => {
+      const firstAccount = accounts[0]
+      if (!firstAccount) throw new Error('KeyringController - No account found on keychain.')
+      const hexAccount = normalizeAddress(firstAccount)
+      this.emit('newVault', hexAccount)
+      return null
+    })
+  }
+
+  customCreateNewVaultAndRestore (password, seed) {
+    const self = this.keyringController
+    if (typeof password !== 'string') {
+      return Promise.reject('Password must be text.')
+    }
+
+    if (!bip39.validateMnemonic(seed)) {
+      return Promise.reject(new Error('Seed phrase is invalid.'))
+    }
+
+    self.clearKeyrings()
+
+    return self.persistAllKeyrings(password)
+    .then(() => {
+      return self.addNewKeyring('HD Key Tree', {
+        mnemonic: seed,
+        numberOfAccounts: 1,
+        hdPath: `m/44'/5718350'/0'/0`,
+      })
+    })
+    .then((firstKeyring) => {
+      return firstKeyring.getAccounts()
+    })
+    .then((accounts) => {
+      const firstAccount = accounts[0]
+      if (!firstAccount) throw new Error('KeyringController - First Account not found.')
+      return null
+    })
+    .then(self.persistAllKeyrings.bind(self, password))
+    .then(self.fullUpdate.bind(self))
+  }
+
   /**
    * Create a new Vault and restore an existent keyring.
    * @param  {} password
    * @param  {} seed
    */
-  async createNewVaultAndRestore (password, seed) {
+  async createNewVaultAndRestore (password, seed, pathType = 'ETH') {
     const releaseLock = await this.createVaultMutex.acquire()
     try {
-      let accounts, lastBalance
+      let accounts, lastBalance, vault
 
       const keyringController = this.keyringController
 
       // clear known identities
       this.preferencesController.setAddresses([])
       // create new vault
-      const vault = await keyringController.createNewVaultAndRestore(password, seed)
 
+      if (pathType === 'ETH') {
+        vault = await keyringController.createNewVaultAndRestore(password, seed)
+      } else {
+        vault = await this.customCreateNewVaultAndRestore(password, seed, pathType)
+      }
       const ethQuery = new EthQuery(this.provider)
       accounts = await keyringController.getAccounts()
       lastBalance = await this.getBalance(accounts[accounts.length - 1], ethQuery)
@@ -745,6 +811,7 @@ module.exports = class MetamaskController extends EventEmitter {
   async verifySeedPhrase () {
 
     const primaryKeyring = this.keyringController.getKeyringsByType('HD Key Tree')[0]
+    const pathType = primaryKeyring.hdPath.search('5718350') !== -1 ? 'WAN' : 'ETH'
     if (!primaryKeyring) {
       throw new Error('MetamaskController - No HD Key Tree found')
     }
@@ -758,7 +825,7 @@ module.exports = class MetamaskController extends EventEmitter {
     }
 
     try {
-      await seedPhraseVerifier.verifyAccounts(accounts, seedWords)
+      await seedPhraseVerifier.verifyAccounts(accounts, seedWords, pathType)
       return seedWords
     } catch (err) {
       log.error(err.message)

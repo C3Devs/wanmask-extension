@@ -3,11 +3,15 @@ const PersistentForm = require('../../../lib/persistent-form')
 const connect = require('react-redux').connect
 const h = require('react-hyperscript')
 const actions = require('../../../../ui/app/actions')
+const RadioList = require('../../components/custom-radio-list')
 
 module.exports = connect(mapStateToProps)(RestoreVaultScreen)
 
 inherits(RestoreVaultScreen, PersistentForm)
 function RestoreVaultScreen () {
+  this.state = {
+    pathType: 'Live',
+  }
   PersistentForm.call(this)
 }
 
@@ -74,6 +78,34 @@ RestoreVaultScreen.prototype.render = function () {
         },
       }),
 
+      h('h4', {
+        style: {
+          marginTop: 10,
+          fontSize: '15px',
+        },
+      }, [
+        'Select HD Path',
+      ]),
+      h('h6', {
+        style: {
+          color: '#AEAEAE',
+          fontSize: '10px',
+          padding: '0 35px',
+          lineHeight: '18px',
+        },
+      }, [
+        `If you don't see your existing accounts, try switching paths to "Legacy"`,
+      ]),
+
+      h(RadioList, {
+        defaultFocus: this.state.pathType,
+        labels: [
+          'Live',
+          'Legacy',
+        ],
+        onClick: this.radioHandler.bind(this),
+      }),
+
       (state.warning) && (
         h('span.error.in-progress-notification', state.warning)
       ),
@@ -123,6 +155,7 @@ RestoreVaultScreen.prototype.createNewVaultAndRestore = function () {
   var password = passwordBox.value
   var passwordConfirmBox = document.getElementById('password-box-confirm')
   var passwordConfirm = passwordConfirmBox.value
+  var pathType = this.state.pathType === 'Live' ? 'WAN' : 'ETH'
   if (password.length < 8) {
     this.warning = 'Password not long enough'
 
@@ -158,5 +191,9 @@ RestoreVaultScreen.prototype.createNewVaultAndRestore = function () {
   // submit
   this.warning = null
   this.props.dispatch(actions.displayWarning(this.warning))
-  this.props.dispatch(actions.createNewVaultAndRestore(password, seed))
+  this.props.dispatch(actions.createNewVaultAndRestore(password, seed, pathType))
+}
+
+RestoreVaultScreen.prototype.radioHandler = function (event) {
+  this.setState({ pathType: event.target.title })
 }
