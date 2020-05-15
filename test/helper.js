@@ -35,6 +35,7 @@ require('jsdom-global')(
         url: 'http://localhost',
     }
 )
+window.localStorage = {}
 
 // crypto.getRandomValues
 if (!window.crypto) window.crypto = {}

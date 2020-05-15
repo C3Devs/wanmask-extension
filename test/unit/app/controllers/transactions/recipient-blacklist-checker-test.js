@@ -1,9 +1,7 @@
 const assert = require('assert')
 const recipientBlackListChecker = require('../../../../../app/scripts/controllers/transactions/lib/recipient-blacklist-checker')
 const {
-  ROPSTEN_CODE,
-  RINKEYBY_CODE,
-  KOVAN_CODE,
+  WANCHAIN_TESTNET_CODE,
 } = require('../../../../../app/scripts/controllers/network/enums')
 
 const KeyringController = require('eth-keyring-controller')
@@ -27,14 +25,14 @@ describe('Recipient Blacklist Checker', function () {
   describe('#checkAccount', function () {
     it('does not fail on test networks', function () {
       let callCount = 0
-      const networks = [ROPSTEN_CODE, RINKEYBY_CODE, KOVAN_CODE]
+      const networks = [WANCHAIN_TESTNET_CODE]
       for (const networkId in networks) {
         publicAccounts.forEach((account) => {
            recipientBlackListChecker.checkAccount(networkId, account)
             callCount++
         })
       }
-      assert.equal(callCount, 30)
+      assert.equal(callCount, 10)
     })
 
     it('fails on mainnet', function () {
@@ -43,6 +41,7 @@ describe('Recipient Blacklist Checker', function () {
       publicAccounts.forEach((account) => {
         try {
           recipientBlackListChecker.checkAccount(mainnetId, account)
+          console.log(recipientBlackListChecker.checkAccount(mainnetId, account))
           assert.fail('function should have thrown an error')
         } catch (err) {
           assert.equal(err.message, 'Recipient is a public account')

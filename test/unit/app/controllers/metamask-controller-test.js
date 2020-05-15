@@ -11,13 +11,13 @@ const EthQuery = require('eth-query')
 
 const currentNetworkId = 42
 const DEFAULT_LABEL = 'Account 1'
-const DEFAULT_LABEL_2 = 'Account 2'
+const DEFAULT_LABEL_2 = 'Account 1'
 const TEST_SEED = 'debris dizzy just program just float decrease vacant alarm reduce speak stadium'
-const TEST_ADDRESS = '0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc'
-const TEST_ADDRESS_2 = '0xec1adf982415d2ef5ec55899b9bfb8bc0f29251b'
+const TEST_ADDRESS = '0xb35991fdc8300270d7fa9dcc8823d9be93273906'
+const TEST_ADDRESS_2 = '0xb35991fdc8300270d7fa9dcc8823d9be93273906'
 const TEST_ADDRESS_3 = '0xeb9e64b93097bc15f01f13eae97015c57ab64823'
 const TEST_SEED_ALT = 'setup olympic issue mobile velvet surge alcohol burger horse view reopen gentle'
-const TEST_ADDRESS_ALT = '0xc42edfcc21ed14dda456aa0756c153f7985d8813'
+const TEST_ADDRESS_ALT = '0xb4cffaa1123557f685ba374359a50303e73bd358'
 const CUSTOM_RPC_URL = 'http://localhost:8545'
 
 describe('MetaMaskController', function () {
@@ -168,6 +168,9 @@ describe('MetaMaskController', function () {
         [TEST_ADDRESS_ALT]: { address: TEST_ADDRESS_ALT, name: DEFAULT_LABEL },
       })
     })
+  })
+
+  describe('#createNewVaultAndRestore2', () => {
 
     it('should restore any consecutive accounts with balances', async () => {
       sandbox.stub(metamaskController, 'getBalance')
@@ -180,7 +183,6 @@ describe('MetaMaskController', function () {
       metamaskController.getBalance.withArgs(TEST_ADDRESS_3).callsFake(() => {
         return Promise.resolve('0x14ced5122ce0a000')
       })
-
       await metamaskController.createNewVaultAndRestore('foobar1337', TEST_SEED)
       assert.deepEqual(metamaskController.getState().identities, {
         [TEST_ADDRESS]: { address: TEST_ADDRESS, name: DEFAULT_LABEL },
@@ -262,8 +264,8 @@ describe('MetaMaskController', function () {
           'address': address,
           'name': 'Account 1',
         },
-        '0xc42edfcc21ed14dda456aa0756c153f7985d8813': {
-          'address': '0xc42edfcc21ed14dda456aa0756c153f7985d8813',
+        '0xb4cffaa1123557f685ba374359a50303e73bd358': {
+          'address': '0xb4cffaa1123557f685ba374359a50303e73bd358',
           'name': 'Account 2',
         },
       }
@@ -621,7 +623,7 @@ describe('MetaMaskController', function () {
 
     let msgParams, metamaskMsgs, messages, msgId
 
-    const address = '0xc42edfcc21ed14dda456aa0756c153f7985d8813'
+    const address = '0xb4cffaa1123557f685ba374359a50303e73bd358'
     const data = '0x43727970746f6b697474696573'
 
     beforeEach(async () => {
@@ -692,7 +694,7 @@ describe('MetaMaskController', function () {
 
     let msgParams, metamaskPersonalMsgs, personalMessages, msgId
 
-    const address = '0xc42edfcc21ed14dda456aa0756c153f7985d8813'
+    const address = '0xb4cffaa1123557f685ba374359a50303e73bd358'
     const data = '0x43727970746f6b697474696573'
 
     beforeEach(async function () {
@@ -741,7 +743,7 @@ describe('MetaMaskController', function () {
     it('errors when signing a message', async function () {
       await metamaskController.signPersonalMessage(personalMessages[0].msgParams)
       assert.equal(metamaskPersonalMsgs[msgId].status, 'signed')
-      assert.equal(metamaskPersonalMsgs[msgId].rawSig, '0x6a1b65e2b8ed53cf398a769fad24738f9fbe29841fe6854e226953542c4b6a173473cb152b6b1ae5f06d601d45dd699a129b0a8ca84e78b423031db5baa734741b')
+      assert.equal(metamaskPersonalMsgs[msgId].rawSig, '0xca006c442e680b361ff27c876ac81e7cdb0e0b089f5caa00cc9db9dd77a7ae6a3abfad83302f853a548f49a9633e4ea4e088779a0d6d0608fde27f8920baf47a1c')
     })
   })
 
