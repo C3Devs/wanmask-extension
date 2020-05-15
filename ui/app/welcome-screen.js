@@ -6,7 +6,6 @@ import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose'
 import {closeWelcomeScreen} from './actions'
-import Mascot from './components/mascot'
 import { INITIALIZE_CREATE_PASSWORD_ROUTE } from './routes'
 
 class WelcomeScreen extends Component {
