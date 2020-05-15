@@ -1102,7 +1102,7 @@
     "message": "Type Your Password"
   },
   "uiWelcome": {
-    "message": "Welcome to the New UI (Beta)"
+    "message": "Welcome to the New UI"
   },
   "uiWelcomeMessage": {
     "message": "You are now using the new WanMask UI."
@@ -1175,7 +1175,7 @@
     "message": "Welcome Back!"
   },
   "welcomeBeta": {
-    "message": "Welcome to WanMask Beta"
+    "message": "Welcome to WanMask"
   },
   "whatsThis": {
     "message": "What's this?"
